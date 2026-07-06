@@ -1,0 +1,32 @@
+/* imgの大きさ調整 */
+.main-visual-omikuji {
+    width: 20%;
+    height: auto;
+}
+
+.animation-omikuji {
+    width: 20%;
+    height: auto;
+}
+
+.btn-img {
+    width: 22%;
+    height: auto;
+}
+
+/* おみくじを引く */
+.btn-img_hiku {
+    width: 30%;
+    height: auto;
+}
+
+/* もう一度引く */
+.btn-img_more_hiku {
+    width: 27%;
+    height: auto;
+}
+
+.result_img {
+    width: 20%;
+    height: auto;
+}
