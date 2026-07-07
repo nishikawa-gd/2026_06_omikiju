@@ -1,0 +1,662 @@
+
+
+
+/* 共通 - フォント/リセット */
+button{
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+body {
+  font-family: "Hina Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+/* 共通 - 枠/カード */
+body{
+    margin: 0;
+    overflow: hidden;
+    background-color: #441E11;
+}
+
+.inner{
+    margin: 0px 40px;
+    padding: 20px;
+}
+
+.wrapper{
+    position: fixed;
+    inset: 50px;
+    overflow: auto;
+    background-image: repeating-linear-gradient(90deg, #C4334D, #C4334D 10px, #cb3e57 10px, #cb3e57 14px);
+}
+
+.frame-outline-brown{
+    position: fixed;
+    display: block;
+    inset: 100px;
+    overflow: auto;
+    background-color: #441E11;
+}
+
+.frame-outline-blue{
+    position: fixed;
+    display: block;
+    inset: 104px;
+    overflow: auto;
+    background-color: #CED0C4;
+}
+
+.frame-inline-brown{
+    position: fixed;
+    display: block;
+    inset: 118px;
+    overflow: auto;
+    background-color: #441E11;
+}
+
+.frame-inline-white{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inset: 121px;
+    overflow-x: hidden;
+    overflow-y: hidden; /* レスポンシブでautoに変更 */
+    background-color: #FCFFE7;
+}
+
+.frame-inline-white {
+    -webkit-mask:
+        url("../images/top/musk_inline_top.svg") no-repeat top center / 100% auto,
+
+        linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 19.4vw),
+
+        url("../images/top/musk_inline_bottom.svg") no-repeat bottom center / 100% auto;
+
+    mask:
+        url("../images/top/musk_inline_top.svg") no-repeat top center / 100% auto,
+
+        linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 19.4vw),
+
+        url("../images/top/musk_inline_bottom.svg") no-repeat bottom center / 100% auto;
+}
+
+.frame-outline-brown, .frame-outline-blue, .frame-inline-brown {
+    -webkit-mask:
+        url("../images/top/musk_outline_top.svg") no-repeat top center / 100% auto,
+
+        linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 19.4vw),
+
+        url("../images/top/musk_outline_bottom.svg") no-repeat bottom center / 100% auto;
+
+    mask:
+        url("../images/top/musk_outline_top.svg") no-repeat top center / 100% auto,
+
+        linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 19.4vw),
+
+        url("../images/top/musk_outline_bottom.svg") no-repeat bottom center / 100% auto;
+}
+
+
+
+/* 共通 - 装飾 */
+body::before{
+    position: fixed;
+    content: "";
+    top: 50%;
+    left: -20px;
+    width: 200px;
+    height: 300px;
+    z-index: 99;
+    background: url("../images/top/t_dec_heart.png") no-repeat center / contain;
+    transform: translateY(-50%);
+}
+
+body::after{
+    position: fixed;
+    content: "";
+    top: 50%;
+    right: -20px;
+    width: 200px;
+    height: 300px;
+    z-index: 99;
+    background: url("../images/top/t_dec_heart.png") no-repeat center / contain;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+.wrapper::before{
+    position: fixed;
+    content: "";
+    bottom: -20px;
+    left: 0px;
+    width: 320px;
+    height: 220px;
+    z-index: 99;
+    background: url("../images/top/t_dec_flower.png") no-repeat center / contain;
+}
+
+.wrapper::after{
+    position: fixed;
+    content: "";
+    bottom: -20px;
+    right: 0px;
+    width: 320px;
+    height: 220px;
+    z-index: 99;
+    background: url("../images/top/t_dec_flower.png") no-repeat center / contain;
+    transform: scaleX(-1);
+}
+
+
+
+/* 結果/履歴 - メイン/おみくじカード枠 */
+.result .inner,.history .inner{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 0px;
+}
+
+.mikuji-outline-red{
+    padding: 80px 20px 20px 20px;
+    background: #C4334D;
+}
+
+.mikuji-outline-white{
+    padding: 16px;
+    background: #FCFFE7;
+}
+
+.mikuji-inline-red{
+    padding: 2px;
+    background: #C4334D;
+}
+
+.mikuji-inline-white{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 55px;
+    overflow: auto;
+    background: #FCFFE7;
+}
+
+.history .mikuji-outline-red,.history .mikuji-inline-red{
+    background: #898E90;
+}
+
+.history .mikuji-inline-white{
+    width: 100%;
+    height: 340px;
+    align-items: stretch;
+}
+
+.mikuji-outline-red,
+.mikuji-outline-white,
+.mikuji-inline-red,
+.mikuji-inline-white{
+    box-sizing: border-box;
+}
+
+.mikuji-outline-red {
+    -webkit-mask:
+        url("../images/result_history/rh_musk_outline_top.svg") no-repeat top center / 100% auto,
+        linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 18.29vw),
+        url("../images/result_history/rh_musk_outline_bottom.svg") no-repeat bottom center / 100% auto;
+
+    mask:
+        url("../images/result_history/rh_musk_outline_top.svg") no-repeat top center / 100% auto,
+        linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 18.29vw),
+        url("../images/result_history/rh_musk_outline_bottom.svg") no-repeat bottom center / 100% auto;
+}
+
+.mikuji-outline-white, .mikuji-inline-red, .mikuji-inline-white {
+    -webkit-mask:
+        url("../images/result_history/rh_musk_inline_top.svg") no-repeat top center / 100% auto,
+        linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 8.08vw),
+        url("../images/result_history/rh_musk_inline_bottom.svg") no-repeat bottom center / 100% auto;
+
+    mask:
+        url("../images/result_history/rh_musk_inline_top.svg") no-repeat top center / 100% auto,
+        linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 8.08vw),
+        url("../images/result_history/rh_musk_inline_bottom.svg") no-repeat bottom center / 100% auto;
+}
+
+
+
+/* 結果/履歴 - スクロールバー */
+.mikuji-inline-white::-webkit-scrollbar,
+.h-list::-webkit-scrollbar {
+    width: 12px;
+}
+
+.mikuji-inline-white::-webkit-scrollbar-track,
+.h-list::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+}
+
+.mikuji-inline-white::-webkit-scrollbar-thumb,
+.h-list::-webkit-scrollbar-thumb {
+    background-color: #cb3e57;
+    /* width: 4px; */
+    border: 2px solid transparent; /* 横幅指定できないのでボーダーで無理やり縮める！ */
+    background-clip: content-box;
+    border-radius: 100px;
+}
+
+.history .mikuji-inline-white::-webkit-scrollbar-thumb,
+.history .h-list::-webkit-scrollbar-thumb {
+    background-color: #898E90;
+}
+
+
+
+/* 結果/履歴 - ボタン */
+.rh-btns{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    margin-top: 60px; /* mikujiの赤枠のpadding分 */
+}
+
+.rhbtn-item a{
+    display: block;
+    width: 280px;
+    height: 90px;
+}
+
+#rhbtn-top{
+    background: url("../images/result_history/rh_btn_top.svg") no-repeat center / contain;
+}
+
+#rhbtn-play{
+    background: url("../images/result_history/rh_btn_play.svg") no-repeat center / contain;
+}
+
+.result #rbtn-history{
+    background: url("../images/result_history/result/r_btn_history.svg") no-repeat center / contain;
+}
+
+.history #hbtn-history{
+    background: url("../images/result_history/history/h_btn_history.svg") no-repeat center / contain;
+}
+
+#rhbtn-top, #rhbtn-play, #rbtn-history, #hbtn-history{
+    transition: all 0.4s ease-in-out;
+}
+
+#rhbtn-top:hover, #rhbtn-play:hover, #rbtn-history:hover, #hbtn-history:hover{
+    transform: translateY(-4px);
+}
+
+
+
+
+
+/* --- トップ --- */
+
+
+
+
+
+/* トップ - メイン/ロゴ */
+.index .inner{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.i-logo{
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.i-logo img{
+    width: 340px;
+    height: 180px;
+    object-fit: contain;
+}
+
+.index .inner::before{
+    position: absolute;
+    content: "";
+    bottom: -20px;
+    left: -480px;
+    width: 400px;
+    height: 300px;
+    background: url("../images/top/t_dec_house_left.png") no-repeat center / contain;
+}
+
+.index .inner::after{
+    position: absolute;
+    content: "";
+    bottom: -20px;
+    right: -480px;
+    width: 400px;
+    height: 300px;
+    background: url("../images/top/t_dec_house_right.png") no-repeat center / contain;
+}
+
+.i-logo::before{
+    position: absolute;
+    content: "";
+    bottom: 0px;
+    left: -180px;
+    width: 250px;
+    height: 160px;
+    background: url("../images/top/t_logo_deco_left.png") no-repeat center / contain;
+    animation: ilogo-fuwa-left ease-in-out 4s infinite alternate;
+}
+
+.i-logo::after{
+    position: absolute;
+    content: "";
+    bottom: 0px;
+    right: -170px;
+    width: 250px;
+    height: 176px;
+    background: url("../images/top/t_logo_deco_right.png") no-repeat center / contain;
+    animation: ilogo-fuwa-right ease-in-out 4s infinite alternate;
+}
+
+@keyframes ilogo-fuwa-left{
+    0%   { transform:translate(0%, 0%); }
+    100% { transform:translate(0%, -6px); }
+}
+
+@keyframes ilogo-fuwa-right{
+    0% { transform:translate(0%, -6px); }
+    100%   { transform:translate(0%, 0%); }
+}
+
+
+
+/* トップ - ボタン */
+.i-btns{
+    display: flex;
+    gap: 40px;
+    width: fit-content;
+}
+
+.ibtn-item span{
+    display: block;
+    width: 160px;
+    height: 160px;
+}
+
+#ibtn-play{
+    background: url("../images/top/t_btn_play.svg") no-repeat center / cover;
+}
+
+#ibtn-history{
+    background: url("../images/top/t_btn_history.svg") no-repeat center / cover;
+}
+
+#ibtn-play, #ibtn-history{
+    transition: all 0.4s ease-in-out;
+}
+
+#ibtn-play:hover, #ibtn-history:hover{
+    transform: translateY(-4px);
+}
+
+
+
+
+
+/* --- プレイ --- */
+
+
+
+
+
+/* プレイ - 花 */
+.p-flowers{
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+    margin: 40px 0px;
+}
+
+.p-flowers a{
+    display: block;
+    width: 180px;
+    height: 180px;
+}
+
+.show-result{
+    background: url("../images/play/p_flower.png") no-repeat center / cover;
+    transition: all 0.4s ease-in-out;
+}
+
+.show-result:hover{
+    transform: translateY(-4px);
+}
+
+
+
+/* プレイ - テキスト */
+.play .inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 105px 0px;
+}
+
+.play p{
+    color: #441E11;
+    font-size: 28px;
+}
+
+
+
+
+
+/* --- 結果 --- */
+
+
+
+
+
+/* 結果 - おみくじカード中身 */
+.r-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.r-title span{
+    color: #441E11;
+    font-size: 18px;
+}
+
+.r-luckys{
+    display: grid;
+    width: 100%;
+    max-width: 400px;
+    grid-template-columns: 150px 1fr;
+    gap: 10px 24px;
+    margin: 0 auto;
+}
+
+.lucky-wrapper{
+    display: flex;
+    align-items: stretch;
+    height: fit-content;
+}
+
+.r-textarea{
+    flex: 1;
+    overflow-y: hidden;
+}
+
+#r-mainimg{
+    width: 300px;
+    height: 120px;
+    object-fit: contain;
+    margin-top: -10px;
+}
+
+.rl-title{
+    color: #FCFFE7;
+    width: 40px;
+    max-height: 14px;
+    flex-shrink: 0;
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 20px;
+    background-color: #C4334D;
+}
+
+.rl-subtitle{
+    color: #441E11;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.mikuji-texts{
+    color: #441E11;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 0px;
+    margin-top: -20px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.mikuji-maintext{
+    color: #441E11;
+    text-align: center;
+    font-size: 26px;
+}
+
+
+
+
+
+/* --- 履歴 --- */
+
+
+
+
+
+/* 履歴 - おみくじカード中身 */
+.history .mikujiinner{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    max-width: 100%;
+    height: 100%;
+}
+
+.h-title{
+    flex-shrink: 0;
+}
+
+.h-title span{
+    display: block;
+    color: #FCFFE7;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0px;
+    background-color: #898E90;
+}
+
+#history-list{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.h-list{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.h-item{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+    border-bottom: 1.4px #441e1153 solid;
+}
+
+.h-texts{
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.h-typelucky{
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: 4px;
+    width: 112px;
+    height: auto;
+}
+
+.h-date{
+    color: #441E11;
+    font-size: 14px;
+}
+
+.h-lucky{
+    color: #441E11;
+}
+
+.h-type{
+    display: block;
+    color: #FCFFE7;
+    padding: 8px 0px;
+    text-align: center;
+    border-radius: 6px;
+    background-color: #C4334D;
+}
+
+.history .mikuji-maintext{
+    text-align: start;
+    font-size: 14px;
+}
+
+.history .mikuji-texts{
+    margin: 0px;
+    padding: 0px;
+    gap: 0px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
+
+/* 履歴 - おみくじカード中身/履歴消去後 */
+.h-empty{
+    display: block;
+    color: #441E11;
+    width: 100%;
+    margin: auto 0;
+    padding: 10px 0px;
+    text-align: center;
+}

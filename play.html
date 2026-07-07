@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <title>おみくじ演出</title>
+  <title>大正華みくじ</title>
+  <link rel="icon" href="./images/icon.png" type="image/png" alt="アイコン">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
   <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
+
 <body class="play">
-  <h1>おみくじ演出</h1>
-  <div class="animation">
-    <img src="images/play/play.png" alt="おみくじを振る演出">
+  <div class="wrapper">
+    <div class="frame-outline-brown">
+      <div class="frame-outline-blue">
+        <div class="frame-inline-brown">
+          <div class="frame-inline-white">
+            <div class="inner">
+              <div class="p-flowers">
+                <a href="#" aria-label="花" class="show-result"><span></span></a>
+                <a href="#" aria-label="花" class="show-result"><span></span></a>
+                <a href="#" aria-label="花" class="show-result"><span></span></a>
+                <a href="#" aria-label="花" class="show-result"><span></span></a>
+              </div>
+
+              <p>好きな花を選んでください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <p><a href="#" id="show-result">結果を見る</a></p>
 </body>
+
 </html>

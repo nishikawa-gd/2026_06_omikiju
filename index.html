@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <title>おみくじアプリ</title>
+  <title>大正華みくじ</title>
+  <link rel="icon" href="./images/icon.png" type="image/png" alt="アイコン">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
   <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
+
 <body class="index">
-  <h1>おみくじアプリ</h1>
-  <div class="main-visual">
-    <img src="images/top/mainvisual.png" alt="メインビジュアル">
+  <div class="wrapper">
+    <div class="frame-outline-brown">
+      <div class="frame-outline-blue">
+        <div class="frame-inline-brown">
+          <div class="frame-inline-white">
+            <div class="inner">
+              <h1 class="i-logo">
+                <img src="./images/top/t_logo.png" alt="大正おみくじ">
+              </h1>
+
+              <div class="i-btns">
+                <p class="ibtn-item" id="ibtn-play">
+                  <a href="play.html" aria-label="おみくじを引く"><span></span></a>
+                </p>
+
+                <p class="ibtn-item" id="ibtn-history">
+                  <a href="history.html" aria-label="履歴を見る"><span></span></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <p><a href="play.html">おみくじを引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
 </html>

@@ -1,6 +1,6 @@
 
 
-$(function() {
+$(function () {
 	function init() {
 		handlePlayPage();
 		handleResultPage();
@@ -19,7 +19,7 @@ function handlePlayPage() {
 	if (!$('body').hasClass('play')) return;
 
 	// show-resultボタン押下時の処理
-	$('#show-result').on('click', function(e) {
+	$('.show-result').on('click', function (e) {
 
 		// デフォルトの動作をキャンセル
 		e.preventDefault();
@@ -28,13 +28,16 @@ function handlePlayPage() {
 		const result = omikujiResults[Math.floor(Math.random() * omikujiResults.length)];
 
 		// ラッキーアイテムの選択（設定がONの場合のみ）
-		const lucky = settings.showLuckyItem
-			? luckyItems[Math.floor(Math.random() * luckyItems.length)]
-			: null;
+		const lucky = settings.showLuckyItem ? {
+			item: luckyItems[Math.floor(Math.random() * luckyItems.length)],
+			color: luckyColors[Math.floor(Math.random() * luckyColors.length)],
+			flavor: luckyFlavors[Math.floor(Math.random() * luckyFlavors.length)],
+			word: luckyWords[Math.floor(Math.random() * luckyWords.length)]
+		} : null;
 
 		// 履歴保存
 		const history = JSON.parse(localStorage.getItem('omikujiHistory') || '[]');
-		
+
 		// 履歴に追加
 		history.push({ result, lucky, date: new Date().toLocaleString() });
 		// 履歴をlocalStorageに保存
@@ -49,9 +52,10 @@ function handlePlayPage() {
 }
 
 
+
 // ===== 結果ページの処理 =====
 function handleResultPage() {
-	
+
 	// bodyにresultクラスがなければ終了
 	if (!$('body').hasClass('result')) return;
 
@@ -60,21 +64,28 @@ function handleResultPage() {
 	// データがなければ終了
 	if (!data) return;
 
-	// 結果表示
-	$('#result-text').text(`${data.result.type}：${data.result.text}`);
-	// 画像の設定
-	$('#result-img').attr('src', data.result.img).attr('alt', data.result.type);
+	// 結果画像
+	$('#r-mainimg')
+		.attr('src', data.result.img)
+		.attr('alt', data.result.type);
+
+	// 結果テキスト
+	$('#r-subtext').html(data.result.text);
 
 	// 結果に応じたクラスをbodyに追加	
 	$('body').addClass('js-' + data.result.type);
 
 	// ラッキーアイテムの表示（設定がONの場合のみ）
 	if (settings.showLuckyItem && data.lucky) {
-		$('#lucky-item').text(data.lucky);
+		$('#lucky-item').text(data.lucky.item);
+		$('#lucky-color').text(data.lucky.color);
+		$('#lucky-flavor').text(data.lucky.flavor);
+		$('#lucky-text').text(data.lucky.word);
 	} else {
-		$('#lucky-wrapper').remove();
+		$('.lucky-wrapper').remove();
 	}
 }
+
 
 
 // ===== 履歴ページの処理 =====
@@ -86,19 +97,32 @@ function handleHistoryPage() {
 	// localStorageから履歴を取得
 	const history = JSON.parse(localStorage.getItem('omikujiHistory') || '[]');
 
+
 	// 履歴がなければメッセージを表示して終了
 	const $list = $('#history-list');
+	if (history.length === 0) {
+		$list.html('<li class="h-empty">履歴がありません</li>');
+		return;
+	}
 
 	history.forEach(item => {
-		const $li = $('<li>').html(
-			`${item.date}：<strong>${item.result.type}</strong> - ${item.result.text}` +
-			(item.lucky ? ` (ラッキーアイテム: ${item.lucky})` : '')
+		const $li = $('<li class="h-item">').html(
+			`<span class="h-date">${item.date}</span>
+			<div class="h-texts">
+				<div class="h-typelucky">
+					<span class="h-type">${item.result.type}</span>
+					${item.lucky ? `<span class="h-lucky">吉物：${item.lucky.item}</span>` : ''}
+				</div>
+				<span class="h-text">${item.result.text}</span>
+			</div>`
 		);
 		$list.append($li);
 	});
-	
+
+
+
 	// 履歴削除ボタン処理
-	$('#clear-history').on('click', function() {
+	$('#hbtn-history').on('click', function () {
 		if (confirm('履歴をすべて削除しますか？')) {
 			localStorage.removeItem('omikujiHistory');
 			$list.empty();
@@ -107,3 +131,33 @@ function handleHistoryPage() {
 }
 
 
+
+// ===== ScrollRevealの処理 =====
+$(function () {
+
+
+	// 下からくる系
+	ScrollReveal().reveal(
+    '.i-btns, .play p',
+    {
+      reset: false,      // スクロール戻しても再実行しない!
+      distance: '10px',  // 下からどれくらい動くか
+      duration: 1400,     // ふわっとする長さ
+      easing: 'ease-out',
+      origin: 'bottom',
+      opacity: 0
+    });
+
+
+	// その場系
+	ScrollReveal().reveal(
+    '.i-logo, .p-flowers, .mikujiinner, .rhbtn-item',
+    {
+      reset: false,      // スクロール戻しても再実行しない!
+      distance: '0px',  // 下からどれくらい動くか
+      duration: 800,     // ふわっとする長さ
+      easing: 'ease-out',
+      origin: 'bottom',
+      opacity: 0
+    });
+});

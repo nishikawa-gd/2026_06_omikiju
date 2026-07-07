@@ -1,16 +1,70 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <title>おみくじ履歴</title>
+  <title>大正華みくじ</title>
+  <link rel="icon" href="./images/icon.png" type="image/png" alt="アイコン">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
   <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
+
 <body class="history">
-  <h1>履歴</h1>
-  <ul id="history-list"></ul>
-  <p><button id="clear-history">履歴を削除</button></p>
-  <p><a href="index.html">トップに戻る</a></p>
+  <div class="wrapper">
+    <div class="frame-outline-brown">
+      <div class="frame-outline-blue">
+        <div class="frame-inline-brown">
+          <div class="frame-inline-white">
+            <div class="inner">
+
+              <div class="mikuji-outline-red">
+                <div class="mikuji-outline-white">
+                  <div class="mikuji-inline-red">
+                    <div class="mikuji-inline-white">
+
+                      <div class="mikujiinner">
+                        <h1 class="h-title">
+                          <span>履歴</span>
+                        </h1>
+
+                        <div class="h-list">
+                          <ul id="history-list"></ul>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rh-btns">
+                <div class="rhbtn-item">
+                  <a href="index.html" aria-label="トップに戻る" id="rhbtn-top"><span></span></a>
+                </div>
+
+                <div class="rhbtn-item">
+                  <a href="play.html" aria-label="もう一度引く" id="rhbtn-play"><span></span></a>
+                </div>
+
+                <div class="rhbtn-item">
+                  <a href="history.html" aria-label="履歴を削除" id="hbtn-history"><span></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
