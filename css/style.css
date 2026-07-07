@@ -191,6 +191,47 @@ main {
     height: auto;
 }
 
+
+/*履歴 */
+#history-list {
+    width: fit-content;
+    max-height: 500px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 18px;
+    line-height: 28px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#history-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+#history-list::-webkit-scrollbar-track {
+    background: #ffe8df;
+    border-radius: 10px;
+}
+
+#history-list::-webkit-scrollbar-thumb {
+    background: #ff9d7a;
+    border-radius: 10px;
+}
+
+#history-list::-webkit-scrollbar-thumb:hover {
+    background: #ff6f3f;
+}
+
+#history-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ffc3af;
+}
+
+#history-list li:last-child {
+    border-bottom: none;
+}
+
+
 #clear-history {
     all: unset;
     display: inline-block;
