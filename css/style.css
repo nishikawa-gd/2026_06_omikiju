@@ -3,12 +3,12 @@ body {}
 main {}
 
 .main_wrapper h1 {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .main_wrapper {
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
 }
@@ -16,12 +16,12 @@ main {}
 
 /* おみくじ */
 .result_img {
-    width: 35%;
+    width: 20%;
     height: auto;
 }
 
 .contents-wrapper {
-    display: flex;
+    /* display: flex; */
 }
 
 .omikuji_midasi {
@@ -40,22 +40,39 @@ main {}
 }
 
 .btn-wrapper {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+
     display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .btn {
-    margin-top: 30px;
-    text-align: center;
+    flex: 1;
+    /* max-width: 450px; */
+    margin: 0;
 }
 
 .btn a {
-    display: inline-block;
-    padding: 20px 20px;
-    margin: 20px;
-    background-color: #ff6f3f;
+    display: block;
+    /* width: 100%; */
+
+    padding: 20px 0;
+    /* margin: 0; */
+
+    background: #ff6f3f;
     color: #fff;
     text-decoration: none;
+    text-align: center;
     border-radius: 8px;
+
+    box-sizing: border-box;
 }
 
 /* imgの大きさ調整 */
@@ -76,18 +93,36 @@ main {}
 
 /* おみくじを引く */
 .btn-img_hiku {
-    width: 28%;
+    width: 40%;
     height: auto;
+}
+
+
+#show-result {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
 }
 
 .btn-img_show_result {
-    width: 12%;
+    width: 26%;
     height: auto;
 }
 
+.btn-img_top {
+    width: 34%;
+    height: auto;
+}
 
 /* もう一度引く */
 .btn-img_more_hiku {
-    width: 28%;
+    width: 34%;
     height: auto;
+}
+
+#clear-history {
+    all: unset;
+    display: inline-block;
+    cursor: pointer;
 }
