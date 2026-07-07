@@ -237,3 +237,23 @@ main {
     display: inline-block;
     cursor: pointer;
 }
+
+/* ローディング */
+#loading {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, .9);
+    z-index: 9999;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-content img {
+    width: 150px;
+    animation: shake 0.6s infinite;
+}

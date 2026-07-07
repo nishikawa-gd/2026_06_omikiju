@@ -33,3 +33,5 @@ const luckyItems = ["傘", "本", "スマホ", "鍵", "花", "お茶"];
 const settings = {
   showLuckyItem: true
 };
+
+
