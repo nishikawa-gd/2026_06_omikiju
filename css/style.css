@@ -153,6 +153,22 @@ body::after{
     transform: scaleX(-1);
 }
 
+.dec-fukidasi{
+    position: relative;
+}
+
+.dec-fukidasi::before{
+    position: fixed;
+    content: "";
+    top: 54px;
+    left: 50%;
+    width: 540px;
+    height: 120px;
+    transform: translateX(-50%);
+    z-index: 99;
+    background: url("../images/top/t_dec_fukidasi.png") no-repeat center / contain;
+}
+
 
 
 /* 結果/履歴 - メイン/おみくじカード枠 */
@@ -162,10 +178,11 @@ body::after{
     align-items: center;
     justify-content: center;
     padding: 32px 0px;
+    margin-top: 30px;
 }
 
 .mikuji-outline-red{
-    padding: 80px 20px 20px 20px;
+    padding: 20px ;
     background: #C4334D;
 }
 
@@ -207,7 +224,8 @@ body::after{
     box-sizing: border-box;
 }
 
-.mikuji-outline-red {
+/* 無い方が可愛い説を採用！ */
+/* .mikuji-outline-red {
     -webkit-mask:
         url("../images/result_history/rh_musk_outline_top.svg") no-repeat top center / 100% auto,
         linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 18.29vw),
@@ -217,9 +235,9 @@ body::after{
         url("../images/result_history/rh_musk_outline_top.svg") no-repeat top center / 100% auto,
         linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 18.29vw),
         url("../images/result_history/rh_musk_outline_bottom.svg") no-repeat bottom center / 100% auto;
-}
+} */
 
-.mikuji-outline-white, .mikuji-inline-red, .mikuji-inline-white {
+.mikuji-outline-red, .mikuji-outline-white, .mikuji-inline-red, .mikuji-inline-white {
     -webkit-mask:
         url("../images/result_history/rh_musk_inline_top.svg") no-repeat top center / 100% auto,
         linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 8.08vw),
@@ -265,7 +283,6 @@ body::after{
     display: flex;
     gap: 20px;
     flex-direction: column;
-    margin-top: 60px; /* mikujiの赤枠のpadding分 */
 }
 
 .rhbtn-item a{
@@ -321,7 +338,7 @@ body::after{
 
 .i-logo{
     position: relative;
-    margin-bottom: 12px;
+    margin: 20px 0px;
 }
 
 .i-logo img{
