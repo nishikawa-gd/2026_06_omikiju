@@ -1,10 +1,14 @@
-body {}
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
 
-main {}
-
-.main_wrapper h1 {
-    margin-top: 60px;
-    margin-bottom: 30px;
+main {
+    position: fixed;
+    inset: 0;
+    border: 30px solid #ff6f3f;
+    box-sizing: border-box;
 }
 
 .main_wrapper {
@@ -13,6 +17,10 @@ main {}
     text-align: center;
 }
 
+.main_wrapper h1 {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
 
 /* おみくじ */
 .result_img {
@@ -37,7 +45,7 @@ main {}
 
 .btn-wrapper {
     position: fixed;
-    bottom: 30px;
+    bottom: 50px;
     left: 0;
     width: 100%;
 
@@ -45,7 +53,7 @@ main {}
     justify-content: center;
     gap: 20px;
 
-    padding: 0 20px;
+    padding: 0 60px;
     box-sizing: border-box;
 }
 
@@ -92,7 +100,7 @@ main {}
 #show-result {
     position: fixed;
     left: 50%;
-    bottom: 30px;
+    bottom: 50px;
     transform: translateX(-50%);
 }
 
