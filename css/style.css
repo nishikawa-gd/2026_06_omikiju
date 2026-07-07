@@ -19,7 +19,7 @@ main {
 
 .main_wrapper h1 {
     padding-top: 30px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 /* おみくじ */
@@ -28,6 +28,7 @@ main {
     height: auto;
 }
 
+/* おみくじの見出し */
 .omikuji_midasi {
     width: 50%;
     height: auto;
@@ -38,7 +39,8 @@ main {
     height: auto;
 }
 
-.omikuji_result_midasi {
+.omikuji_result_midasi,
+.omikuji_history_midasi {
     width: 11%;
     height: auto;
 }
@@ -59,7 +61,6 @@ main {
 
 .btn {
     flex: 1;
-    /* max-width: 450px; */
     margin: 0;
 }
 
@@ -80,23 +81,51 @@ main {
     height: auto;
 }
 
+.main-visual-omikuji:hover {
+    animation: omikuji-shake 0.5s ease-in-out infinite;
+}
+
+@keyframes omikuji-shake {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(-4px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateX(4px) rotate(2deg);
+    }
+
+    75% {
+        transform: translateX(-4px) rotate(-2deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+/* imgの大きさ調整 */
 .animation-omikuji {
     width: 20%;
     height: auto;
 }
 
+/* btnの大きさ調整 */
 .btn-img {
     width: 28%;
     height: auto;
 }
 
-/* おみくじを引く */
+/* btn_おみくじを引く */
 .btn-img_hiku {
     width: 40%;
     height: auto;
 }
 
-
+/* btn_結果を表示 */
 #show-result {
     position: fixed;
     left: 50%;
@@ -109,6 +138,7 @@ main {
     height: auto;
 }
 
+/* btn_topへ戻る */
 .btn-img_top {
     width: 34%;
     height: auto;
