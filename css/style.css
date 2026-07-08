@@ -1,8 +1,5 @@
-
-
-
 /* 共通 - フォント/リセット */
-button{
+button {
     border: none;
     background: none;
     padding: 0;
@@ -10,33 +7,37 @@ button{
 }
 
 body {
-  font-family: "Hina Mincho", serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Hina Mincho", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sp-br{
+    display: none;
 }
 
 
 
 /* 共通 - 枠/カード */
-body{
+body {
     margin: 0;
     overflow: hidden;
     background-color: #441E11;
 }
 
-.inner{
+.inner {
     margin: 0px 40px;
     padding: 20px;
 }
 
-.wrapper{
+.wrapper {
     position: fixed;
     inset: 50px;
     overflow: auto;
     background-image: repeating-linear-gradient(90deg, #C4334D, #C4334D 10px, #cb3e57 10px, #cb3e57 14px);
 }
 
-.frame-outline-brown{
+.frame-outline-brown {
     position: fixed;
     display: block;
     inset: 100px;
@@ -44,7 +45,7 @@ body{
     background-color: #441E11;
 }
 
-.frame-outline-blue{
+.frame-outline-blue {
     position: fixed;
     display: block;
     inset: 104px;
@@ -52,7 +53,7 @@ body{
     background-color: #CED0C4;
 }
 
-.frame-inline-brown{
+.frame-inline-brown {
     position: fixed;
     display: block;
     inset: 118px;
@@ -60,14 +61,15 @@ body{
     background-color: #441E11;
 }
 
-.frame-inline-white{
+.frame-inline-white {
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     inset: 121px;
     overflow-x: hidden;
-    overflow-y: hidden; /* レスポンシブでautoに変更 */
+    overflow-y: hidden;
+    /* レスポンシブでautoに変更 */
     background-color: #FCFFE7;
 }
 
@@ -87,7 +89,9 @@ body{
         url("../images/top/musk_inline_bottom.svg") no-repeat bottom center / 100% auto;
 }
 
-.frame-outline-brown, .frame-outline-blue, .frame-inline-brown {
+.frame-outline-brown,
+.frame-outline-blue,
+.frame-inline-brown {
     -webkit-mask:
         url("../images/top/musk_outline_top.svg") no-repeat top center / 100% auto,
 
@@ -106,7 +110,7 @@ body{
 
 
 /* 共通 - 装飾 */
-body::before{
+body::before {
     position: fixed;
     content: "";
     top: 50%;
@@ -118,7 +122,7 @@ body::before{
     transform: translateY(-50%);
 }
 
-body::after{
+body::after {
     position: fixed;
     content: "";
     top: 50%;
@@ -130,7 +134,7 @@ body::after{
     transform: translateY(-50%) scaleX(-1);
 }
 
-.wrapper::before{
+.wrapper::before {
     position: fixed;
     content: "";
     bottom: -20px;
@@ -141,7 +145,7 @@ body::after{
     background: url("../images/top/t_dec_flower.png") no-repeat center / contain;
 }
 
-.wrapper::after{
+.wrapper::after {
     position: fixed;
     content: "";
     bottom: -20px;
@@ -153,11 +157,11 @@ body::after{
     transform: scaleX(-1);
 }
 
-.dec-fukidasi{
+.dec-fukidasi {
     position: relative;
 }
 
-.dec-fukidasi::before{
+.dec-fukidasi::before {
     position: fixed;
     content: "";
     top: 54px;
@@ -172,7 +176,8 @@ body::after{
 
 
 /* 結果/履歴 - メイン/おみくじカード枠 */
-.result .inner,.history .inner{
+.result .inner,
+.history .inner {
     display: flex;
     gap: 40px;
     align-items: center;
@@ -181,22 +186,22 @@ body::after{
     margin-top: 30px;
 }
 
-.mikuji-outline-red{
-    padding: 20px ;
+.mikuji-outline-red {
+    padding: 20px;
     background: #C4334D;
 }
 
-.mikuji-outline-white{
+.mikuji-outline-white {
     padding: 16px;
     background: #FCFFE7;
 }
 
-.mikuji-inline-red{
+.mikuji-inline-red {
     padding: 2px;
     background: #C4334D;
 }
 
-.mikuji-inline-white{
+.mikuji-inline-white {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -207,11 +212,12 @@ body::after{
     background: #FCFFE7;
 }
 
-.history .mikuji-outline-red,.history .mikuji-inline-red{
+.history .mikuji-outline-red,
+.history .mikuji-inline-red {
     background: #898E90;
 }
 
-.history .mikuji-inline-white{
+.history .mikuji-inline-white {
     width: 100%;
     height: 340px;
     align-items: stretch;
@@ -220,7 +226,7 @@ body::after{
 .mikuji-outline-red,
 .mikuji-outline-white,
 .mikuji-inline-red,
-.mikuji-inline-white{
+.mikuji-inline-white {
     box-sizing: border-box;
 }
 
@@ -237,7 +243,10 @@ body::after{
         url("../images/result_history/rh_musk_outline_bottom.svg") no-repeat bottom center / 100% auto;
 } */
 
-.mikuji-outline-red, .mikuji-outline-white, .mikuji-inline-red, .mikuji-inline-white {
+.mikuji-outline-red,
+.mikuji-outline-white,
+.mikuji-inline-red,
+.mikuji-inline-white {
     -webkit-mask:
         url("../images/result_history/rh_musk_inline_top.svg") no-repeat top center / 100% auto,
         linear-gradient(#fff, #fff) no-repeat center center / 100% calc(100% - 8.08vw),
@@ -266,7 +275,8 @@ body::after{
 .h-list::-webkit-scrollbar-thumb {
     background-color: #cb3e57;
     /* width: 4px; */
-    border: 2px solid transparent; /* 横幅指定できないのでボーダーで無理やり縮める！ */
+    border: 2px solid transparent;
+    /* 横幅指定できないのでボーダーで無理やり縮める！ */
     background-clip: content-box;
     border-radius: 100px;
 }
@@ -279,39 +289,45 @@ body::after{
 
 
 /* 結果/履歴 - ボタン */
-.rh-btns{
+.rh-btns {
     display: flex;
     gap: 20px;
     flex-direction: column;
 }
 
-.rhbtn-item a{
+.rhbtn-item a {
     display: block;
     width: 280px;
     height: 90px;
 }
 
-#rhbtn-top{
+#rhbtn-top {
     background: url("../images/result_history/rh_btn_top.svg") no-repeat center / contain;
 }
 
-#rhbtn-play{
+#rhbtn-play {
     background: url("../images/result_history/rh_btn_play.svg") no-repeat center / contain;
 }
 
-.result #rbtn-history{
+.result #rbtn-history {
     background: url("../images/result_history/result/r_btn_history.svg") no-repeat center / contain;
 }
 
-.history #hbtn-history{
+.history #hbtn-history {
     background: url("../images/result_history/history/h_btn_history.svg") no-repeat center / contain;
 }
 
-#rhbtn-top, #rhbtn-play, #rbtn-history, #hbtn-history{
+#rhbtn-top,
+#rhbtn-play,
+#rbtn-history,
+#hbtn-history {
     transition: all 0.4s ease-in-out;
 }
 
-#rhbtn-top:hover, #rhbtn-play:hover, #rbtn-history:hover, #hbtn-history:hover{
+#rhbtn-top:hover,
+#rhbtn-play:hover,
+#rbtn-history:hover,
+#hbtn-history:hover {
     transform: translateY(-4px);
 }
 
@@ -326,7 +342,7 @@ body::after{
 
 
 /* トップ - メイン/ロゴ */
-.index .inner{
+.index .inner {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -336,18 +352,18 @@ body::after{
     padding: 40px 0;
 }
 
-.i-logo{
+.i-logo {
     position: relative;
     margin: 20px 0px;
 }
 
-.i-logo img{
+.i-logo img {
     width: 340px;
     height: 180px;
     object-fit: contain;
 }
 
-.index .inner::before{
+.index .inner::before {
     position: absolute;
     content: "";
     bottom: -20px;
@@ -357,7 +373,7 @@ body::after{
     background: url("../images/top/t_dec_house_left.png") no-repeat center / contain;
 }
 
-.index .inner::after{
+.index .inner::after {
     position: absolute;
     content: "";
     bottom: -20px;
@@ -367,7 +383,7 @@ body::after{
     background: url("../images/top/t_dec_house_right.png") no-repeat center / contain;
 }
 
-.i-logo::before{
+.i-logo::before {
     position: absolute;
     content: "";
     bottom: 0px;
@@ -378,7 +394,7 @@ body::after{
     animation: ilogo-fuwa-left ease-in-out 4s infinite alternate;
 }
 
-.i-logo::after{
+.i-logo::after {
     position: absolute;
     content: "";
     bottom: 0px;
@@ -389,44 +405,56 @@ body::after{
     animation: ilogo-fuwa-right ease-in-out 4s infinite alternate;
 }
 
-@keyframes ilogo-fuwa-left{
-    0%   { transform:translate(0%, 0%); }
-    100% { transform:translate(0%, -6px); }
+@keyframes ilogo-fuwa-left {
+    0% {
+        transform: translate(0%, 0%);
+    }
+
+    100% {
+        transform: translate(0%, -6px);
+    }
 }
 
-@keyframes ilogo-fuwa-right{
-    0% { transform:translate(0%, -6px); }
-    100%   { transform:translate(0%, 0%); }
+@keyframes ilogo-fuwa-right {
+    0% {
+        transform: translate(0%, -6px);
+    }
+
+    100% {
+        transform: translate(0%, 0%);
+    }
 }
 
 
 
 /* トップ - ボタン */
-.i-btns{
+.i-btns {
     display: flex;
     gap: 40px;
     width: fit-content;
 }
 
-.ibtn-item span{
+.ibtn-item span {
     display: block;
     width: 160px;
     height: 160px;
 }
 
-#ibtn-play{
+#ibtn-play {
     background: url("../images/top/t_btn_play.svg") no-repeat center / cover;
 }
 
-#ibtn-history{
+#ibtn-history {
     background: url("../images/top/t_btn_history.svg") no-repeat center / cover;
 }
 
-#ibtn-play, #ibtn-history{
+#ibtn-play,
+#ibtn-history {
     transition: all 0.4s ease-in-out;
 }
 
-#ibtn-play:hover, #ibtn-history:hover{
+#ibtn-play:hover,
+#ibtn-history:hover {
     transform: translateY(-4px);
 }
 
@@ -441,39 +469,39 @@ body::after{
 
 
 /* プレイ - 花 */
-.p-flowers{
+.p-flowers {
     display: flex;
     gap: 20px;
     width: fit-content;
     margin: 40px 0px;
 }
 
-.p-flowers a{
+.p-flowers a {
     display: block;
     width: 180px;
     height: 180px;
 }
 
-.show-result{
+.show-result {
     background: url("../images/play/p_flower.png") no-repeat center / cover;
     transition: all 0.4s ease-in-out;
 }
 
-.show-result:hover{
+.show-result:hover {
     transform: translateY(-4px);
 }
 
 
 
 /* プレイ - テキスト */
-.play .inner{
+.play .inner {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 105px 0px;
 }
 
-.play p{
+.play p {
     color: #441E11;
     font-size: 28px;
 }
@@ -489,18 +517,18 @@ body::after{
 
 
 /* 結果 - おみくじカード中身 */
-.r-title{
+.r-title {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.r-title span{
+.r-title span {
     color: #441E11;
     font-size: 18px;
 }
 
-.r-luckys{
+.r-luckys {
     display: grid;
     width: 100%;
     max-width: 400px;
@@ -509,25 +537,25 @@ body::after{
     margin: 0 auto;
 }
 
-.lucky-wrapper{
+.lucky-wrapper {
     display: flex;
     align-items: stretch;
     height: fit-content;
 }
 
-.r-textarea{
+.r-textarea {
     flex: 1;
     overflow-y: hidden;
 }
 
-#r-mainimg{
+#r-mainimg {
     width: 300px;
     height: 120px;
     object-fit: contain;
     margin-top: -10px;
 }
 
-.rl-title{
+.rl-title {
     color: #FCFFE7;
     width: 40px;
     max-height: 14px;
@@ -539,7 +567,7 @@ body::after{
     background-color: #C4334D;
 }
 
-.rl-subtitle{
+.rl-subtitle {
     color: #441E11;
     flex: 1;
     display: flex;
@@ -547,7 +575,7 @@ body::after{
     padding-left: 10px;
 }
 
-.mikuji-texts{
+.mikuji-texts {
     color: #441E11;
     display: flex;
     flex-direction: column;
@@ -559,7 +587,7 @@ body::after{
     line-height: 24px;
 }
 
-.mikuji-maintext{
+.mikuji-maintext {
     color: #441E11;
     text-align: center;
     font-size: 26px;
@@ -576,7 +604,7 @@ body::after{
 
 
 /* 履歴 - おみくじカード中身 */
-.history .mikujiinner{
+.history .mikujiinner {
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -584,11 +612,11 @@ body::after{
     height: 100%;
 }
 
-.h-title{
+.h-title {
     flex-shrink: 0;
 }
 
-.h-title span{
+.h-title span {
     display: block;
     color: #FCFFE7;
     font-size: 20px;
@@ -597,13 +625,13 @@ body::after{
     background-color: #898E90;
 }
 
-#history-list{
+#history-list {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.h-list{
+.h-list {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -612,20 +640,20 @@ body::after{
     min-height: 0;
 }
 
-.h-item{
+.h-item {
     display: flex;
     flex-direction: column;
     padding: 10px 0px;
     border-bottom: 1.4px #441e1153 solid;
 }
 
-.h-texts{
+.h-texts {
     display: flex;
     gap: 10px;
     margin-top: 8px;
 }
 
-.h-typelucky{
+.h-typelucky {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -634,16 +662,16 @@ body::after{
     height: auto;
 }
 
-.h-date{
+.h-date {
     color: #441E11;
     font-size: 14px;
 }
 
-.h-lucky{
+.h-lucky {
     color: #441E11;
 }
 
-.h-type{
+.h-type {
     display: block;
     color: #FCFFE7;
     padding: 8px 0px;
@@ -652,12 +680,12 @@ body::after{
     background-color: #C4334D;
 }
 
-.history .mikuji-maintext{
+.history .mikuji-maintext {
     text-align: start;
     font-size: 14px;
 }
 
-.history .mikuji-texts{
+.history .mikuji-texts {
     margin: 0px;
     padding: 0px;
     gap: 0px;
@@ -669,11 +697,189 @@ body::after{
 
 
 /* 履歴 - おみくじカード中身/履歴消去後 */
-.h-empty{
+.h-empty {
     display: block;
     color: #441E11;
     width: 100%;
     margin: auto 0;
     padding: 10px 0px;
     text-align: center;
+}
+
+
+
+
+
+/* レスポンシブ */
+
+
+
+
+
+/* レスポンシブ - スマホ */
+@media (min-height: 1300px) {
+    /* 共通 */
+    .sp-br{
+        display: inline;
+    }
+
+    /* トップ - メイン/ロゴ */
+    .i-logo {
+        margin: 60px 0px;
+    }
+
+    .i-logo img {
+        width: 400px;
+        height: 240px;
+    }
+
+    .index .inner::before {
+        bottom: -600px;
+        left: 50%;
+        width: 540px;
+        height: 740px;
+        transform: translateX(-50%);
+    }
+
+    .index .inner::after {
+        top: -600px;
+        right: 50%;
+        width: 540px;
+        height: 740px;
+        transform: scaleY(-1) scaleX(-1) translateX(-50%);
+    }
+
+    .i-logo::before {
+        animation: ilogo-fuwa-left ease-in-out 2s infinite alternate;
+    }
+
+    .i-logo::after {
+        animation: ilogo-fuwa-right ease-in-out 2s infinite alternate;
+    }
+
+    @keyframes ilogo-fuwa-left {
+        0% {
+            transform: translate(0%, 0%);
+        }
+
+        100% {
+            transform: translate(0%, -10px);
+        }
+    }
+
+    @keyframes ilogo-fuwa-right {
+        0% {
+            transform: translate(0%, -10px);
+        }
+
+        100% {
+            transform: translate(0%, 0%);
+        }
+    }
+
+
+
+    /* トップ - ボタン */
+    .i-btns {
+        gap: 40px;
+    }
+
+    .ibtn-item span {
+        width: 260px;
+        height: 260px;
+    }
+
+
+
+    /* プレイ */
+    .p-flowers {
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 100px 0px;
+        justify-content: center;
+    }
+
+    .p-flowers a {
+        width: 240px;
+        height: 240px;
+    }
+
+    .play p {
+        text-align: center;
+        font-size: 40px;
+    }
+
+
+
+    /* 結果/履歴 */
+    .result .inner,
+    .history .inner {
+        flex-direction: column;
+        gap: 60px;
+        padding: 100px 0px;
+        margin-top: 30px;
+    }
+
+    .result .mikuji-inline-white{
+        max-width: none;
+    }
+
+    .rh-btns{
+        gap: 32px;
+    }
+
+    .rhbtn-item a{
+        width: 400px;
+        height: 140px;
+    }
+
+
+
+    /* 結果 - おみくじカード中身 */
+    .r-title{
+        margin-top: 20px;
+    }
+
+    .r-title span{
+        font-size: 36px;
+    }
+
+    #r-mainimg{
+        width: 500px;
+        height: 180px;
+    }
+
+    .mikuji-maintext {
+        font-size: 38px;
+        margin-bottom: 20px;
+    }
+
+    .mikuji-texts{
+        font-size: 32px;
+        line-height: 50px;
+        margin: 20px 0px;
+    }
+
+    .r-luckys{
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        margin-bottom: 20px;
+    }
+
+    .lucky-wrapper {
+        gap: 20px;
+    }
+
+    .rl-title{
+        font-size: 28px;
+        width: 80px;
+        max-height: 28px;
+        border-radius: 26px;
+        padding: 12px 14px;
+    }
+
+    .rl-subtitle{
+        font-size: 32px;
+    }
 }

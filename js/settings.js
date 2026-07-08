@@ -7,17 +7,17 @@ const omikujiResults = [
   },
   {
     type: "中吉",
-    text: '<div class="mikuji-texts"><p class="mikuji-maintext">穏やかな幸運に恵まれる一日です。</p>焦らず自分らしく過ごすことで、小さな喜びや嬉しい出来事が訪れるでしょう。周りへの感謝も忘れずに。</div>',
+    text: '<div class="mikuji-texts"><p class="mikuji-maintext">穏やかな幸運に<br class="sp-br">恵まれる一日です。</p>焦らず自分らしく過ごすことで、小さな喜びや嬉しい出来事が訪れるでしょう。周りへの感謝も忘れずに。</div>',
     img: "images/result_history/result/r_chukichi.png"
   },
   {
     type: "小吉",
-    text: '<div class="mikuji-texts"><p class="mikuji-maintext">少しずつ運気が上向いています。</p>身近な幸せに目を向けることで、思いがけない良いご縁や発見に巡り合えそうです。小さな一歩を大切に。</div>',
+    text: '<div class="mikuji-texts"><p class="mikuji-maintext">少しずつ運気が<br class="sp-br">上向いています。</p>身近な幸せに目を向けることで、思いがけない良いご縁や発見に巡り合えそうです。小さな一歩を大切に。</div>',
     img: "images/result_history/result/r_shokichi.png"
   },
   {
     type: "凶",
-    text: '<div class="mikuji-texts"><p class="mikuji-maintext">慎重に過ごすのが良いでしょう。</p>焦らず落ち着いて行動すれば、この先の運気は少しずつ好転していきます。自分のペースで歩みましょう。</div>',
+    text: '<div class="mikuji-texts"><p class="mikuji-maintext">慎重に過ごすのが<br class="sp-br">良いでしょう。</p>焦らず落ち着いて行動すれば、<br class="sp-br">この先の運気は少しずつ好転していきます。自分のペースで歩みましょう。</div>',
     img: "images/result_history/result/r_kyo.png"
   }
 ];
