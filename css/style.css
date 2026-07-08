@@ -815,7 +815,7 @@ body::after {
     .result .inner,
     .history .inner {
         flex-direction: column;
-        gap: 60px;
+        gap: 40px;
         padding: 100px 0px;
         margin-top: 30px;
     }
@@ -825,7 +825,7 @@ body::after {
     }
 
     .rh-btns{
-        gap: 32px;
+        gap: 20px;
     }
 
     .rhbtn-item a{
