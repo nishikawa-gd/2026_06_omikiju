@@ -711,6 +711,7 @@ body::after {
 
 
 /* レスポンシブ */
+/* SPは横幅での指定だとなんか上手くいかなかったので高さで行きます；； */
 
 
 
@@ -722,6 +723,8 @@ body::after {
     .sp-br{
         display: inline;
     }
+
+
 
     /* トップ - メイン/ロゴ */
     .i-logo {
@@ -882,4 +885,59 @@ body::after {
     .rl-subtitle{
         font-size: 32px;
     }
+
+
+
+    /* 履歴 */
+    .history .mikuji-inline-white{
+        height: 900px;
+    }
+
+    .h-item{
+        padding: 28px 0px;
+    }
+    
+    .h-title span{
+        font-size: 36px;
+        padding: 18px 0px;
+    }
+
+    .h-date{
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .h-lucky{
+        font-size: 28px;
+    }
+
+    .h-typelucky{
+        gap: 10px;
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+    }
+
+    .h-texts{
+        flex-direction: column;
+    }
+    
+    .h-type{
+        font-size: 28px;
+        padding: 16px 24px;
+    }
+
+    .history .mikuji-maintext {
+        font-size: 30px;
+    }
+
+    .history .mikuji-texts{
+        font-size: 30px;
+        line-height: 50px;
+    }
+
+    .h-empty{
+        font-size: 32px;
+    }
+    
 }
