@@ -9,6 +9,8 @@ main {
     inset: 0;
     border: 30px solid #ff6f3f;
     box-sizing: border-box;
+    background: url(../images/decolation/30_back.png) repeat top center;
+    background-size: 100% auto;
 }
 
 .main_wrapper {
