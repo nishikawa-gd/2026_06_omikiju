@@ -12,17 +12,28 @@
 </head>
 
 <body class="index">
+  <!-- ローディング -->
+  <div id="loading">
+    <div class="loading-content">
+      <h2>loading...</h2>
+      <p class="iriguti_img"><img src="images/decolation/19_iriguti.png" alt="神社の入り口"></p>
+    </div>
+  </div>
+
   <main>
     <div class="main_wrapper">
       <h1><img src="images/txt/08_omikuji_midasi_txt.png" alt="おみくじを引いてね！" class="omikuji_midasi"></h1>
       <div class="contents">
         <div class="main-visual">
-          <img src="images/top/05_omikuji.png" alt="おみくじのメインビジュアル" class="main-visual-omikuji">
-          <img src="images/top/05_omikuji.png" alt="おみくじのメインビジュアル" class="main-visual-omikuji">
-          <img src="images/top/05_omikuji.png" alt="おみくじのメインビジュアル" class="main-visual-omikuji">
+          <a href="play.html"><img src="images/top/05_omikuji.png" alt="おみくじのメインビジュアル" class="main-visual-omikuji"></a>
+          <a href="play.html"><img src="images/top/05_omikuji.png" alt="おみくじのメインビジュアル" class="main-visual-omikuji"></a
+            href="play.html">
+          <a href="play.html"><img src="images/top/05_omikuji.png" alt="おみくじのメインビジュアル" class="main-visual-omikuji"></a
+            href="play.html">
         </div>
       </div>
     </div>
+
     <div class="btn-wrapper">
       <p class="btn"><a href="play.html"><img src="images/txt/09_omikuji_txt.png" alt="おみくじを引く"
             class="btn-img_hiku"></a>
@@ -30,25 +41,17 @@
       <p class="btn"><a href="history.html"><img src="images/txt/13_history_txt.png" alt="履歴を見る" class="btn-img"></a>
       </p>
     </div>
-    </div>
-    </div>
   </main>
-
-  <!-- ローディング
-  <div id="loading">
-    <div class="loading-content">
-      <p>loading...</p>
-    </div>
-  </div>
   <script>
-    document.querySelector(".play-btn").addEventListener("click", function (e) {
-      e.preventDefault();
-      document.getElementById("loading").style.display = "flex";
+    window.addEventListener("load", () => {
       setTimeout(() => {
-        location.href = this.href;
+        // ローディングを消す
+        document.getElementById("loading").classList.add("hide");
+        // メインを表示
+        document.querySelector("main").classList.add("show");
       }, 1500);
     });
-  </script> -->
+  </script>
 </body>
 
 </html>
