@@ -264,41 +264,25 @@ main {
 }
 
 /* imgの大きさ調整 */
+.animation {
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+
 .animation-omikuji {
-    width: 26%;
+    width: 16%;
     height: auto;
+    transition: transform 0.3s ease;
 }
 
 .animation-omikuji:hover {
-    animation: omikuji-out 0.8s ease forwards;
-}
-
-@keyframes omikuji-out {
-
-    /* 通常 */
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    /* 少し持ち上げる */
-    20% {
-        transform: translateY(-15px) rotate(0deg);
-    }
-
-    /* 逆さ斜めにする */
-    60% {
-        transform: translateY(-10px) rotate(-150deg);
-    }
-
-    /* 軽く揺らす */
-    80% {
-        transform: translateY(-10px) rotate(-140deg);
-    }
-
-    /* 最終位置 */
-    100% {
-        transform: translateY(-10px) rotate(-150deg);
-    }
+    transform: translateY(-50px);
 }
 
 /* btnの大きさ調整 */
