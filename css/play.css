@@ -1,0 +1,53 @@
+.play {
+    position: relative;
+    z-index: 2;
+    padding-top: 100px;
+}
+
+.omikuji_img {
+    display: flex;
+    justify-content: center;
+}
+
+.play_txt a {
+    position: absolute;
+    left: 50%;
+    top: 280px;
+    transform: translateX(calc(-200% - 130px));
+    writing-mode: vertical-rl;
+    text-decoration: none;
+    font-size: 26px;
+    color: #554B54;
+    letter-spacing: 0.2em;
+
+    opacity: 0;
+    transition: opacity .8s;
+}
+
+.play_txt a.show {
+    opacity: 1 !important;
+}
+
+.play_txt a:visited {
+    color: #554B54;
+}
+
+
+.omikuji_img img {
+    animation: shake 1.5s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+@keyframes shake {
+
+    0%   { transform: rotate(0deg); }
+
+    25%  { transform: rotate(-4deg); }
+
+    50%  { transform: rotate(4deg); }
+
+    75%  { transform: rotate(-4deg); }
+
+    100% { transform: rotate(0deg); }
+
+}
