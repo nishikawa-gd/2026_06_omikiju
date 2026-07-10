@@ -2,17 +2,18 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
   <title>おみくじ結果恩田</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
 <body class="result">
-  <h1>結果</h1>
-  <p id="result-text"></p>
-
+  <h1></h1>
+  
   <div class="js-result-img-wrapper">
   <img id="result-img" src="" alt="結果画像">
+  <img id="bird-img" src="" alt="鳥の画像">
   </div>
 
   <div id="lucky-wrapper">
@@ -20,7 +21,7 @@
     <p id="lucky-item"></p>
   </div>
 
-  <p><a href="index.html">もう一度引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
+  <p class="button_again"><a href="index.html"><img src="images/result/button_again.png" alt="もう一度引く"></a></p>
+  <p class="button_history2"><a href="history.html"><img src="images/result/button_history2.png" alt="履歴を見る"></a></p>
 </body>
 </html>

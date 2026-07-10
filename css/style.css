@@ -1,3 +1,4 @@
+/*ここまでトップ*/
 * {
     margin: 0;
     padding: 0;
@@ -25,6 +26,7 @@
 
 /*ここまでトップ*/
 
+/*ここまでプレイ*/
 .play {
    background-color: #292419; 
 }
@@ -40,3 +42,88 @@
     top: 700px;
     left: 530px;
 }
+
+/*ここまでプレイ*/
+
+.result {
+    background-color: #E4F8D1;
+}
+
+#bird-img{
+    position: absolute;
+}
+#result-img{
+    position: absolute;
+}
+
+/* ダチョウ */
+.dacho{
+    left: 180px;
+    top: 10px;
+}
+.smile{
+    left: 510px;
+    top: 80px;
+}
+
+/* ハシビロコウ */
+.hashibiro{
+    left: 180px;
+    top: 10px;
+}
+.deluxe{
+    position: absolute;
+    left: 510px;
+    top: 80px;
+}
+
+/* ペンギン */
+.penguin{
+    left: 40px;
+    top: 10px;
+}
+.slender{
+    left: 510px;
+    top: 80px;
+}
+
+/* モモイロペリカン */
+.pelican{
+    left: 60px;
+    top: 17px;
+}
+.capacity{
+    left: 530px;
+    top: 80px;
+}
+
+/*結果ページのボタン*/
+/*もう一度選ぶ*/
+.button_again {
+    position: absolute;
+    top: 650px;
+    left: 550px;
+}
+/*履歴を見る*/
+.button_history2 {
+    position: absolute;
+    top: 650px;
+    left: 860px;
+}
+
+
+
+/*履歴ページ*/
+
+.history {
+    background-color: #E4F8D1;
+}
+
+.button_top {
+    position: absolute;
+    top: 650px;
+    left: 620px;
+}
+
+
+

@@ -1,9 +1,29 @@
 // おみくじ結果リスト
 const omikujiResults = [
-  { type: "大吉", text: "最高の一日になります！", img: "images/result/daikichi.png" },
-  { type: "中吉", text: "いいことがあるかも！", img: "images/result/chukichi.png" },
-  { type: "小吉", text: "少し嬉しい出来事が…", img: "images/result/shokichi.png" },
-  { type: "凶", text: "気をつけて過ごしましょう", img: "images/result/kyo.png" }
+  {
+    img: "images/result/smile.png",
+    bird: "images/result/datyou.png",
+    birdClass: "dacho",
+    resultClass: "smile"
+  },
+  {
+    img: "images/result/deluxe.png",
+    bird: "images/result/hasibirokou.png",
+    birdClass: "hashibiro",
+    resultClass: "deluxe"
+  },
+  {
+    img: "images/result/slender.png",
+    bird: "images/result/pengin.png",
+    birdClass: "penguin",
+    resultClass: "slender"
+  },
+  {
+    img: "images/result/capasity.png",
+    bird: "images/result/momoiroperikan.png",
+    birdClass: "pelican",
+    resultClass: "capacity"
+  }
 ];
 
 // ラッキーアイテム
