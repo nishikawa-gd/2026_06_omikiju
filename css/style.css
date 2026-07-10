@@ -872,12 +872,12 @@ body::after {
     }
 
     .mikuji-maintext {
-        font-size: 38px;
+        font-size: 34px;
         margin-bottom: 10px;
     }
 
     .mikuji-texts {
-        font-size: 32px;
+        font-size: 28px;
         line-height: 50px;
         margin-bottom: 10px;
     }
@@ -902,7 +902,7 @@ body::after {
     }
 
     .rl-subtitle {
-        font-size: 32px;
+        font-size: 28px;
     }
 
 
