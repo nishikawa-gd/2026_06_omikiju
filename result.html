@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>おみくじ結果</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
+
 <body class="result">
-  <h1>結果</h1>
-  <p id="result-text"></p>
 
-  <div class="js-result-img-wrapper">
-  <img id="result-img" src="" alt="結果画像">
+
+  <div class="top_deco">
+    <div class="decoration">
+
+      <p class="deco_1">
+        <img src="./images/top/deco_1.svg" alt="背景飾り付け雲">
+      </p>
+      <p class="deco_2">
+        <img src="./images/top/deco_2.svg" alt="背景飾り付け雲">
+      </p>
+      <p class="deco_3">
+        <img src="./images/top/deco_3.svg" alt="背景飾り付け雲">
+      </p>
+      <p class="deco_4">
+        <img src="./images/top/deco_4.svg" alt="背景飾り付け雲">
+      </p>
+
+      <p class="deco_flower1">
+        <img src="./images/top/deco_flower1.svg" alt="背景飾り付け花">
+      </p>
+      <p class="deco_flower2">
+        <img src="./images/top/deco_flower2.svg" alt="背景飾り付け花">
+      </p>
+
+    </div>
   </div>
 
-  <div id="lucky-wrapper">
-    <p>ラッキーアイテム:</p>
-    <p id="lucky-item"></p>
+
+  <div class="result_box">
+
+    <div class="result_flex">
+
+      <div class="result_txt">
+        <p><a href="history.html">履歴を見る</a></p>
+        <p><a href="index.html">もう一度引く</a></p>
+      </div>
+
+      <div class="result_set">
+        <div id="lucky-wrapper">
+          <p>縁起物:</p>
+          <p id="lucky-item"></p>
+        </div>
+
+        <div class="js-result-img-wrapper">
+          <img id="result-img" src="" alt="結果画像">
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
-  <p><a href="index.html">もう一度引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
+
 </html>

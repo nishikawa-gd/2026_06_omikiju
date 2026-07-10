@@ -18,6 +18,18 @@ function handlePlayPage() {
 	// bodyにplayクラスがなければ終了
 	if (!$('body').hasClass('play')) return;
 
+// 最初は「結果を見る」を非表示
+
+    $('#show-result').css('opacity', '0');
+
+    // 5秒後に表示＆アニメーション停止
+    setTimeout(function () {
+        // 「結果を見る」を表示
+        $('#show-result').addClass('show');
+        // おみくじの揺れを止める
+        $('.omikuji_img img').css('animation', 'none');
+    }, 3000);
+
 	// show-resultボタン押下時の処理
 	$('#show-result').on('click', function(e) {
 
@@ -61,7 +73,7 @@ function handleResultPage() {
 	if (!data) return;
 
 	// 結果表示
-	$('#result-text').text(`${data.result.type}：${data.result.text}`);
+	// $('#result-text').text(`${data.result.type}：${data.result.text}`);
 	// 画像の設定
 	$('#result-img').attr('src', data.result.img).attr('alt', data.result.type);
 

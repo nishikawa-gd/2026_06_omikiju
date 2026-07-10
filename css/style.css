@@ -1,0 +1,59 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   background-color: #FDF7ED;
+   font-family: Yuji Syuku;
+}
+
+
+.top {
+   position: relative;
+   width: 100%;
+   min-height: 100vh;
+}
+
+.top_deco {
+   position: absolute;
+   inset: 0;
+   z-index: 1;
+}
+
+
+
+.deco_1 {
+   position: absolute;
+   top: 43px;
+   left: 36px;
+}
+.deco_2 {
+   position: absolute;
+   top: 75px;
+   right: 0px;
+}
+.deco_3 {
+   position: absolute;
+   top: 573px;
+   left: 0px;
+}
+.deco_4 {
+   position: absolute;
+   top: 448px;
+   right: 0px;
+   z-index: 0;
+}
+
+.deco_flower1 {
+   position: absolute;
+   top: 130px;
+   left: 90px;
+   transform: rotate(-4deg);
+}
+.deco_flower2 {
+   position: absolute;
+   top: 524px;
+   right: 69px;
+   z-index: 1;
+}

@@ -1,13 +1,25 @@
 // おみくじ結果リスト
 const omikujiResults = [
-  { type: "大吉", text: "思いがけない幸運が訪れるかも。", img: "images/result/daikichi.png" },
-  { type: "吉", text: "小さな幸せをたくさん見つけられる一日。", img: "images/result/chukichi.png" },
-  { type: "中吉", text: "焦らず一歩ずつ進むことで良い結果につながるかも。", img: "images/result/shokichi.png" },
-  { type: "小吉", text: "無理をせず、自分のペースで過ごそう。", img: "images/result/kyo.png" }
+  {
+    type: "大吉",
+    img: "images/result/result_1.svg"
+  },
+  {
+    type: "中吉",
+    img: "images/result/result_2.svg"
+  },
+  {
+    type: "小吉",
+    img: "images/result/result_3.svg"
+  },
+  {
+    type: "凶",
+    img: "images/result/result_5.svg"
+  }
 ];
 
 // ラッキーアイテム
-const luckyItems = ["ハンカチ", "クッション", "キーホルダー", "カメラ", "お花", "お茶"];
+const luckyItems = ["四つ葉の葉", "お守り", "だるま", "招き猫", "ひょうたん", "風鈴"];
 
 // ラッキーアイテムON/OFF
 const settings = {
