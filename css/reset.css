@@ -122,7 +122,7 @@ font-family: sans-serif;
 .result_txt {
     position: absolute;
     top: 305px;
-    left: 102px;
+    left: 160px;
     display: flex;
     gap: 30px;
 
@@ -136,6 +136,10 @@ font-family: sans-serif;
     letter-spacing: 0.2em
 }
 
+.result_txt a:hover {
+    color: #C57E7C;
+}
+
 #result-img {
     display: block;
 }
@@ -143,7 +147,7 @@ font-family: sans-serif;
 .result_set {
     position: absolute;
     top: 120px;
-    right: 320px;
+    right: 360px;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -165,15 +169,23 @@ font-family: sans-serif;
     letter-spacing: 0.2em
 }
 
+.result_history,
+.result_top {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px; 
+}
+
+.btn_arrow {
+    width: 22px;
+    height: auto;
+}
 
 .js-result-img-wrapper {
-
     opacity: 0;
-
     transform: scale(0.8);
-
     animation: resultAppear 1s ease forwards;
-
 }
 
 @keyframes resultAppear {

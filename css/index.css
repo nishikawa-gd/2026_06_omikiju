@@ -31,10 +31,30 @@
    color: #554B54;
 }
 
+.top_btn a:hover {
+    color: #C57E7C;
+}
+
 .top_history a {
    font-size: 23px;
    padding-top: 5px;
 }
 
+.top_history a:hover {
+    color: #C57E7C;
+}
+
+.top_history,
+.top_play {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px; 
+}
+
+.btn_arrow {
+    width: 22px; 
+    height: auto;
+}
 
 
