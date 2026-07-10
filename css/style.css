@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.index {
+    background-color: #292419;
+}
+
+.button_start {
+    position: absolute;
+    top: 470px;
+    left: 530px;
+}
+.button_history {
+    position: absolute;
+    top: 630px;
+    left: 530px;
+}
+
+.rogo {
+    position: absolute;
+    top: 200px;
+    left: 490px;
+}
+
+/*ここまでトップ*/
+
+.play {
+   background-color: #292419; 
+}
+
+.animation {
+    position: absolute;
+    top: 30px;
+    left: 400px;
+}
+
+.button_result {
+    position: absolute;
+    top: 700px;
+    left: 530px;
+}
