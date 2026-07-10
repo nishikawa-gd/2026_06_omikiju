@@ -107,3 +107,46 @@ function handleHistoryPage() {
 }
 
 
+//图片晃动效果//
+$(function () {
+
+    function playAnimation(imgSelector, nextPage, e) {
+
+        e.preventDefault();
+
+        const $img = $(imgSelector);
+
+        // 重新开始动画
+        $img.removeClass("shake");
+        void $img[0].offsetWidth;
+        $img.addClass("shake");
+
+        // 动画结束移除 class
+        setTimeout(function () {
+            $img.removeClass("shake");
+        }, 800);
+
+        // 需要跳转才跳转
+        if (nextPage) {
+            setTimeout(function () {
+                location.href = nextPage;
+            }, 800);
+        }
+    }
+
+    // index → play
+    $("#omikuji-img, #draw-btn").on("click", function (e) {
+        playAnimation("#omikuji-img", "play.html", e);
+    });
+
+    // play → result
+    $("#play-img, #show-result").on("click", function (e) {
+        playAnimation("#play-img", "result.html", e);
+    });
+
+    // result 页面
+    $("#result-img").on("click", function (e) {
+        playAnimation("#result-img", null, e);
+    });
+
+});
