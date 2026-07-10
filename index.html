@@ -3,16 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>おみくじアプリ</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stick&family=WDXL+Lubrifont+JP+N&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
 </head>
 <body class="index">
   <h1>おみくじアプリテスト03</h1>
-  <div class="main-visual">
-    <img src="images/top/mainvisual.png" alt="メインビジュアル">
+  <div class="main-visual container">
+    <!-- 画像（プレースホルダー画像を入れています。お好きな画像URLに変えてください） -->
+    <img id="myImage" class="target-image" src="images/top/nonn_mv.png" alt="メインビジュアル" width="30%">
+    <!-- 吹き出し -->
+    <div id="myBalloon" class="balloon">ここに最初のコメントが表示されます</div>
   </div>
-  <p><a href="play.html">おみくじを引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
+  <p><a href="play.html" class="btn01">おみくじを引く</a></p>
+  <p><a href="history.html" class="btn02">履歴を見る</a></p>
 </body>
 </html>

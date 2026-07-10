@@ -1,0 +1,202 @@
+.index{
+    background-image: url("../images/top/mv_bg02.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    a{
+        text-decoration: none;
+        font-family: 'Stick', sans-serif;
+        font-size: 3rem;
+        color: #333;
+    }
+    .btn01{
+        position: absolute;
+        top: 980%;
+        right: -10%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 100%;
+        max-width: 577px;
+        max-height: 250px;
+        background-image: url("../images/top/omikuzi_btn.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-decoration: none;
+        text-align: center;
+        line-height: 400px;
+    }
+    .btn02{
+        position: absolute;
+        bottom: -4800%;       
+        right: -10%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 100%;
+        max-width: 577px;
+        max-height: 250px;
+        background-image: url("../images/top/rireki_btn.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-decoration: none;
+        text-align: center;
+        line-height: 400px;
+    }
+
+
+    /* メインビジュアルのレイアウト調整 */
+.main-visual {
+    position: absolute;
+    top: 1000%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 画像にカーソルを乗せた時に指マークにして、タップ感を出す */
+.target-image {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.target-image:active {
+  transform: scale(0.98); /* タップした瞬間に少し凹む演出 */
+}
+
+/* 吹き出しの見た目 */
+.balloon {
+  position: relative;
+  padding: 15px 20px;
+  background-color: #fffaf0; /* 優しいクリーム色（お好みで変更してください） */
+  border: 2px solid #d32f2f; /* おみくじっぽい赤色の線 */
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* 吹き出しの上の尖った三角部分 */
+.balloon::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 0 12px 12px 12px;
+  border-color: transparent transparent #d32f2f transparent; /* 枠線と同じ赤 */
+}
+.balloon::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 0 11px 11px 11px;
+  border-color: transparent transparent #fffaf0 transparent; /* 背景色と同じ色で中をくり抜く */
+}
+}
+
+/* ここからplay */
+
+/* 1. body全体を画面いっぱいの高さにして、中身を中央に寄せる準備をする */
+body.play {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* 画面の縦幅いっぱいの意味 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 💡これで上下の真ん中に寄る */
+  align-items: center;     /* 💡これで左右の真ん中に寄る */
+  box-sizing: border-box;
+}
+
+/* 2. タイトルの位置調整（中央寄せで少し上に余白を） */
+body.play h1 {
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+/* 3. ルーレット全体のコンテナ（元のスタイルからmarginだけ変更） */
+.roulette-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  /* margin: 50px 0; を削除して、上下に自然な余白（20pxなど）を設定 */
+  margin: 20px 0; 
+  overflow: hidden;
+  background: #f0f0f0;
+  border-top: 4px solid #333;
+  border-bottom: 4px solid #333;
+}
+
+/* 4. タップガイドの文字の調整 */
+.tap-guide {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: blink 1s infinite alternate;
+}
+
+/* 真ん中にぴったり止まるためのターゲット枠 */
+.roulette-target-box {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100%;
+  border: 4px solid #d32f2f;
+  box-sizing: border-box;
+  z-index: 10;
+  pointer-events: none;
+  background-color: rgba(211, 47, 47, 0.1);
+}
+
+/* 画像を横一列に並べるトラック */
+.roulette-track {
+  display: flex;
+  position: absolute;
+  top: 0;
+  
+  /* ★修正：引っ張る量を -600px（画像3枚分）に変更します。
+     これで右端も左端も画像が均等にはみ出し、大画面でも絶対に隙間が生まれません！ */
+  left: calc(50% - 100px - 600px); 
+  
+  height: 100%;
+}
+
+/* 通常時の等速ループアニメーション */
+.is-moving {
+  animation: scrollLinear 0.4s linear infinite;
+}
+
+.roulette-track img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-right: 2px solid #ccc;
+  box-sizing: border-box;
+}
+
+@keyframes scrollLinear {
+  0% { transform: translateX(100px); }   /* 💡右側から画像が供給されるように範囲を広げます */
+  100% { transform: translateX(-100px); } /* 💡これで左右が途切れずにループします */
+}
+
+/* 減速・ストップ用のアニメーション（じわっと止まる演出用） */
+.is-stopping {
+  animation: stopEase 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes stopEase {
+  /* スタート（0%）の位置はJavaScriptがその場の位置を自動計算して上書きするので、ここは100%のゴールだけ指定 */
+  100% { transform: translateX(0); } /* 最終的にぴったり中央（0の位置）に引き戻して止めます */
+}
+
+.tap-guide {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: blink 1s infinite alternate;
+}
+@keyframes blink { 0% { opacity: 0.3; } 100% { opacity: 1; } }

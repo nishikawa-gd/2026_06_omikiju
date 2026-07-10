@@ -1,6 +1,6 @@
 // おみくじ結果リスト
 const omikujiResults = [
-  { type: "大吉", text: "最高の一日になります！", img: "images/result/nonn08.png" },
+  { type: "大吉", text: "ミュージックワールドに行けるかも！？", img: "images/result/nonn08.png" },
   { type: "中吉", text: "いいことがあるかも！", img: "images/result/nonn05.png" },
   { type: "小吉", text: "少し嬉しい出来事が…", img: "images/result/nonn06.png" },
   { type: "末吉", text: "少し嬉しい出来事が…", img: "images/result/nonn02.png" },

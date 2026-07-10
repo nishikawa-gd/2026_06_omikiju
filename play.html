@@ -3,15 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>おみくじ演出</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stick&family=WDXL+Lubrifont+JP+N&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+
 </head>
 <body class="play">
   <h1>おみくじ演出</h1>
-  <div class="animation">
-    <img src="images/play/play.png" alt="おみくじを振る演出">
-  </div>
-  <p><a href="#" id="show-result">結果を見る</a></p>
+  
+  <!-- ルーレット全体のエリア（画面横いっぱいに広げます） -->
+  <div class="roulette-container">
+    <!-- 真ん中のターゲット枠（ここに止まります） -->
+    <div class="roulette-target-box"></div>
+    
+    <!-- 横に並んで流れる画像たちの帯 -->
+<div class="roulette-track is-moving"> <!-- ★最初から動かすために is-moving クラスをつける -->
+
+  <!-- パソコンなどの大画面でも途切れないように、多めに並べます（15〜20枚ほど推奨） -->
+
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+  <img src="images/play/omikuzi_red.jpg" alt="演出">
+
+</div>
+
+  <p class="tap-guide">画面をタップしてストップ！</p>
+  
+  <!-- 音声ファイル -->
+  <audio id="stopSound" src="sounds/stop.mp3" preload="auto"></audio>
 </body>
-</html>
