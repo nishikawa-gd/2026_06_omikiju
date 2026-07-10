@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>おみくじ演出</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <link rel="stylesheet" href=“css/reset.css”>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
 </head>
-<body class="play">
-  <h1>おみくじ演出</h1>
-  <div class="animation">
-    <img src="images/play/play.png" alt="おみくじを振る演出">
+
+<body class="background play">
+  <img src="images/logo_white.png" alt="ロゴ" class="mini_logo_img">
+  <div class="wrapper">
+    <div class="animation">
+      <img src="images/omikuji_shake_kage.png" alt="おみくじ影" class="omikuji_kage_img">
+      <div>
+        <div class="play_omikuji">
+          <div class="shake">
+            <img src="images/omikuji_shake.png" alt="おみくじ" class="omikuji_shake_img">
+          </div>
+        </div>
+        <img src="images/shakeshake.png" alt="おみくじを振る音" class="shakeshake_img">
+      </div>
+    </div>
+    <a href="#" id="show-result" class="button_play_result">結果を見る</a>
   </div>
-  <p><a href="#" id="show-result">結果を見る</a></p>
 </body>
+
 </html>

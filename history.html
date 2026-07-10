@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>おみくじ履歴</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <link rel="stylesheet" href=“css/reset.css”>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
 </head>
+
 <body class="history">
-  <h1>履歴</h1>
-  <ul id="history-list"></ul>
-  <p><button id="clear-history">履歴を削除</button></p>
-  <p><a href="index.html">トップに戻る</a></p>
+  <img src="images/logo_white.png" alt="ロゴ" class="history_mini_logo_img">
+  <div class="history_background_flower">
+    <img src="images/background_flower_left.png" alt="背景の花" class="background_flower_left">
+    <img src="images/background_flower_right.png" alt="背景の花" class="background_flower_right">
+  </div>
+  <div class="wrapper">
+    <h1>履歴</h1>
+    <ul id="history-list"></ul>
+    <div class="history_buttons_fixed">
+      <div class="history_buttons">
+        <button id="clear-history" class="button_history_clear">履歴を削除</button>
+        <a href="index.html" class="button_history_top">トップに戻る</a>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

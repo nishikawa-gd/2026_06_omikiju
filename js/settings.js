@@ -7,7 +7,7 @@ const omikujiResults = [
 ];
 
 // ラッキーアイテム
-const luckyItems = ["傘", "本", "スマホ", "鍵", "花", "お茶"];
+const luckyItems = ["赤色のもの", "ドット柄のもの", "丸いもの", "キラキラしたもの", "お花柄のもの", "金色のもの"];
 
 // ラッキーアイテムON/OFF
 const settings = {

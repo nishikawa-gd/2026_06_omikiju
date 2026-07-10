@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>おみくじ結果</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <link rel="stylesheet" href=“css/reset.css”>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
 </head>
-<body class="result">
-  <h1>結果</h1>
-  <p id="result-text"></p>
 
-  <div class="js-result-img-wrapper">
-  <img id="result-img" src="" alt="結果画像">
+<body class="background result">
+  <img src="images/logo_white.png" alt="ロゴ" class="mini_logo_img">
+  <div class="wrapper">
+    <h1>今日の結果</h1>
+
+    <div class="js-result-img-wrapper">
+      <img id="result-img" src="" alt="結果画像" class="kurukuru">
+    </div>
+
+    <p id="result-text"></p>
+    <div id="lucky-wrapper" class="lucky-item">
+      <p>ラッキーアイテム:</p>
+      <p id="lucky-item"></p>
+    </div>
+
+    <a href="index.html" class="button_result_again">もう一度引く</a>
+    <a href="history.html" class="button_result_history">履歴を見る</a>
   </div>
-
-  <div id="lucky-wrapper">
-    <p>ラッキーアイテム:</p>
-    <p id="lucky-item"></p>
-  </div>
-
-  <p><a href="index.html">もう一度引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
+
 </html>

@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>おみくじアプリ</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <link rel="stylesheet" href=“css/reset.css”>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
 </head>
-<body class="index">
-  <h1>おみくじアプリ</h1>
-  <div class="main-visual">
-    <img src="images/top/mainvisual.png" alt="メインビジュアル">
+
+<body class="background index">
+  <div class="index_decoration">
+    <img src="./images/flower_red.png" class="index_decoration1">
+    <img src="./images/flower_gold.png" class="index_decoration2">
+    <img src="./images/flower_red.png" class="index_decoration3">
+    <img src="./images/flower_red.png" class="index_decoration4">
+    <img src="./images/flower_gold.png" class="index_decoration5">
+    <img src="./images/flower_red.png" class="index_decoration6">
   </div>
-  <p><a href="play.html">おみくじを引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
+  <div class="wrapper">
+    <img src="./images/logo_red.png" alt="メインロゴ" class="logo_img">
+    <div class="omikuji_wrapper">
+      <img src="./images/omikuji.png" alt="おみくじ" class="omikuji_img">
+      <div class="omikuji_decoration">
+        <img src="./images/omikuji_decoration.png" alt="おみくじデコレーション" class="omikuji_decoration1">
+        <img src="./images/omikuji_decoration.png" alt="おみくじデコレーション" class="omikuji_decoration2">
+      </div>
+    </div>
+    <a href="play.html" class="button_index_play">おみくじを引く</a>
+    <a href="history.html" class="button_index_history">履歴を見る</a>
+  </div>
 </body>
+
 </html>
