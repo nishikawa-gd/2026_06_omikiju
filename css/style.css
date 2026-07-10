@@ -12,7 +12,7 @@ body {
     font-style: normal;
 }
 
-.sp-br{
+.sp-br {
     display: none;
 }
 
@@ -482,8 +482,15 @@ body::after {
     height: 180px;
 }
 
+.p-flower-red {
+    background: url("../images/play/p_flower_red.png") no-repeat center / cover;
+}
+
+.p-flower-white {
+    background: url("../images/play/p_flower_white.png") no-repeat center / cover;
+}
+
 .show-result {
-    background: url("../images/play/p_flower.png") no-repeat center / cover;
     transition: all 0.4s ease-in-out;
 }
 
@@ -719,8 +726,9 @@ body::after {
 
 /* レスポンシブ - スマホ */
 @media (min-height: 1300px) {
+
     /* 共通 */
-    .sp-br{
+    .sp-br {
         display: inline;
     }
 
@@ -796,15 +804,26 @@ body::after {
 
     /* プレイ */
     .p-flowers {
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-        margin: 100px 0px;
         justify-content: center;
+        margin: 60px auto;
     }
 
     .p-flowers a {
         width: 240px;
         height: 240px;
+    }
+
+    .p-flowers a:nth-child(4) {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .p-flowers a:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
     }
 
     .play p {
@@ -823,15 +842,15 @@ body::after {
         margin-top: 30px;
     }
 
-    .result .mikuji-inline-white{
+    .result .mikuji-inline-white {
         max-width: none;
     }
 
-    .rh-btns{
+    .rh-btns {
         gap: 20px;
     }
 
-    .rhbtn-item a{
+    .rhbtn-item a {
         width: 400px;
         height: 140px;
     }
@@ -839,15 +858,15 @@ body::after {
 
 
     /* 結果 - おみくじカード中身 */
-    .r-title{
+    .r-title {
         margin-top: 10px;
     }
 
-    .r-title span{
+    .r-title span {
         font-size: 36px;
     }
 
-    #r-mainimg{
+    #r-mainimg {
         width: 500px;
         height: 180px;
     }
@@ -857,13 +876,13 @@ body::after {
         margin-bottom: 10px;
     }
 
-    .mikuji-texts{
+    .mikuji-texts {
         font-size: 32px;
         line-height: 50px;
         margin-bottom: 10px;
     }
 
-    .r-luckys{
+    .r-luckys {
         display: flex;
         flex-direction: column;
         gap: 28px;
@@ -874,7 +893,7 @@ body::after {
         gap: 20px;
     }
 
-    .rl-title{
+    .rl-title {
         font-size: 28px;
         width: 80px;
         max-height: 28px;
@@ -882,47 +901,47 @@ body::after {
         padding: 12px 14px;
     }
 
-    .rl-subtitle{
+    .rl-subtitle {
         font-size: 32px;
     }
 
 
 
     /* 履歴 */
-    .history .mikuji-inline-white{
+    .history .mikuji-inline-white {
         height: 900px;
     }
 
-    .h-item{
+    .h-item {
         padding: 28px 0px;
     }
-    
-    .h-title span{
+
+    .h-title span {
         font-size: 36px;
         padding: 18px 0px;
     }
 
-    .h-date{
+    .h-date {
         font-size: 28px;
         margin-bottom: 10px;
     }
 
-    .h-lucky{
+    .h-lucky {
         font-size: 28px;
     }
 
-    .h-typelucky{
+    .h-typelucky {
         gap: 10px;
         flex-direction: row;
         align-items: center;
         width: auto;
     }
 
-    .h-texts{
+    .h-texts {
         flex-direction: column;
     }
-    
-    .h-type{
+
+    .h-type {
         font-size: 28px;
         padding: 16px 24px;
     }
@@ -931,13 +950,13 @@ body::after {
         font-size: 30px;
     }
 
-    .history .mikuji-texts{
+    .history .mikuji-texts {
         font-size: 30px;
         line-height: 50px;
     }
 
-    .h-empty{
+    .h-empty {
         font-size: 32px;
     }
-    
+
 }
