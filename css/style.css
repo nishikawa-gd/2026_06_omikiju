@@ -154,6 +154,43 @@
 
 }
 
+.shape{
+    position:absolute;
+
+    animation: shapeFloat 3s ease-in-out infinite;
+}
+
+.shape1{
+
+    left:130px;
+    top:340px;
+
+}
+
+.shape2{
+
+    right:130px;
+    top:340px;
+
+    animation-delay:1.5s;
+}
+
+@keyframes shapeFloat{
+
+    0%{
+        transform: rotate(-7deg);
+    }
+
+    50%{
+        transform: rotate(7deg);
+    }
+
+    100%{
+        transform: rotate(-7deg);
+    }
+
+}
+
 /*ここまでプレイ*/
 
 .result {
