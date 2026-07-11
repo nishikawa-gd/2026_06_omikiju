@@ -1,98 +1,152 @@
-.index{
-    background-image: url("../images/top/mv_bg02.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    a{
-        text-decoration: none;
-        font-family: 'Stick', sans-serif;
-        font-size: 3rem;
-        color: #333;
-    }
-    .btn01{
-        position: absolute;
-        top: 980%;
-        right: -10%;
-        transform: translate(-50%, -50%);
-        display: block;
-        width: 100%;
-        max-width: 577px;
-        max-height: 250px;
-        background-image: url("../images/top/omikuzi_btn.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        text-decoration: none;
-        text-align: center;
-        line-height: 400px;
-    }
-    .btn02{
-        position: absolute;
-        bottom: -4800%;       
-        right: -10%;
-        transform: translate(-50%, -50%);
-        display: block;
-        width: 100%;
-        max-width: 577px;
-        max-height: 250px;
-        background-image: url("../images/top/rireki_btn.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        text-decoration: none;
-        text-align: center;
-        line-height: 400px;
-    }
+.index {
+  background-image: url("../images/top/mv_bg02.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
 
+  a {
+    text-decoration: none;
+    font-family: 'Stick', sans-serif;
+    font-size: 2.2rem;
+    color: #333;
+  }
 
-    /* メインビジュアルのレイアウト調整 */
-.main-visual {
-    position: absolute;
-    top: 1000%;
+ /* 1. 全体のベースとなるコンテナ */
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+    
+    /* 💡 修正：最大幅をガツンと広げて、画面の端まで使えるようにします */
+    max-width: 90%;       /* もし完全に端っこすぎる場合は 90% などに調整してください */
+    align-items: end;  
+  }
+
+  /* 2. 左側：メインビジュアルエリア（左端に寄せる） */
+  .main-visual {
     display: flex;
     flex-direction: column;
-}
+    align-items: center;
+    width: 100%;
+    max-width: 450px;     
+    
+    /* 💡 修正：margin-left: auto; から変更して左端に張り付かせます */
+    margin-left: 0;    
+    margin-right: auto;
+  }
 
-/* 画像にカーソルを乗せた時に指マークにして、タップ感を出す */
-.target-image {
+  /* （中略：.target-image と .balloon は今のままでOK！） */
+
+ 
+  /* メインビジュアルの画像サイズ */
+  .target-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
     cursor: pointer;
     transition: transform 0.2s;
-}
-.target-image:active {
-  transform: scale(0.98); /* タップした瞬間に少し凹む演出 */
-}
+    
+    /* 💡 追加：画像を吹き出しの「後ろ」に配置するために基準を作ります */
+    position: relative;
+    z-index: 1; /* 吹き出し（2）より小さい数字にして後ろへ */
+  }
+  .target-image:active {
+    transform: scale(0.98);
+  }
 
-/* 吹き出しの見た目 */
-.balloon {
-  position: relative;
-  padding: 15px 20px;
-  background-color: #fffaf0; /* 優しいクリーム色（お好みで変更してください） */
-  border: 2px solid #d32f2f; /* おみくじっぽい赤色の線 */
-  border-radius: 10px;
-  max-width: 400px;
-  text-align: center;
-  font-weight: bold;
-}
+ /* 吹き出しの見た目（2行分の高さで固定） */
+  .balloon {
+    position: relative;     
+    z-index: 2;             
+    margin-top: -60px;     
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 450px;
+    padding: 15px 20px;
+    background-color: #fffaf0; 
+    border: 2px solid #d32f2f; 
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
 
-/* 吹き出しの上の尖った三角部分 */
-.balloon::before {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-style: solid;
-  border-width: 0 12px 12px 12px;
-  border-color: transparent transparent #d32f2f transparent; /* 枠線と同じ赤 */
-}
-.balloon::after {
-  content: "";
-  position: absolute;
-  top: -9px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-style: solid;
-  border-width: 0 11px 11px 11px;
-  border-color: transparent transparent #fffaf0 transparent; /* 背景色と同じ色で中をくり抜く */
-}
+    /* 💡 2行分で高さを固定する魔法のセット */
+    line-height: 1.5;       /* 行間（テキストの高さ）を1.5倍に設定 */
+    height: calc(1.5em * 2 + 30px); /* 💡 (行間1.5×2行分) ＋ 上下のpadding分(15px×2) で完璧に固定 */
+    
+    display: flex;          /* 💡 1行の時でも、2行分の高さの中で上下中央に配置する */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;       /* 万が一3行以上になっても枠を突き抜けないようにガード */
+  }
+  /* 吹き出しの上の尖った三角部分 */
+  .balloon::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-style: solid;
+    border-width: 0 12px 12px 12px;
+    border-color: transparent transparent #d32f2f transparent;
+  }
+  .balloon::after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-style: solid;
+    border-width: 0 11px 11px 11px;
+    border-color: transparent transparent #fffaf0 transparent;
+  }
+
+  /* 3. 右側：ボタンエリア全体の調整（右端に寄せる） */
+  .button-area {
+    width: 100%;
+    max-width: 350px;
+    
+    /* 💡 修正：margin-right: auto; から変更して右端に張り付かせます */
+    margin-right: 0; 
+    margin-left: 20%;
+    margin-bottom: 80px;
+  }
+  /* ボタンを包むpタグの設定（ここで2つのボタンの上下の隙間を作ります） */
+  .button-area p {
+    margin: 0;
+  }
+  .button-area p:first-child {
+    margin-bottom: 30px; /* 💡ボタン1とボタン2の間の隙間をお好みで調整 */
+  }
+
+ /* ボタンの共通スタイル */
+  .btn01, .btn02 {
+    display: flex;        
+    justify-content: center;
+    
+    /* 💡 修正1：中央揃え（center）から、下揃え（end）に変更します */
+    align-items: flex-end;  
+    
+    box-sizing: border-box;
+    width: 160%;
+    height: 240px;        
+    text-align: center;
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    font-weight: bold;
+
+    /* 💡 修正2：ボタンの一番下から、どれくらい文字を浮かせるかを指定します。
+       この「30px」の数字を大きくすると文字が上に上がり、小さくするとさらに下に下がります！ */
+    padding-bottom: 15px; 
+  }
+
+  .btn01 {
+    background-image: url("../images/top/omikuzi_btn.png");
+  }
+
+  .btn02 {
+    background-image: url("../images/top/rireki_btn.png");
+  }
 }
 
 /* ここからplay */
@@ -200,3 +254,168 @@ body.play h1 {
   animation: blink 1s infinite alternate;
 }
 @keyframes blink { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+/* --- リザルト画面全体のベース設定 --- */
+body.result {
+  margin: 0;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background-image: url("../images/top/mv_bg02.jpg"); /* トップと同じ背景で統一感 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* タイトル（結果） */
+body.result h1 {
+  font-family: 'Stick', sans-serif;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* 💡① 結果テキスト（大吉・中吉など）のドカン！と登場アニメーション */
+#result-text {
+  font-family: 'WDXL Lubrifont JP N', sans-serif; /* 送っていただいたフォント */
+  font-size: 4rem;
+  font-weight: bold;
+  color: #d32f2f; /* おめでたい赤 */
+  text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff; /* 文字の縁取り */
+  margin-bottom: 20px;
+  
+  /* アニメーション指定 */
+  animation: resultPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* 結果画像（額縁っぽく見せるラッパー） */
+.js-result-img-wrapper {
+  width: 100%;
+  max-width: 400px;
+  background: #fffaf0;
+  border: 4px double #d32f2f; /* 高級感のある二重線 */
+  border-radius: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  margin-bottom: 30px;
+  
+  /* じわっと遅れて拡大しながら登場 */
+  animation: imgFadeIn 0.8s 0.2s ease-out both;
+}
+
+#result-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 💡③ ラッキーアイテムの巻物風エリア */
+#lucky-wrapper {
+  background: #fff;
+  border: 2px solid #5d4037; /* 茶色の落ち着いた線 */
+  border-radius: 8px;
+  padding: 15px 30px;
+  text-align: center;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-family: 'Zen Antique Soft', sans-serif;
+  
+  /* さらに遅れて下からスライド登場 */
+  animation: luckySlideUp 0.6s 0.6s ease-out both;
+}
+#lucky-wrapper p:first-child {
+  font-size: 0.9rem;
+  color: #795548;
+  margin-bottom: 5px;
+}
+#lucky-item {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3e2723;
+}
+
+/* --- 4. ボタンエリアの調整（リザルト画面用） --- */
+
+/* 2つのボタンを包む共通のコンテナを作って綺麗に並べます */
+.result-button-area {
+  display: flex;
+  justify-content: center;
+  gap: 20px;            /* 💡ボタンとボタンの間の隙間 */
+  width: 100%;
+  max-width: 750px;     /* 横並びにした時の全体の最大幅 */
+  margin-top: 20px;
+}
+
+/* ボタンの共通スタイル（トップページのパーツと完全に統一！） */
+body.result .btn01, 
+body.result .btn02 {
+  display: flex;        
+  justify-content: center;
+  align-items: flex-end; /* 💡文字を下揃えにする */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 350px;     /* 横幅350px */
+  height: 150px;        /* 縦幅150px */
+  text-align: center;
+  background-size: 100% 100%; 
+  background-repeat: no-repeat;
+  font-family: 'Stick', sans-serif;
+  font-size: 2.2rem;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+
+  /* 💡トップページで調整した「文字を下げる余白」 */
+  padding-bottom: 15px; 
+  
+  transition: transform 0.2s;
+}
+
+/* ボタンを押した時にちょっとだけ凹む演出 */
+body.result .btn01:active,
+body.result .btn02:active {
+  transform: scale(0.96);
+}
+
+/* 背景画像の割り当て */
+body.result .btn01 {
+  background-image: url("../images/top/omikuzi_btn.png");
+}
+
+body.result .btn02 {
+  background-image: url("../images/top/rireki_btn.png");
+}
+
+/* 📱 画面が狭いスマホで見たら、ボタンを縦並びに自動で切り替える優しい設定 */
+@media (max-width: 768px) {
+  .result-button-area {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+
+/* --- 🎭 各種アニメーションの仕掛け --- */
+
+/* 文字が弾けて飛び出す */
+@keyframes resultPop {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 画像がふわっと浮き出る */
+@keyframes imgFadeIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ラッキーアイテムが下からシュッと出てくる */
+@keyframes luckySlideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}

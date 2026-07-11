@@ -13,14 +13,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Stick&family=WDXL+Lubrifont+JP+N&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
 </head>
 <body class="index">
-  <h1>おみくじアプリテスト03</h1>
-  <div class="main-visual container">
-    <!-- 画像（プレースホルダー画像を入れています。お好きな画像URLに変えてください） -->
+  <h1><img src="images/top/top_rogo.png" alt="おみくじアプリ" width="30%" ></h1>
+ <div class="container">
+  <!-- 左側：メインビジュアル（変更なし） -->
+  <div class="main-visual">
     <img id="myImage" class="target-image" src="images/top/nonn_mv.png" alt="メインビジュアル" width="30%">
-    <!-- 吹き出し -->
     <div id="myBalloon" class="balloon">ここに最初のコメントが表示されます</div>
   </div>
-  <p><a href="play.html" class="btn01">おみくじを引く</a></p>
-  <p><a href="history.html" class="btn02">履歴を見る</a></p>
+
+  <!-- 💡 修正：右側の2つのボタンを1つの大きな箱（div）で囲みます -->
+  <div class="button-area">
+    <p><a href="play.html" class="btn01">おみくじを引く</a></p>
+    <p><a href="history.html" class="btn02">履歴を見る</a></p>
+  </div>
+</div>
 </body>
 </html>
