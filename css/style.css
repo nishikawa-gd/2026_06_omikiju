@@ -1,8 +1,10 @@
-/*ここまでトップ*/
+
 * {
     margin: 0;
     padding: 0;
 }
+
+/*ここまでトップ*/
 .index {
     background-color: #292419;
 }
@@ -24,23 +26,132 @@
     left: 490px;
 }
 
+.main-visual{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.circle{
+    position: absolute;
+}
+
+.circle1{
+    left: 120px;
+    top: 40px;
+
+    animation: float1 3s ease-in-out infinite;
+}
+
+.circle2{
+    right: 40px;
+    top: 20px;
+
+    animation: float2 3.5s ease-in-out infinite;
+}
+
+.circle3{
+    left: 40px;
+    bottom: 20px;
+
+    animation: float2 4s ease-in-out infinite;
+}
+
+.circle4{
+    right: 180px;
+    bottom: 30px;
+
+    animation: float1 3.8s ease-in-out infinite;
+}
+
+@keyframes float1{
+
+    0%,100%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-15px);
+    }
+
+}
+
+@keyframes float2{
+
+    0%,100%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(15px);
+    }
+
+}
+
 /*ここまでトップ*/
 
 /*ここまでプレイ*/
 .play {
-   background-color: #292419; 
+   background-color: #292419;
 }
 
 .animation {
     position: absolute;
     top: 30px;
     left: 400px;
+
+    /* 追加 */
+    animation: swing 1.2s ease-in-out infinite;
+    transform-origin: center center;
 }
 
 .button_result {
     position: absolute;
     top: 700px;
     left: 530px;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    animation:showButton 1s forwards;
+
+    animation-delay:2s;
+}
+
+@keyframes showButton{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* クチバシを左右に揺らす */
+@keyframes swing {
+
+    0% {
+        transform: rotate(-6deg);
+    }
+
+    50% {
+        transform: rotate(6deg);
+    }
+
+    100% {
+        transform: rotate(-6deg);
+    }
+
 }
 
 /*ここまでプレイ*/
@@ -51,6 +162,9 @@
 
 #bird-img{
     position: absolute;
+
+    animation: birdFloat 2.5s ease-in-out infinite;
+    transform-origin: center center;
 }
 #result-img{
     position: absolute;
@@ -98,6 +212,43 @@
 }
 
 /*結果ページのボタン*/
+
+#lucky-wrapper{
+    position: absolute;
+    left: 700px;
+    top: 530px;
+
+    width: 230px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    background: #FFFDF5;
+
+    border-radius: 20px;
+
+    box-shadow: 0 4px 8px rgba(0,0,0,.15);
+
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+#lucky-wrapper p:first-child{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    white-space: nowrap;
+}
+
+#lucky-item{
+    font-size: 24px;
+    color: #4B6B2C;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
 /*もう一度選ぶ*/
 .button_again {
     position: absolute;
@@ -115,15 +266,193 @@
 
 /*履歴ページ*/
 
-.history {
+
+.history{
     background-color: #E4F8D1;
 }
 
-.button_top {
-    position: absolute;
-    top: 650px;
-    left: 620px;
+/* タイトル */
+.history-title{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+/* 履歴一覧の枠 */
+.history-box{
+    width: 900px;
+    height: 450px;
+
+    margin: 0 auto;
+
+    background-color: #FFFDF5;
+
+    border: 8px solid #DCCCA3;
+    border-radius: 20px;
+
+    padding: 20px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+}
+
+/* 履歴リスト */
+#history-list{
+    list-style: none;
+    padding: 0;
+}
+
+/* 後で使う履歴カード */
+.history-card{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-bottom: 2px solid #ddd;
+}
+
+/* ボタン全体 */
+.history-button{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:50px;
+
+    margin-top:60px;
+}
+
+#clear-history{
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* TOPボタン */
+.button_top{
+    position: static;
+    margin: 0;
+}
+/* カード */
+
+.history-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
 }
 
 
+/* 鳥画像 */
 
+.history-bird{
+
+    width:50px;
+
+    height:auto;
+}
+
+
+/* 結果画像 */
+
+.history-result{
+
+    width:150px;
+
+    height:auto;
+}
+
+
+/* 文字 */
+
+.history-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    font-size:18px;
+}
+/*演出*/
+.result {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 鳥がふわふわ揺れる */
+@keyframes birdFloat {
+
+    0%{
+        transform: translateY(0px) rotate(-6deg);
+    }
+
+    50%{
+        transform: translateY(-8px) rotate(6deg);
+    }
+
+    100%{
+        transform: translateY(0px) rotate(-6deg);
+    }
+
+}
+
+/*ボタンのアニメーション*/
+
+.button_start img,
+.button_history img,
+.button_result img,
+.button_again img,
+.button_history2 img,
+.button_top img,
+#clear-history img{
+
+    transition: all .3s ease;
+    cursor: pointer;
+
+}
+
+.button_start img:hover,
+.button_history img:hover,
+.button_result img:hover,
+.button_again img:hover,
+.button_history2 img:hover,
+.button_top img:hover,
+#clear-history img:hover{
+
+    opacity: 0.7;
+    transform: translateY(-3px);
+
+}

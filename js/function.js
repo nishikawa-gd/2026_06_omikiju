@@ -18,11 +18,43 @@ function handlePlayPage() {
 	// bodyにplayクラスがなければ終了
 	if (!$('body').hasClass('play')) return;
 
+	// ===== クチバシアニメーション =====
+const frames = [
+
+   "images/play/play1.png",
+	"images/play/play2.png",
+    "images/play/play3.png",
+    "images/play/play4.png",
+	"images/play/play5.png",
+    "images/play/play4.png",
+    "images/play/play3.png",
+    "images/play/play2.png"
+];
+
+let frame = 0;
+
+const animationTimer = setInterval(function(){
+
+    frame++;
+
+    if(frame >= frames.length){
+        frame = 0;
+    }
+
+    $('#beak').attr('src', frames[frame]);
+
+},800);
+
 	// show-resultボタン押下時の処理
 	$('#show-result').on('click', function(e) {
 
 		// デフォルトの動作をキャンセル
 		e.preventDefault();
+
+		clearInterval(animationTimer);
+
+// 最後は閉じた状態に戻す
+$('#beak').attr('src', 'images/play/play1.png');
 
 		// おみくじ結果とラッキーアイテムをランダムに選択
 		const result = omikujiResults[Math.floor(Math.random() * omikujiResults.length)];
@@ -97,12 +129,36 @@ function handleHistoryPage() {
 	const $list = $('#history-list');
 
 	history.forEach(item => {
-		const $li = $('<li>').html(
-			`${item.date}：<strong>${item.result.type}</strong> - ${item.result.text}` +
-			(item.lucky ? ` (ラッキーアイテム: ${item.lucky})` : '')
-		);
-		$list.append($li);
-	});
+
+    const $li = $(`
+        <li class="history-card">
+
+            <img class="history-bird"
+                 src="${item.result.bird}"
+                 alt="鳥">
+
+            <img class="history-result"
+                 src="${item.result.img}"
+                 alt="結果">
+
+            <div class="history-info">
+
+                <p class="history-lucky">
+                    🍀 ラッキーアイテム：${item.lucky}
+                </p>
+
+                <p class="history-date">
+                    📅 ${item.date}
+                </p>
+
+            </div>
+
+        </li>
+    `);
+
+    $list.append($li);
+
+});
 	
 	// 履歴削除ボタン処理
 	$('#clear-history').on('click', function() {
