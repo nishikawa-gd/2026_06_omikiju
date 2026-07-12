@@ -270,7 +270,7 @@ body.result {
   margin: 0;
   padding: 40px 20px;
   min-height: 100vh;
-  background-image: url("../images/top/mv_bg02.jpg"); /* トップと同じ背景で統一感 */
+  background-image: url("../images/result/result_bg.jpg"); /* トップと同じ背景で統一感 */
   background-size: cover;      /* 💡 画面いっぱいに隙間なく広げる設定 */
   background-position: center; /* 💡 常に画像の中央が画面の真ん中にくるようにする */
   background-attachment: fixed; /* 💡 履歴が長くなってスクロールしても、背景だけはその場に固定されて動かないようにする（超おすすめ！） */
