@@ -1,0 +1,162 @@
+.index {
+    background-image: url(../images/top/top_bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 560px;
+}
+
+.main-visual {
+    background-image: url(../images/top/top_red_1.png),
+        url(../images/top/top_red_2.png);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 600px, 430px;
+    background-position: top 0 left 0, bottom 0 right 0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+
+
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.top_tit {
+    text-align: center;
+
+}
+
+.top_tit img {
+    width: 680px;
+}
+
+.red_deco_1 img {
+    width: 600px;
+}
+
+.top_deco_position {
+    position: relative;
+}
+
+.top_deco_position img {
+    width: 180px;
+}
+
+.top_deco_1,
+.top_deco_2,
+.top_deco_3,
+.top_deco_4,
+.top_deco_5,
+.top_deco_6,
+.top_deco_7,
+.top_deco_8,
+.top_deco_9 {
+    position: absolute;
+}
+
+.top_deco_1 {
+    top: 20px;
+    left: 430px;
+}
+
+.top_deco_2 {
+    top: 110px;
+    left: 110px;
+}
+
+.top_deco_3 {
+    top: 330px;
+    left: 0;
+}
+
+.top_deco_4 {
+    top: 480px;
+    left: 230px;
+}
+
+.top_deco_5 {
+    top: 630px;
+    left: 50px;
+}
+
+.top_deco_6 {
+    top: 50px;
+    right: 300px;
+}
+
+.top_deco_7 {
+    top: 210px;
+    right: 100px;
+}
+
+.top_deco_8 {
+    top: 460px;
+    right: -15px;
+}
+
+.top_deco_9 {
+    top: 570px;
+    right: 160px;
+}
+
+.flex_colomn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex_colomn .btn:first-child {
+    margin-top: auto;
+}
+
+.btn {
+    width: 254px;
+    border-radius: 100px;
+    background: linear-gradient(45deg, #FF9774 0%, #FF4343 100%);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    margin-top: auto;
+}
+
+.btn_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 30px;
+}
+
+.btn_txt_white {
+    font-size: 34px;
+    font-family: Zen Kaku Gothic New;
+    font-weight: bold;
+    color: #fff;
+}
+
+.btn_history {
+    width: 148px;
+    border-radius: 100px;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.btn_history_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 24px;
+}
+
+.btn_txt_red {
+    font-size: 26px;
+    font-family: Zen Kaku Gothic New;
+    font-weight: bold;
+    color: #FF0000;
+}

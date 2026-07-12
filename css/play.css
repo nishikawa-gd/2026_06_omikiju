@@ -1,0 +1,71 @@
+.play {
+    background-image: url(../images/result/result_bg.png);
+    background-repeat: repeat-x repeat-y;
+    background-size: 230px;
+}
+
+.play_main_visual {
+    background-image: url(../images/play/play_red_left.png), url(../images/play/play_red_right.png);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 360px, 360px;
+    background-position: top 0 left 0, bottom 0 right 0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.play_main {
+    text-align: center;
+}
+
+.play_main img {
+    width: 350px;
+}
+
+.play_btn {
+    width: 352px;
+    border-radius: 100px;
+    background: linear-gradient(45deg, #FF9774 0%, #FF4343 100%);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.btn_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 30px;
+}
+
+.btn_txt_white {
+    font-size: 34px;
+    font-family: Zen Kaku Gothic New;
+    font-weight: bold;
+    color: #fff;
+}
+
+.btn_history {
+    width: 148px;
+    border-radius: 100px;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.btn_history_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 24px;
+}
+
+.btn_txt_red {
+    font-size: 26px;
+    font-family: Zen Kaku Gothic New;
+    font-weight: bold;
+    color: #FF0000;
+}

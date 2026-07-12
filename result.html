@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <title>おみくじ結果</title>
+  <title>おみくじアプリ</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/result.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;300;400;500;700;900&display=swap"
+    rel="stylesheet">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
+
 <body class="result">
-  <h1>結果</h1>
-  <p id="result-text"></p>
-
-  <div class="js-result-img-wrapper">
-  <img id="result-img" src="" alt="結果画像">
+  <div class="result_main_visual">
+    <p class="num">図鑑番号 004</p>
+    <h1 class="name">ヒトカゲ</h1>
+    <h2 class="type">タイプ</h2>
+    <p class="type_contents">ほのお</p>
+    <p class="result_txt">
+      尻尾に炎を灯すトカゲのようなポケモン。尻尾の炎が消える時は、その命が途絶える時でもある。気分によって尻尾の炎の燃え方が変わる。例えば怒っているときほどメラメラと激しく燃える。ほのおタイプらしく熱いものを好む性格。</p>
+    <h2 class="item">ラッキーアイテム</h2>
+    <p class="item_txt">気合いのはちまき</p>
+    <p class="result_main"><img src="./images/result/result_hitokage.png" alt="ヒトカゲ"></p>
   </div>
 
-  <div id="lucky-wrapper">
-    <p>ラッキーアイテム:</p>
-    <p id="lucky-item"></p>
-  </div>
-
-  <p><a href="index.html">もう一度引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
+
 </html>
