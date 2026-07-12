@@ -1,4 +1,118 @@
 .index{
-    /* background-image: url(../images/haikei/back-black.jpg); */
-    background-color: #c9b084;
+    /* background-image: url(../images/haikei/fake-background-1.jpg); */
+    /* background-size: cover; */
+    
+    background-image: linear-gradient(0deg, transparent calc(100% - 1px), #EAD8AB calc(100% - 1px)),
+        linear-gradient(90deg, transparent calc(100% - 1px), #EAD8AB calc(100% - 1px));
+    background-size: 32px 32px;
+    background-repeat: repeat;
+    background-position: center center;
+    background-color: #f9efd6;
+    height: auto;
+}
+
+.wrapper{
+    width: 1440px;
+    margin: 120px auto 0 auto;
+    text-align: center;
+}
+
+.index-title h1{
+    position: relative;
+}
+
+h1::before{
+    content: "";
+    position: absolute;
+    top: -70px;
+    left: 75px;
+    width: 229px;
+    height: 204px;
+    background-image: url(../images/top/ac-left.svg);
+    background-repeat: no-repeat;
+}
+
+h1::after{
+    content: "";
+    position: absolute;
+    top: -70px;
+    left: 1136px;
+    width: 229px;
+    height: 204px;
+    background-image: url(../images/top/ac-right.svg);
+    background-repeat: no-repeat;
+}
+
+.index-content{
+    display: flex;
+    /* justify-content: space-evenly; */
+    justify-content: center;
+    gap: 100px;
+    padding-top: 72px;
+}
+
+.main-character{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-character .main-read{
+    font-family: "Zen Antique", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+}
+
+.main-character .main-read{
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.main-character .main-read::before{
+    content: "";
+    position: absolute;
+    top: -44px;
+    left: 0;
+    width: 272px;
+    height: 133px;
+    background-image: url(/images/top/fukidashi.png);
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.character{
+    position: relative;
+}
+
+.character::before{
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: -270px;
+    width: 255px;
+    height: 160px;
+    background-image: url(/images/haikei/croissant.svg);
+    background-repeat: no-repeat;
+}
+
+.play-content{
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+}
+
+.index-play{
+    position: relative;
+}
+
+.index-play::after{
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: -250px;
+    width: 248px;
+    height: 220px;
+    background-image: url(/images/haikei/anpan.svg);
+    background-repeat: no-repeat;
 }

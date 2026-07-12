@@ -99,7 +99,7 @@ function handleHistoryPage() {
 	
 	// 履歴削除ボタン処理
 	$('#clear-history').on('click', function() {
-		if (confirm('履歴をすべて削除しますか？')) {
+		if (confirm('いいの？履歴消しちゃって？')) {
 			localStorage.removeItem('omikujiHistory');
 			$list.empty();
 		}

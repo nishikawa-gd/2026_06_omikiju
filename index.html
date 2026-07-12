@@ -2,19 +2,37 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>おみくじアプリ</title>
+  <title>パンおみくじ</title>
+  <link rel="icon" href="/images/character/kotori-kun.svg" sizes="32px 32px">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Zen+Antique&display=swap" rel="stylesheet">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
 <body class="index">
-  <h1>おみくじアプリ</h1>
-  <div class="main-visual">
-    <img src="images/top/top-rere.jpg" alt="メインビジュアル">
+  <div class="wrapper">
+    <div class="index-title">
+      <h1><img src="../images/top/main-title.svg" alt="今日のパンを決めよう！パンおみくじ"></h1>
+    </div>
+    <div class="index-content">
+      <div class="main-character">
+        <p class="read main-read">人生楽しい？</p>
+        <a href="http://uramichi-anime.com/">
+          <img src="../images/character/kotori-kun.svg" alt="小鳥さん" width="280px" height="326px">
+          <p class="character"><img src="../images/top/chara-intro.svg" alt="漫画うらみちお兄さんより 小鳥さん"></p>
+        </a>
+      </div>
+      <div class="play-content">
+        <p class="imdex-play"><a href="play.html"><img src="../images/top/go-play.svg" alt="おみくじを引く"></a></p>
+        <p class="index-play"><a href="history.html"><img src="../images/top/go-history.svg" alt="履歴を見る"></a></p>
+      </div>
+    </div>
   </div>
-  <p><a href="play.html">おみくじを引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
+    
+  
 </body>
 </html>
