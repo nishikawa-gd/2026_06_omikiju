@@ -1,0 +1,102 @@
+body {
+    background-image: url('../img/backimg.png');
+    background-repeat: repeat;
+    background-position: center top;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/backimg.png');
+    background-repeat: repeat;
+    background-position: center top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s;
+}
+
+/* 2秒後にJSで消すためのクラス */
+#loading.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.top-main-logo,
+.top-crane,
+.cloud-obj {
+    position: absolute;
+    opacity: 0; 
+    /* 1.5秒かけて同時にフェードインさせるシンプルな設定に変えます */
+    animation: simultaneousFadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+
+.top-main-logo {
+    top: 43%;
+    left: 42%;
+    transform: translate(-50%, -50%); 
+    max-width: 800px;
+}
+
+.top-crane {
+    top: 20%;
+    right: 20%;
+    max-width: 86px;
+}
+
+/* 左上の長い雲 (object01) */
+.obj-pos1 {
+    top: 50%;
+    left: -1%;
+    max-width: 188px;
+}
+
+/* 左下の長い雲 (object02) */
+.obj-pos2 {
+    top: 70%;
+    left: 8%;
+    max-width: 272px;
+}
+
+/* 右下の短い雲 (object03) */
+.obj-pos3 {
+    bottom: 15%;
+    right: -8%;
+    max-width: 334px;
+}
+
+/* 右上の短い雲 (object04) */
+.obj-pos4 {
+    top: 50%;
+    right: 5%;
+    max-width: 348px;
+}
+
+
+.obj-pos5 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px; 
+}
+
+@keyframes simultaneousFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
