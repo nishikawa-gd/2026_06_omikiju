@@ -28,7 +28,7 @@ h1::before{
     left: 75px;
     width: 229px;
     height: 204px;
-    background-image: url(../images/top/ac-left.svg);
+    background-image: url(/images/top/ac-left.svg);
     background-repeat: no-repeat;
 }
 
@@ -39,7 +39,7 @@ h1::after{
     left: 1136px;
     width: 229px;
     height: 204px;
-    background-image: url(../images/top/ac-right.svg);
+    background-image: url(/images/top/ac-right.svg);
     background-repeat: no-repeat;
 }
 
@@ -106,10 +106,37 @@ h1::after{
     position: relative;
 }
 
-.index-play::after{
+.index .index-play::after{
     content: "";
     position: absolute;
     top: 40px;
+    right: -250px;
+    width: 248px;
+    height: 220px;
+    background-image: url(/images/haikei/anpan.svg);
+    background-repeat: no-repeat;
+}
+
+
+.play{
+    background-image: linear-gradient(0deg, transparent calc(100% - 1px), #EAD8AB calc(100% - 1px)),
+    linear-gradient(90deg, transparent calc(100% - 1px), #EAD8AB calc(100% - 1px));
+    background-size: 32px 32px;
+    background-repeat: repeat;
+    background-position: center center;
+    background-color: #f9efd6;
+    height: auto;
+}
+
+.play .play-content{
+    position: relative;
+    padding-top: 100px;
+}
+
+.play .play-content::after{
+    content: "";
+    position: absolute;
+    top: 291px;
     right: -250px;
     width: 248px;
     height: 220px;
