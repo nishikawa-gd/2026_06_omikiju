@@ -3,14 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>おみくじ履歴</title>
+  <!-- 💡 忘れずに他のページと同じリセットCSSとスタイルCSSを読み込みます -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <!-- 💡 フォントも他のページと統一するために追加 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stick&family=WDXL+Lubrifont+JP+N&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
 </head>
 <body class="history">
-  <h1>履歴</h1>
-  <ul id="history-list"></ul>
-  <p><button id="clear-history">履歴を削除</button></p>
-  <p><a href="index.html">トップに戻る</a></p>
+  <h1>おみくじ履歴</h1>
+  
+  <!-- 過去の運勢カードが並ぶエリア -->
+  <ul id="history-list">
+    <!-- JavaScriptでここに <li> が入る想定。
+         例：<li><span class="date">2026/01/01</span><span class="result-badge">大吉</span><span class="item">ラッキー: お茶</span></li> 
+    -->
+  </ul>
+
+  <!-- 💡 ボタンたちを1つのエリアにまとめます -->
+  <div class="history-button-area">
+    <p><a href="index.html" class="btn01">トップに戻る</a></p>
+    <p><button id="clear-history">履歴を削除する</button></p>
+  </div>
 </body>
 </html>

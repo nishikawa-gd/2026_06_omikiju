@@ -1,6 +1,8 @@
 .index {
   background-image: url("../images/top/mv_bg02.jpg");
-  background-size: cover;
+ background-size: cover;      /* 💡 画面いっぱいに隙間なく広げる設定 */
+  background-position: center; /* 💡 常に画像の中央が画面の真ん中にくるようにする */
+  background-attachment: fixed; /* 💡 履歴が長くなってスクロールしても、背景だけはその場に固定されて動かないようにする（超おすすめ！） */
   background-repeat: no-repeat;
   position: relative;
   min-height: 100vh;
@@ -161,12 +163,20 @@ body.play {
   justify-content: center; /* 💡これで上下の真ん中に寄る */
   align-items: center;     /* 💡これで左右の真ん中に寄る */
   box-sizing: border-box;
+  background-image: url("../images/play/play_bg.jpg"); /* トップと同じ背景で統一感 */
+  background-size: cover;      /* 💡 画面いっぱいに隙間なく広げる設定 */
+  background-position: center; /* 💡 常に画像の中央が画面の真ん中にくるようにする */
+  background-attachment: fixed; /* 💡 履歴が長くなってスクロールしても、背景だけはその場に固定されて動かないようにする（超おすすめ！） */
+  background-repeat: no-repeat;
 }
 
 /* 2. タイトルの位置調整（中央寄せで少し上に余白を） */
 body.play h1 {
   margin: 0 0 20px 0;
   text-align: center;
+    font-family: 'Stick', sans-serif;
+    font-size: 2.5rem;
+    color: #333;
 }
 
 /* 3. ルーレット全体のコンテナ（元のスタイルからmarginだけ変更） */
@@ -261,7 +271,9 @@ body.result {
   padding: 40px 20px;
   min-height: 100vh;
   background-image: url("../images/top/mv_bg02.jpg"); /* トップと同じ背景で統一感 */
-  background-size: cover;
+  background-size: cover;      /* 💡 画面いっぱいに隙間なく広げる設定 */
+  background-position: center; /* 💡 常に画像の中央が画面の真ん中にくるようにする */
+  background-attachment: fixed; /* 💡 履歴が長くなってスクロールしても、背景だけはその場に固定されて動かないようにする（超おすすめ！） */
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -418,4 +430,174 @@ body.result .btn02 {
 @keyframes luckySlideUp {
   0% { transform: translateY(20px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
+}
+
+/* --- 📜 履歴画面全体のベース設定 --- */
+body.history {
+  margin: 0;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background-image: url("../images/history/history_bg.jpg"); /* 背景を統一 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* タイトル */
+body.history h1 {
+  font-family: 'Stick', sans-serif;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* 💡① 履歴リスト（木札カードの並び） */
+#history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  width: 100%;
+  max-width: 700px; /* カードの見やすい幅 */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* カードとカードの隙間 */
+}
+
+/* JavaScriptで生成される <li> のスタイル（木札風デザイン） */
+#history-list li {
+  background: #fffaf0; /* 柔らかな和風の白 */
+  border: 2px solid #5d4037; /* 茶色の枠線 */
+  border-radius: 10px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between; /* 日付・結果・アイテムを綺麗に左右に配置 */
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+  font-family: 'Zen Antique Soft', sans-serif;
+  
+  /* リストがじわっと浮き出てくるアニメーション */
+  animation: listFadeIn 0.4s ease-out both;
+}
+
+/* 💡② リスト内の各パーツの見た目調整 */
+/* JavaScriptで生成される <li> のスタイル（縦列を美しく揃える！） */
+#history-list li {
+  background: rgba(255, 250, 240, 0.85); 
+  border: 2px solid #5d4037; 
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+  font-family: 'Zen Antique Soft', sans-serif;
+  animation: listFadeIn 0.4s ease-out both;
+
+  /* 💡 修正：横並びを flex から display: grid; に変更します */
+  display: grid;
+  /* 💡 列の幅をガチッと固定！ (例: 日付に110px、運勢に90px、残りの隙間は自動) */
+  grid-template-columns: 110px 90px 1fr; 
+  align-items: center; /* 上下の中央揃え */
+  gap: 10px;          /* パーツ同士の横の隙間 */
+}
+
+/* 💡 それぞれの文字の配置バランス（お好みで調整してね） */
+#history-list li .date {
+  font-size: 0.9rem;
+  color: #8d6e63;
+  text-align: left; /* 日付は左寄せ */
+}
+
+#history-list li .result-badge {
+  font-family: 'WDXL Lubrifont JP N', sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 2px 0; /* 💡 横パディングを消して、幅を安定させます */
+  border-radius: 20px;
+  border: 1px solid #d32f2f;
+  
+  text-align: center; /* 運勢の文字（大吉など）は中央揃え */
+  width: 75px;        /* 💡 運勢バッジ自体の横幅を固定して形を綺麗に保つ */
+}
+
+#history-list li .item {
+  font-size: 0.95rem;
+  color: #3e2723;
+  text-align: right;  /* 💡 ラッキーアイテムは右端にピタッと寄せる */
+  
+  /* 文字が長すぎてはみ出るのを防ぐお守り */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 💡大吉の時だけ特別に豪華にする裏技（JavaScript側でliに .daikichi クラスをつけたら発動） */
+#history-list li.daikichi {
+  background: #fff9c4; /* 背景をほんのり金色に */
+  border-color: #f57f17;
+}
+#history-list li.daikichi .result-badge {
+  color: #f57f17;
+  background: #fffde7;
+  border-color: #f57f17;
+}
+
+/* 💡③ ボタンエリアの配置 */
+.history-button-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* 「トップに戻る」はおなじみのあのボタンデザイン */
+body.history .btn01 {
+  display: flex;        
+  justify-content: center;
+  align-items: flex-end; 
+  box-sizing: border-box;
+  width: 350px;     
+  height: 150px;        
+  text-align: center;
+  background-image: url("../images/top/omikuzi_btn.png"); /* トップと同じ背景 */
+  background-size: 100% 100%; 
+  background-repeat: no-repeat;
+  font-family: 'Stick', sans-serif;
+  font-size: 2.2rem;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  padding-bottom: 15px; /* 文字下げもしっかり引き継ぎ */
+  transition: transform 0.2s;
+}
+body.history .btn01:active {
+  transform: scale(0.96);
+}
+
+/* 履歴削除ボタン（スッキリ和風になじませる） */
+#clear-history {
+  background: #efebe9;
+  border: 1px solid #8d6e63;
+  color: #5d4037;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-family: 'Zen Antique Soft', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+#clear-history:hover {
+  background: #d7ccc8;
+}
+#clear-history:active {
+  transform: scale(0.98);
+}
+
+/* リスト登場アニメーション */
+@keyframes listFadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
