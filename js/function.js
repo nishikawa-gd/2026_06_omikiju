@@ -1,6 +1,6 @@
 
 
-$(function() {
+$(function () {
 	function init() {
 		handlePlayPage();
 		handleResultPage();
@@ -19,7 +19,7 @@ function handlePlayPage() {
 	if (!$('body').hasClass('play')) return;
 
 	// show-resultボタン押下時の処理
-	$('#show-result').on('click', function(e) {
+	$('#show-result').on('click', function (e) {
 
 		// デフォルトの動作をキャンセル
 		e.preventDefault();
@@ -34,7 +34,7 @@ function handlePlayPage() {
 
 		// 履歴保存
 		const history = JSON.parse(localStorage.getItem('omikujiHistory') || '[]');
-		
+
 		// 履歴に追加
 		history.push({ result, lucky, date: new Date().toLocaleString() });
 		// 履歴をlocalStorageに保存
@@ -51,7 +51,7 @@ function handlePlayPage() {
 
 // ===== 結果ページの処理 =====
 function handleResultPage() {
-	
+
 	// bodyにresultクラスがなければ終了
 	if (!$('body').hasClass('result')) return;
 
@@ -78,32 +78,23 @@ function handleResultPage() {
 
 
 // ===== 履歴ページの処理 =====
-function handleHistoryPage() {
+const clearHistoryBtn = document.getElementById("clearHistoryBtn");
 
-	// bodyにhistoryクラスがなければ終了
-	if (!$('body').hasClass('history')) return;
+if (clearHistoryBtn) {
+	clearHistoryBtn.addEventListener("click", function () {
+		// 1. 確認メッセージを出す（誤操作防止のため。不要なら削除してOKです）
+		const isConfirm = confirm("これまでのセーブデータが全て消えてしまいます。本当に削除しますか？");
 
-	// localStorageから履歴を取得
-	const history = JSON.parse(localStorage.getItem('omikujiHistory') || '[]');
+		if (isConfirm) {
+			// 2. ローカルストレージから 'omikujiHistory' というキーのデータを削除
+			localStorage.removeItem("omikujiHistory");
 
-	// 履歴がなければメッセージを表示して終了
-	const $list = $('#history-list');
-
-	history.forEach(item => {
-		const $li = $('<li>').html(
-			`${item.date}：<strong>${item.result.type}</strong> - ${item.result.text}` +
-			(item.lucky ? ` (ラッキーアイテム: ${item.lucky})` : '')
-		);
-		$list.append($li);
-	});
-	
-	// 履歴削除ボタン処理
-	$('#clear-history').on('click', function() {
-		if (confirm('履歴をすべて削除しますか？')) {
-			localStorage.removeItem('omikujiHistory');
-			$list.empty();
+			// 3. 画面の表示を更新（履歴なしのメッセージに切り替える）
+			displayHistory();
 		}
 	});
 }
+
+
 
 

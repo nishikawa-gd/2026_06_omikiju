@@ -8,11 +8,7 @@
   <link rel="stylesheet" href="./css/history.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;300;400;500;700;900&display=swap"
-    rel="stylesheet">
-  <script src="js/jquery-3.7.1.min.js"></script>
-  <script src="js/settings.js"></script>
-  <script src="js/function.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;300;400;500;700;900&display=swap"rel="stylesheet">
 </head>
 
 <body class="history">
@@ -27,16 +23,17 @@
   </div>
   <div class="history_main_visual">
     <div class="history_box">
-      <ul id="history-list"></ul>
+      <!-- 履歴が表示される場所 -->
+      <ul id="historyList"></ul>
     </div>
 
     <div class="btn_side_2">
-      <div class="history_delete_btn">
+      <a href="#" id="clearHistoryBtn" class="history_delete_btn">
         <div class="btn_flex">
           <p class="btn_txt_red">履歴を削除</p>
           <p class="btn_boll_red"><img src="./images/top/btn_ball_red.svg" alt="モンスターボール"></p>
         </div>
-      </div>
+      </a>
       <a href="./play.html" class="play_btn">
         <div class="btn_flex">
           <p class="btn_txt_red">もう一度回す</p>
@@ -44,9 +41,11 @@
         </div>
       </a>
     </div>
-    <!-- <p><button id="clear-history">履歴を削除</button></p>
-    <p><a href="index.html">トップに戻る</a></p> -->
   </div>
+
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/function.js"></script>
 </body>
 
 </html>
