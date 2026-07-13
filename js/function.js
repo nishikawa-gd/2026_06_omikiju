@@ -61,7 +61,7 @@ function handleResultPage() {
 	if (!data) return;
 
 	// 結果表示
-	$('#result-text').text(`${data.result.type}：${data.result.text}`);
+	//$('#result-text').text(`${data.result.type}：${data.result.text}`);
 	// 画像の設定
 	$('#result-img').attr('src', data.result.img).attr('alt', data.result.type);
 

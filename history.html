@@ -3,14 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>おみくじ履歴</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
+
 <body class="history">
-  <h1>履歴</h1>
-  <ul id="history-list"></ul>
-  <p><button id="clear-history">履歴を削除</button></p>
-  <p><a href="index.html">トップに戻る</a></p>
+
+<div class="history-box">
+
+    <h1>履歴</h1>
+
+    <ul id="history-list"></ul>
+
+</div>
+
+<p class="button_clear">
+    <button id="clear-history">
+        <img src="images/history/history_rirekikesu.png" alt="履歴を削除">
+    </button>
+</p>
+
+<p class="button_back">
+    <a href="index.html">
+        <img src="images/history/history_modoru.png" alt="トップに戻る">
+    </a>
+</p>
+
 </body>
 </html>
