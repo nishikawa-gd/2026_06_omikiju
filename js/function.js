@@ -80,7 +80,7 @@ function handleResultPage() {
 			charaMessage = "サクサクが美味い";
 			break;
 		case 'パン耳吉':
-			charaMessage = "修行が足りん";
+			charaMessage = "大凶枠";
 			break;
 	}
 	// htmlの .main-read クラスのテキストを書き換える
@@ -117,20 +117,26 @@ function handleHistoryPage() {
 
 	// 履歴がなければメッセージを表示して終了
 	const $list = $('#history-list');
+	const $playContent = $('.history .play-content');
 
-	history.forEach(item => {
-		const $li = $('<li>').html(
-			`${item.date}：<strong>${item.result.type}</strong> - ${item.result.text}` +
-			(item.lucky ? ` (ラッキーアイテム: ${item.lucky})` : '')
-		);
-		$list.append($li);
-	});
+	if (history.length === 0) {
+		$playContent.hide();
+	} else {
+			$playContent.show();
+			history.forEach(item => {
+					const $li = $('<li>').html(
+						`${item.date}：<strong>${item.result.type}</strong> - ${item.result.text}`
+			);
+			$list.append($li);
+		});
+	}
 	
 	// 履歴削除ボタン処理
 	$('#clear-history').on('click', function() {
 		if (confirm('いいの？履歴消しちゃって？')) {
 			localStorage.removeItem('omikujiHistory');
 			$list.empty();
+			$playContent.hide();
 		}
 	});
 }

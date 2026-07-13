@@ -109,6 +109,15 @@ h1::after{
 
 .index-play{
     position: relative;
+    
+}
+
+.index-play .imdex-play{
+    transition: transform 0.2s ease-in-out;
+}
+
+.index-play:hover, .imdex-play:hover{
+    transform: translateY(-6px);
 }
 
 .index .index-play::after{
@@ -168,4 +177,72 @@ h1::after{
 
 .result .index-content{
     padding-top: 25px;
+}
+
+.history{
+    background-image: linear-gradient(0deg, transparent calc(100% - 1px), #EAD8AB calc(100% - 1px)),
+    linear-gradient(90deg, transparent calc(100% - 1px), #EAD8AB calc(100% - 1px));
+    background-size: 32px 32px;
+    background-repeat: repeat;
+    background-position: center center;
+    background-color: #f9efd6;
+    height: auto;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;;
+    font-size: 18px;
+}
+
+.history .play-content{
+    text-align: left;
+    color: #D78037;
+    background-color: #fdfaf1;
+    border-radius: 10px;
+    border: dashed 3px #af975f;
+    padding: 20px;
+}
+
+.history li{
+    padding-top: 15px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #D78037;
+    opacity: 0.9;
+    
+}
+
+.history .index-content{
+    gap: 70px;
+}
+
+#clear-history{
+    padding: 10px;
+    background-color: #c59369;
+    color: #fff;
+    border-radius: 10px;
+    border: dashed 2px #000;
+    font-size: 16px;
+    width: 100%;
+}
+
+#clear-history:hover{
+    opacity: 0.5;
+}
+
+.go-top-btn{
+    background-color: #c59369;
+    padding: 10px;
+    color: inherit;
+    border-radius: 10px;
+    border: dashed 2px #000;
+    text-decoration: none;
+}
+
+.go-top-btn a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.go-top-btn:hover{
+    opacity: 0.8;
 }

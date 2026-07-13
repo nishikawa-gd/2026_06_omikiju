@@ -8,15 +8,29 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Zen+Antique&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Zen+Antique&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
 <body class="history">
-  <h1>履歴</h1>
-  <ul id="history-list"></ul>
-  <p><button id="clear-history">履歴を削除</button></p>
-  <p><a href="index.html">トップに戻る</a></p>
+  <div class="wrapper">
+    <div class="index-title">
+      <h1><img src="../images/top/main-title.svg" alt="今日のパンを決めよう！パンおみくじ"></h1>
+    </div>
+    <div class="index-content">
+      <div class="main-character">
+        <p class="read main-read">履歴やで</p>
+        <a href="http://uramichi-anime.com/">
+          <img src="../images/character/kotori-kun.svg" alt="小鳥さん" width="280px" height="326px">
+        </a>
+        <p><button id="clear-history">履歴を削除</button></p>
+        <p class="go-top-btn"><a href="index.html">トップに戻る</a></p>
+      </div>
+      <div class="play-content">
+        <ul id="history-list"></ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
