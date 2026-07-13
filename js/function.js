@@ -1,6 +1,6 @@
 
 
-$(function() {
+$(function () {
 	function init() {
 		handlePlayPage();
 		handleResultPage();
@@ -19,22 +19,28 @@ function handlePlayPage() {
 	if (!$('body').hasClass('play')) return;
 
 	// show-resultボタン押下時の処理
-	$('#show-result').on('click', function(e) {
+	$('#show-result').on('click', function (e) {
 
 		// デフォルトの動作をキャンセル
 		e.preventDefault();
 
-		// おみくじ結果とラッキーアイテムをランダムに選択
+		// おみくじ結果をランダムに選択
 		const result = omikujiResults[Math.floor(Math.random() * omikujiResults.length)];
 
-		// ラッキーアイテムの選択（設定がONの場合のみ）
-		const lucky = settings.showLuckyItem
-			? luckyItems[Math.floor(Math.random() * luckyItems.length)]
-			: null;
+		// ラッキーお昼セットをランダムに選択
+		let lucky = null;
+
+		if (settings.showLuckyItem) {
+			const food = foods[Math.floor(Math.random() * foods.length)];
+			const drink = drinks[Math.floor(Math.random() * drinks.length)];
+			const dessert = desserts[Math.floor(Math.random() * desserts.length)];
+
+			lucky = `${food} + ${drink} + ${dessert}`;
+		}
 
 		// 履歴保存
 		const history = JSON.parse(localStorage.getItem('omikujiHistory') || '[]');
-		
+
 		// 履歴に追加
 		history.push({ result, lucky, date: new Date().toLocaleString() });
 		// 履歴をlocalStorageに保存
@@ -51,7 +57,7 @@ function handlePlayPage() {
 
 // ===== 結果ページの処理 =====
 function handleResultPage() {
-	
+
 	// bodyにresultクラスがなければ終了
 	if (!$('body').hasClass('result')) return;
 
@@ -96,9 +102,9 @@ function handleHistoryPage() {
 		);
 		$list.append($li);
 	});
-	
+
 	// 履歴削除ボタン処理
-	$('#clear-history').on('click', function() {
+	$('#clear-history').on('click', function () {
 		if (confirm('履歴をすべて削除しますか？')) {
 			localStorage.removeItem('omikujiHistory');
 			$list.empty();
