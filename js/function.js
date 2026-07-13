@@ -35,7 +35,7 @@ function handlePlayPage() {
 			const drink = drinks[Math.floor(Math.random() * drinks.length)];
 			const dessert = desserts[Math.floor(Math.random() * desserts.length)];
 
-			lucky = `${food} + ${drink} + ${dessert}`;
+			lucky = `・${food}<br> ・${drink}<br> ・${dessert}`;
 		}
 
 		// 履歴保存
@@ -76,7 +76,7 @@ function handleResultPage() {
 
 	// ラッキーアイテムの表示（設定がONの場合のみ）
 	if (settings.showLuckyItem && data.lucky) {
-		$('#lucky-item').text(data.lucky);
+		$('#lucky-item').html(data.lucky);
 	} else {
 		$('#lucky-wrapper').remove();
 	}
