@@ -146,3 +146,64 @@ body.play {
         transform: rotate(0);
     }
 }
+
+/* リザルト */
+
+.wrapper{
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.result{
+    background-color: #EDDBCA;
+}
+
+#result-img{
+    margin-left: 60px;
+    z-index: 999;
+
+}
+
+.replay-btn{
+    margin-bottom: 50px;
+}
+
+.item-title{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+    margin: 40px 50px;
+}
+
+#lucky-item{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 20px 40px;
+}
+
+#lucky-wrapper {
+    position: relative;
+    background-color: #fff;
+    width: fit-content;
+    padding: 20px 40px;
+    border-radius: 20px;
+}
+
+/* 左側の吹き出し */
+#lucky-wrapper::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 20px solid #fff;
+}

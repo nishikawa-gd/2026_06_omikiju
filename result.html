@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>おみくじ結果</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
+
 <body class="result">
-  <h1>結果</h1>
-  <p id="result-text"></p>
 
-  <div class="js-result-img-wrapper">
-  <img id="result-img" src="" alt="結果画像">
+  <div class="wrapper">
+    
+    <div class="box-btn">
+      <p class="replay-btn"><a href="index.html"><img src="images/result/replay.png" alt="もう一度引く"></a></p>
+      <p><a href="history.html"><img src="images/result/result-btn.png" alt="履歴を見る"></a></p>
+    </div>
+
+    <img id="result-img" src="" alt="結果画像">
+
+    <div class="item">
+      <div id="lucky-wrapper">
+        <p class="item-title">今日のご飯</p>
+        <p id="lucky-item"></p>
+      </div>
+
+    </div>
   </div>
 
-  <div id="lucky-wrapper">
-    <p>今日のご飯</p>
-    <p id="lucky-item"></p>
-  </div>
-
-  <p><a href="index.html">もう一度引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
+
 </html>
