@@ -1,3 +1,4 @@
+/* TOP */
 body {
     background-color: #CC0000;
     text-align: center;
@@ -58,4 +59,89 @@ body {
 
 .button_start img:hover {
     transform: scale(1.05);
+}
+
+/* おみくじ演出 */
+.play {
+    background-color: #CC0000;
+
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    margin: 0;
+}
+
+.animation {
+    position: relative;
+    width: 424px;
+    height: 424px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_result {
+    margin-top: 30px;
+}
+
+.button_result img {
+    width: 271px; 
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button_result img:hover {
+    transform: scale(1.05);
+}
+
+.button_result img:active {
+    transform: scale(0.95);
+}
+
+.animation::before {
+    content: "";
+    position: absolute;
+
+    width: 424px;
+    height: 424px;
+
+    background: #FFFFFF;
+    border-radius: 50%;
+
+    z-index: 1;
+}
+
+.animation img {
+    position: relative;
+    z-index: 2;
+    width: 220px;
+
+    animation: katakata 0.25s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+@keyframes katakata {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-1.5deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(1.5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
