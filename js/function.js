@@ -1,6 +1,6 @@
 
 
-$(function() {
+$(function () {
 	function init() {
 		handlePlayPage();
 		handleResultPage();
@@ -14,44 +14,102 @@ $(function() {
 // ===== 演出ページの処理 =====
 function handlePlayPage() {
 
-
-	// bodyにplayクラスがなければ終了
 	if (!$('body').hasClass('play')) return;
 
 	// show-resultボタン押下時の処理
-	$('#show-result').on('click', function(e) {
-
+	$('.planet').on('click', function (e) {
 		// デフォルトの動作をキャンセル
 		e.preventDefault();
 
-		// おみくじ結果とラッキーアイテムをランダムに選択
+		// 押した星
+		const planet = $(this).data("planet");
+
+		// 保存
+		localStorage.setItem("planet", planet);
+
+		// ランダム結果
 		const result = omikujiResults[Math.floor(Math.random() * omikujiResults.length)];
 
-		// ラッキーアイテムの選択（設定がONの場合のみ）
+		// ラッキーアイテム
 		const lucky = settings.showLuckyItem
 			? luckyItems[Math.floor(Math.random() * luckyItems.length)]
 			: null;
 
-		// 履歴保存
-		const history = JSON.parse(localStorage.getItem('omikujiHistory') || '[]');
-		
+		// 保存
+		localStorage.setItem("omikujiCurrent", JSON.stringify({
+			planet,
+			result,
+			lucky
+		}));
+
+		// 履歴
+		const history = JSON.parse(localStorage.getItem("omikujiHistory") || "[]");
+
+		history.push({
+			result,
+			lucky,
+			date: new Date().toLocaleString()
+		});
+
+		localStorage.setItem("omikujiHistory", JSON.stringify(history));
+
+		// // 遷移
+		// window.location.href = "result.html";
+
+
+		// // おみくじ結果とラッキーアイテムをランダムに選択
+		// // const result = omikujiResults[Math.floor(Math.random() * omikujiResults.length)];
+
+		// // ラッキーアイテムの選択（設定がONの場合のみ）
+		// const lucky = settings.showLuckyItem
+		// 	? luckyItems[Math.floor(Math.random() * luckyItems.length)]
+		// 	: null;
+
+		// // 履歴保存
+		// const history = JSON.parse(localStorage.getItem('omikujiHistory') || '[]');
+		// const planet = localStorage.getItem("planet");
+
+		// // 選んだ惑星名
+		// $("#planet-name").text(names[planet]);
+
+		// 選んだ惑星画像
+		$("#planet-img")
+			.attr("src", planetImages[planet])
+			.attr("alt", names[planet]);
+
+
+		// おみくじ結果
+		$('#result-text').text(`${result.type}：${result.text}`);
+
+		// $('#result-text').text(`${data.result.type}：${data.result.text}`);
+
+
+		// 結果画像
+		$('#planet-img')
+			.attr('src', planetImages[planet])
+			.attr('alt', names[planet]);
+
 		// 履歴に追加
 		history.push({ result, lucky, date: new Date().toLocaleString() });
 		// 履歴をlocalStorageに保存
 		localStorage.setItem('omikujiHistory', JSON.stringify(history));
 
 		// 現在結果保存
-		localStorage.setItem('omikujiCurrent', JSON.stringify({ result, lucky }));
-
+		localStorage.setItem("omikujiCurrent", JSON.stringify({ planet, result, lucky }));
 		// 結果ページへ遷移
 		window.location.href = 'result.html';
+
 	});
+
+	// bodyにplayクラスがなければ終了
+	if (!$('body').hasClass('play')) return;
+
 }
 
 
 // ===== 結果ページの処理 =====
 function handleResultPage() {
-	
+
 	// bodyにresultクラスがなければ終了
 	if (!$('body').hasClass('result')) return;
 
@@ -59,7 +117,13 @@ function handleResultPage() {
 	const data = JSON.parse(localStorage.getItem('omikujiCurrent'));
 	// データがなければ終了
 	if (!data) return;
+	// 選んだ星
+	// const planet = localStorage.getItem("planet");
 
+	// $("#planet-name").text(names[planet]);
+	const planet = data.planet;
+
+	$("#planet-name").text(names[planet]);
 	// 結果表示
 	$('#result-text').text(`${data.result.type}：${data.result.text}`);
 	// 画像の設定
@@ -96,9 +160,9 @@ function handleHistoryPage() {
 		);
 		$list.append($li);
 	});
-	
+
 	// 履歴削除ボタン処理
-	$('#clear-history').on('click', function() {
+	$('#clear-history').on('click', function () {
 		if (confirm('履歴をすべて削除しますか？')) {
 			localStorage.removeItem('omikujiHistory');
 			$list.empty();

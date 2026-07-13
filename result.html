@@ -1,26 +1,59 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>おみくじ結果</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="result">
-  <h1>結果</h1>
-  <p id="result-text"></p>
 
-  <div class="js-result-img-wrapper">
-  <img id="result-img" src="" alt="結果画像">
+  <!-- 背景 -->
+  <div class="bg bg1"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+
+  <div class="result-content">
+
+    <!-- 選んだ星（「地球を選んだ君！」などが入ります） -->
+    <p class="planet-title">
+      <span id="planet-name"></span>を選んだ君！
+    </p>
+
+    <!-- 結果画像（画像が入る枠） -->
+    <div class="result-img">
+      <img id="result-img" src="" alt="">
+    </div>
+
+    <!-- おみくじの結果テキスト（「大吉：爆発的な幸運が〜」が入ります） -->
+    <p id="result-text" class="result-desc"></p>
+
+    <!-- ラッキーアイテム -->
+    <div id="lucky-wrapper">
+      <p class="lucky-title">ラッキーアイテム</p>
+      <p id="lucky-item"></p>
+    </div>
+
+    <!-- ボタン -->
+    <div class="result-btn">
+      <a href="history.html">履歴を見る</a>
+      <a href="play.html">もう一度引く</a>
+    </div>
+
   </div>
 
-  <div id="lucky-wrapper">
-    <p>ラッキーアイテム:</p>
-    <p id="lucky-item"></p>
-  </div>
-
-  <p><a href="index.html">もう一度引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
+
+</html>
+
 </html>

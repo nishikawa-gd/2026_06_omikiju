@@ -25,7 +25,9 @@ body {
     box-sizing: border-box;
 }
 
-body.index, body.play {
+body.index,
+body.play,
+body.result {
     margin: 0;
     width: 100%;
     height: 100vh;
@@ -36,9 +38,11 @@ body.index, body.play {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    font-family: "Zen Kaku Gothic New", sans-serif;
 }
 
-/* 共通 */
+/* 背景 */
 .bg {
     position: absolute;
     left: 50%;
@@ -95,13 +99,14 @@ p {
     animation: pulse 3s ease-in-out infinite;
 }
 
-@keyframes pulse{
+@keyframes pulse {
 
-    0%,100%{
+    0%,
+    100% {
         transform: scale(1.2);
     }
 
-    50%{
+    50% {
         transform: scale(1.05);
     }
 
@@ -170,5 +175,407 @@ body.index p.history-btn a {
 body.index p.history-btn a:hover {
 
     text-decoration: underline;
+
+}
+
+/*=========================
+  play画面
+=========================*/
+
+.content {
+    width: 830px;
+    height: 636px;
+    position: relative;
+    z-index: 10;
+}
+
+/* 惑星共通 */
+
+.planet {
+    position: absolute;
+    display: block;
+    transition: .3s;
+    animation: float 4s ease-in-out infinite;
+}
+
+.planet img {
+    width: 100%;
+    display: block;
+}
+
+/* ホバー */
+
+.planet:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 18px #fff);
+}
+
+/* クリック */
+
+.planet:active {
+    transform: scale(.95);
+}
+
+/* 配置 */
+.venus {
+    width: 204px;
+    bottom: 90px;
+    left: 20px;
+}
+
+.jupiter {
+    width: 204px;
+    top: 20px;
+    left: 120px;
+}
+
+.earth {
+    width: 204px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.neptune {
+    width: 204px;
+    top: 30px;
+    right: 120px;
+}
+
+.sun {
+    width: 204px;
+    bottom: 90px;
+    right: 20px;
+}
+
+/* メッセージ */
+
+.message {
+    position: absolute;
+    width: 100%;
+    bottom: 70px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: medium;
+}
+
+/* ふわふわ */
+
+@keyframes float {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -15px;
+    }
+}
+
+
+
+
+/*=========================
+    result
+=========================*/
+
+body.result {
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #072467;
+}
+
+/* 全体 */
+
+.result-content {
+
+    width: 830px;
+    height: 636px;
+
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* タイトル */
+
+.planet-title {
+
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-top: 30px;
+}
+
+.planet-title span {
+
+    color: #ffffff;
+
+}
+
+/* 結果画像 */
+
+.result-img {
+
+    margin-top: 20px;
+
+}
+
+.result-img img {
+
+    width: 320px;
+
+    animation: float 4s ease-in-out infinite;
+
+}
+
+/* 結果文 */
+
+#result-text {
+
+    margin-top: 40px;
+
+    width: 70%;
+
+    text-align: center;
+
+    color: #fff;
+
+    line-height: 2;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+}
+
+/* ラッキーアイテム */
+
+#lucky-wrapper {
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: white;
+
+}
+
+.lucky-title {
+
+    color: #FFD84E;
+
+}
+
+/* ボタン */
+
+.result-btn {
+
+    margin-top: auto;
+    margin-bottom: 30px;
+
+    display: flex;
+    gap: 80px;
+
+}
+
+.result-btn a {
+
+    width: 180px;
+    height: 46px;
+
+    border: 1px solid white;
+    border-radius: 999px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+.result-btn a:hover {
+
+    background: white;
+    color: #161E49;
+
+}
+
+/*=========================
+    history
+=========================*/
+
+body.history {
+
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    position: relative;
+
+    background: #072467;
+
+    font-family: "Zen Kaku Gothic New", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+/* 背景円を背面へ */
+
+body.history .bg{
+    z-index: 1;
+}
+
+
+/* 中身 */
+
+body.history h1,
+body.history ul,
+body.history p{
+
+    position: relative;
+    z-index: 10;
+
+    color:white;
+
+}
+
+
+/* タイトル */
+
+body.history h1{
+
+    margin-top: 90px;
+
+    font-size: 32px;
+    font-weight: bold;
+
+}
+
+
+/* 履歴リスト */
+
+#history-list{
+
+    width: 500px;
+
+    margin-top: 50px;
+
+    list-style:none;
+
+}
+
+
+/* JSで追加される履歴 */
+
+#history-list li{
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+
+    margin-bottom:20px;
+
+    font-size:20px;
+
+    color:white;
+
+}
+
+
+/* ボタン */
+
+#clear-history{
+
+    margin-top:50px;
+
+    width:195px;
+    height:46px;
+
+    border:1px solid white;
+    border-radius:999px;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+#clear-history:hover{
+
+    background:white;
+    color:#161E49;
+
+}
+
+
+
+/* トップへ戻る */
+
+body.history a{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:195px;
+    height:46px;
+
+    border:1px solid white;
+    border-radius:999px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+
+body.history a:hover{
+
+    background:white;
+    color:#161E49;
+
+}
+
+
+/* ボタン間隔 */
+
+body.history p{
+
+    margin-top:25px;
 
 }
