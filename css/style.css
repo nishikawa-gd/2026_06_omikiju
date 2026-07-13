@@ -242,40 +242,23 @@ a:hover {
 }
 
 
-/* 惑星を速く回す状態 */
-
-.solar_system.fast .orbit_planet{
-    animation: orbitFast 3s linear forwards;
-}
-
-@keyframes orbitFast{
-    from{
-        animation-timing-function:ease-in;
-        transform: rotate(0deg) translateX(250px);
-    }
-    to{
-        transform: rotate(360deg) translateX(250px);
-    }
-}
-
-
 /* 選ばれた時の光 */
 .center_planet{
-    animation:starGlow 2s infinite alternate;
-}
 
-
-@keyframes starGlow{
-
-    from{
-        filter:drop-shadow(0 0 10px #DDBF11);
-    }
-
-    to{
-        filter:drop-shadow(0 0 40px #fff);
-    }
+    filter: drop-shadow(0 0 15px #DDBF11);
 
 }
+
+.orbit_planet,
+
+.planet_img,
+
+.center_planet{
+
+    will-change: transform;
+
+}
+
 
 
 
@@ -563,4 +546,81 @@ p #clear_history:hover{
 
 .logo{
     cursor: pointer;
+}
+
+/* ローディングページ */
+
+.loading {
+    height: 100vh;
+    background-color: #090B16;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #DDBF11;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.loading_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.loading h1 {
+    font-weight: 700;
+    font-size: 28px;
+    position: relative;
+}
+
+.loading h1::after {
+    content: '...';
+    display: inline-block;
+    margin-left: 5px;
+    animation: dots 1.5s steps(3, end) infinite;
+}
+
+.loading p {
+    font-size: 16px;
+    color: #DDBF11;
+    max-width:500px;
+    line-height: 1.4;
+}
+
+@keyframes dots {
+    0%, 20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    80%, 100% {
+        opacity: 1;
+    }
+}
+
+.loading .center_planet{
+    position: static;
+    transform: none;
+    width: 180px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: none;
+    object-fit: contain;
+}
+
+.loading .loading_wrap{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
 }

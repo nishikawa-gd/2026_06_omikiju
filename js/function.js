@@ -16,10 +16,8 @@ function handlePlayPage() {
 	// bodyにplayクラスがなければ終了
 	if (!$('body').hasClass('play')) return;
 
-	// 5秒後に結果を見るボタン表示
-	setTimeout(function(){
-		$('#show-result').addClass('show');
-	},5000);
+	// 結果を見るボタンを最初から表示
+	$('#show-result').addClass('show');
 
 	// 結果を見るボタン
 	$('#show-result').on('click', function(e) {
