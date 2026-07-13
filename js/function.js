@@ -19,7 +19,7 @@ function handlePlayPage() {
 	if (!$('body').hasClass('play')) return;
 
 	// show-resultボタン押下時の処理
-	$('#show-result').on('click', function (e) {
+	$('.show-result').on('click', function (e) {
 
 		// デフォルトの動作をキャンセル
 		e.preventDefault();

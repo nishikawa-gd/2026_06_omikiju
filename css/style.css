@@ -1,12 +1,10 @@
 .boder-green {
     background-color: #26BF3D;
-    display: block;
     height: 70px;
 }
 
 .boder-blue {
     background-color: #008CD6;
-    display: block;
     height: 70px;
 }
 
@@ -18,9 +16,10 @@
     color: #008CD6;
     padding: 20px 0;
     text-align: center;
-    position: relative;
 }
 
+
+/* 窓・ドア配置 */
 .box01 {
     display: flex;
     gap: 100px;
@@ -28,22 +27,122 @@
     align-items: center;
 }
 
-.door {
+
+/* 左右の窓 */
+.window-left,
+.window-right {
+    background-color: #CAEFFE;
+    width: 290px;
+    height: 216px;
+}
+
+
+/* ドア＋ボタン */
+.door-area {
+    position: relative;
     margin-top: 100px;
 }
 
-.window-left {
-    background-color: #CAEFFE;
-    width: 100%;
-    max-width: 290px;
-    height: 216px;
+.door {
     display: block;
+}
+
+
+/* STARTボタンをドアの上に配置 */
+.start-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start-btn img {
+    width: 150px;
 }
 
 .window-right {
     background-color: #CAEFFE;
-    width: 100%;
-    max-width: 290px;
+    width: 290px;
     height: 216px;
-    display: block;
+    position: relative;
+}
+
+.result-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.result-btn img {
+    width: 150px;
+}
+
+/* 演出 */
+
+body.play {
+    background-color: #EDDBCA;
+}
+
+.play-area {
+    
+    display: flex;
+    gap: 90px;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.play-btn {
+    display: flex;
+    gap: 40px;
+}
+
+.rezi-top {
+    background-color: #C48A52;
+    width: 100%;
+    height: 50px;
+}
+
+.play h1 {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    text-align: center;
+    margin-top: 100px;
+     animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.5;
+    }
+}
+
+.play-btn a:hover img {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(8deg);
+    }
+    50% {
+        transform: rotate(-8deg);
+    }
+    75% {
+        transform: rotate(8deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
 }
