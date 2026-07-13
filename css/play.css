@@ -13,6 +13,48 @@
     height: 100vh;
 }
 
+.animation {
+    animation: shake 1.5s infinite;
+}
+
+@keyframes shake {
+
+    0%,
+    60%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    5% {
+        transform: translate(-3px, 2px) rotate(-2deg);
+    }
+
+    10% {
+        transform: translate(3px, -2px) rotate(2deg);
+    }
+
+    15% {
+        transform: translate(-2px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(2px, 2px) rotate(1deg);
+    }
+
+    25% {
+        transform: translate(-3px, 1px) rotate(-2deg);
+    }
+
+    30% {
+        transform: translate(3px, -1px) rotate(2deg);
+    }
+
+    35% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+}
+
 .play_main {
     text-align: center;
 }
@@ -22,12 +64,14 @@
 }
 
 .play_btn {
+    display: block;
     width: 352px;
     border-radius: 100px;
     background: linear-gradient(45deg, #FF9774 0%, #FF4343 100%);
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
     margin: 0 auto;
     margin-top: 40px;
+    text-decoration: none;
 }
 
 .btn_flex {
@@ -46,6 +90,7 @@
 }
 
 .btn_history {
+    display: block;
     width: 148px;
     border-radius: 100px;
     background-color: #fff;
@@ -53,6 +98,7 @@
     margin-top: 50px;
     margin-left: auto;
     margin-right: 50px;
+    text-decoration: none;
 }
 
 .btn_history_flex {
@@ -66,6 +112,6 @@
 .btn_txt_red {
     font-size: 26px;
     font-family: Zen Kaku Gothic New;
-    font-weight: bold;
+    font-weight: 500;
     color: #FF0000;
 }

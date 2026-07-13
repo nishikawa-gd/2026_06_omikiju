@@ -1,4 +1,4 @@
-.result {
+.result_2 {
     background-image: url(../images/result/result_bg.png);
     background-repeat: repeat-x repeat-y;
     background-size: 230px;
@@ -43,7 +43,20 @@
     font-family: Zen Kaku Gothic New;
     font-weight: 700;
     color: #fff;
-    background-color: #FF3B3B;
+    background-color: #71D400;
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin: 0 0 10px 0;
+}
+
+.type_contents_2 {
+    max-width: 80px;
+    text-align: center;
+    font-size: 20px;
+    font-family: Zen Kaku Gothic New;
+    font-weight: 700;
+    color: #fff;
+    background-color: #6A00BB;
     border-radius: 4px;
     padding: 4px 10px;
     margin: 0 0 20px 0;

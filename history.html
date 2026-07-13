@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <title>おみくじ履歴</title>
+  <title>おみくじアプリ</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/history.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;300;400;500;700;900&display=swap"
+    rel="stylesheet">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
+
 <body class="history">
-  <h1>履歴</h1>
-  <ul id="history-list"></ul>
-  <p><button id="clear-history">履歴を削除</button></p>
-  <p><a href="index.html">トップに戻る</a></p>
+  <div class="btn_side_1">
+    <h1 class="history_tit">履歴</h1>
+    <a href="./index.html" class="go_top_btn">
+      <div class="go_top_btn_flex">
+        <p class="go_top_btn_txt_red">トップに戻る</p>
+        <p class="btn_boll_red"><img src="./images/top/btn_ball_red.svg" alt="モンスターボール"></p>
+      </div>
+    </a>
+  </div>
+  <div class="history_main_visual">
+    <div class="history_box">
+      <ul id="history-list"></ul>
+    </div>
+
+    <div class="btn_side_2">
+      <div class="history_delete_btn">
+        <div class="btn_flex">
+          <p class="btn_txt_red">履歴を削除</p>
+          <p class="btn_boll_red"><img src="./images/top/btn_ball_red.svg" alt="モンスターボール"></p>
+        </div>
+      </div>
+      <a href="./play.html" class="play_btn">
+        <div class="btn_flex">
+          <p class="btn_txt_red">もう一度回す</p>
+          <p class="btn_boll_red"><img src="./images/top/btn_ball_red.svg" alt="モンスターボール"></p>
+        </div>
+      </a>
+    </div>
+    <!-- <p><button id="clear-history">履歴を削除</button></p>
+    <p><a href="index.html">トップに戻る</a></p> -->
+  </div>
 </body>
+
 </html>

@@ -1,0 +1,90 @@
+.history {
+    background-image: url(../images/history/history_bg.png);
+    background-repeat: repeat-x repeat-y;
+    background-size: 210px;
+    background-color: #F80101;
+    padding: 50px;
+}
+
+.history_main_visual {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.history_tit {
+    font-size: 50px;
+    font-family: Zen Kaku Gothic New;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+.btn_side_1 {
+    position: relative;
+}
+
+.go_top_btn {
+    width: 260px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 100px;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    margin-left: auto;
+    text-decoration: none;
+}
+
+.go_top_btn_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 24px;
+}
+
+.go_top_btn_txt_red {
+    font-size: 26px;
+    font-family: Zen Kaku Gothic New;
+    font-weight: 500;
+    color: #FF0000;
+}
+
+.history_box {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 60px;
+}
+
+.btn_side_2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.play_btn,
+.history_delete_btn {
+    width: 320px;
+    border-radius: 100px;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+}
+
+.btn_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 30px;
+}
+
+.btn_txt_red {
+    font-size: 34px;
+    font-family: Zen Kaku Gothic New;
+    font-weight: bold;
+    color: #FF0000;
+}
