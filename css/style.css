@@ -23,13 +23,15 @@ body {
 }
 
 .sousyoku-left {
-    top: 90px; 
-    left: -450px; 
+    top: 90px;
+    left: -450px;
+    animation: floating 4s ease-in-out infinite;
 }
 
 .sousyoku-right {
-    bottom: -30px; 
-    right: -450px; 
+    bottom: -30px;
+    right: -450px;
+    animation: floating 4.5s ease-in-out infinite reverse;
 }
 
 .hana-left,
@@ -41,11 +43,13 @@ body {
 .hana-left {
     top: 400px;
     left: -350px;
+    animation: floating 3.5s ease-in-out infinite reverse;
 }
 
 .hana-right {
     top: 90px;
     right: -350px;
+    animation: floating 5s ease-in-out infinite;
 }
 
 .button_start {
@@ -362,4 +366,18 @@ body {
     align-items: center;
     gap: 30px;
     margin-top: 30px;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
