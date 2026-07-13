@@ -7,6 +7,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: "Zen Kaku Gothic New", sans-serif;
+    background-attachment: fixed;
 }
 
 #loading {
@@ -27,7 +28,6 @@ body {
     transition: opacity 0.8s ease-in-out, visibility 0.8s;
 }
 
-/* 2秒後にJSで消すためのクラス */
 #loading.loaded {
     opacity: 0;
     visibility: hidden;
@@ -39,7 +39,6 @@ body {
 .cloud-obj {
     position: absolute;
     opacity: 0;
-    /* 1.5秒かけて同時にフェードインさせるシンプルな設定に変えます */
     animation: simultaneousFadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
@@ -145,7 +144,7 @@ body {
     position: absolute;
     top: 5%;
     left: 0%;
-    z-index: 10; 
+    z-index: 10;
     transition: opacity 0.3s;
 }
 
@@ -154,7 +153,7 @@ body {
 }
 
 .home-logo {
-    position: static; 
+    position: static;
     max-width: 100px;
     height: auto;
 }
@@ -272,7 +271,7 @@ body {
     position: absolute;
     top: 45%;
     left: 50%;
-    transform-origin: center center; 
+    transform-origin: center center;
     transform: translate(-50%, -50%);
 }
 
@@ -315,29 +314,36 @@ body {
 }
 
 
-/* 画像の初期の向きに合わせて、斜めに傾けながら左右に細かく振る */
 @keyframes shakeOmikuji {
     0% {
         transform: translate(-50%, -50%) rotate(35deg);
     }
+
     100% {
         transform: translate(-50%, -50%) rotate(55deg);
     }
 }
 
-/* フリフリ状態から、クルッと180度ひっくり返って下を向く動き */
 @keyframes flipOmikuji {
     0% {
         transform: translate(-50%, -50%) rotate(45deg);
     }
+
     100% {
-        transform: translate(-50%, -50%) rotate(180deg); /* 1枚目から完全に逆さまにする */
+        transform: translate(-50%, -50%) rotate(180deg);
     }
 }
 
 @keyframes fadeInResultButton {
-    from { opacity: 0; transform: translate(-50%, 10px); }
-    to { opacity: 1; transform: translate(-50%, 0); }
+    from {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
 }
 
 
@@ -356,19 +362,17 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.3));
-    
-    /* 画面を開いたときにシュッと上に浮き上がってくる演出 */
+
     opacity: 0;
     animation: resultFadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
 }
 
 #kuji-result-img {
-    max-width: 277px; 
+    max-width: 277px;
     height: auto;
     display: block;
 }
 
-/* 「もう一度引く」ボタンの配置 */
 .result-action {
     position: absolute;
     bottom: 10%;
@@ -399,11 +403,160 @@ body {
 @keyframes resultFadeInUp {
     from {
         opacity: 0;
-        /* 少し下（中央位置 + 20px）からスタート */
         transform: translate(-50%, calc(-50% + 20px));
     }
+
     to {
         opacity: 1;
         transform: translate(-50%, -50%);
     }
+}
+
+.history-page {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#history-content {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+.history-stage {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 10vh;
+    z-index: 2;
+}
+
+.history-page-title {
+    text-align: center;
+    color: #fff796;
+    font-size: 2.2rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 30px;
+    font-family: serif;
+}
+
+.history-list-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.history-item {
+    width: 100%;
+}
+
+.history-date {
+    color: #fff796;
+    font-size: 0.8rem;
+    margin: 0 0 5px 2px;
+    letter-spacing: 0.05em;
+}
+
+.history-card {
+    background-color: #fff;
+    border: 1px solid #a61111;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.history-main-text {
+    color: #a61111;
+    font-size: 2.2rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.history-sub-text {
+    color: #a61111;
+    font-size: 1rem;
+    line-height: 1.4;
+    border-left: 1px solid #a61111;
+    padding-left: 25px;
+    margin: 0;
+}
+
+.history-delete-action {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-delete {
+    color: #fff796;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    transition: opacity 0.3s;
+}
+
+.btn-delete:hover {
+    opacity: 0.7;
+}
+
+.history-fixed-nav {
+    position: fixed;
+    bottom: 8%;
+    left: 100px;
+    z-index: 10;
+}
+
+.result-page .home-cloud,
+.history-page .home-cloud {
+    opacity: 0.5;
+}
+
+.history-bg-clouds {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+.history-fixed-header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+    height: 150px;
+    z-index: 20;
+    pointer-events: none;
+}
+
+
+.history-fixed-header a,
+.history-fixed-header img {
+    pointer-events: auto;
+}
+
+.history-page .home-logo-link {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+}
+
+
+.history-page .home-title {
+    position: absolute;
+    top: 40px;
+    right: 0px;
 }

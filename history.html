@@ -1,16 +1,61 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <title>おみくじ履歴</title>
+  <title>履歴 | おさしずおみくじ 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
-<body class="history">
-  <h1>履歴</h1>
-  <ul id="history-list"></ul>
-  <p><button id="clear-history">履歴を削除</button></p>
-  <p><a href="index.html">トップに戻る</a></p>
+
+<body class="history-page">
+
+  <div id="history-content">
+
+
+    <div class="history-bg-clouds">
+      <img src="img/serect_object01.png" alt="雲" class="home-cloud h-obj1">
+      <img src="img/serect_object02.png" alt="雲" class="home-cloud h-obj2">
+      <img src="img/serect_object03.png" alt="雲" class="home-cloud h-obj3">
+      <img src="img/serect_object04.png" alt="雲" class="home-cloud h-obj4">
+      <img src="img/serect_object01.png" alt="雲" class="home-cloud h-obj5">
+      <img src="img/serect_object02.png" alt="雲" class="home-cloud h-obj6">
+    </div>
+
+    <div class="history-stage">
+
+      <div class="history-fixed-header">
+        <a href="index.html" class="home-logo-link">
+          <img src="img/logo.png" alt="ロゴ" class="home-logo">
+        </a>
+        <img src="img/title.png" alt="おさしずおみくじ 2026" class="home-title">
+      </div>
+
+      <h2 class="history-page-title">履歴</h2>
+
+
+      <div class="history-list-container">
+      </div>
+
+
+      <div class="history-delete-action">
+        <a href="#" class="btn-delete">履歴を削除</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="history-fixed-nav">
+    <a href="index.html" class="btn-history">トップに戻る</a>
+  </div>
+
 </body>
+
 </html>
