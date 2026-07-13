@@ -1,0 +1,27 @@
+body {
+    background-color: #CC0000;
+    text-align: center;
+}
+
+.main-visual {
+    margin-top: 80px;
+}
+
+.main-visual img {
+    width: 400px;
+}
+
+.button_start {
+    margin-top: 15px;
+}
+
+.index {
+    position: relative;
+}
+
+.index-cat {
+    position: absolute;
+    right: 90px;  
+    bottom: 10px; 
+    width: 180px; 
+}
