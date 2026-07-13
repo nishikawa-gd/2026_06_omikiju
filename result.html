@@ -3,24 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>おみくじ結果</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
 <body class="result">
-  <h1>結果</h1>
-  <p id="result-text"></p>
-
-  <div class="js-result-img-wrapper">
-  <img id="result-img" src="" alt="結果画像">
+  <div class="background">
+    
+    <div class="js-result-img-wrapper">
+      <img id="result-img" src="" alt="結果画像">
+      
+      <p id="result-text"></p>
+      
+      <div id="lucky-wrapper">
+        <p id="lucky-item"></p>
+      </div>
+    </div>
+    <p><a href="index.html" class="top-btn">もう一度引く</a></p>
+    <p><a href="history.html" class="top-btn">履歴を見る</a></p>
   </div>
-
-  <div id="lucky-wrapper">
-    <p>ラッキーアイテム:</p>
-    <p id="lucky-item"></p>
-  </div>
-
-  <p><a href="index.html">もう一度引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
 </html>

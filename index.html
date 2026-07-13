@@ -3,16 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>おみくじアプリ</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
 </head>
 <body class="index">
-  <h1>おみくじアプリ1</h1>
-  <div class="main-visual">
-    <img src="images/top/mainvisual.png" alt="メインビジュアル">
+  <div class="wrapper">
+      <div class="background">
+        <div class="top-all">
+          <div class="top-omikuji"><h1><img src="images/top/omikujitext.png" alt="" width="50" height="220"></h1></div>
+          <div class="main-visual">
+            <img src="images/top/omikuji.png" alt="メインビジュアル" width="208" height="443">
+          </div>
+          <div class="btn-flex">
+            <p><a href="play.html" class="top-btn">おみくじを引く</a></p>
+            <p><a href="history.html" class="top-btn">履歴を見る</a></p>
+          </div>
+        </div>
+    </div>
   </div>
-  <p><a href="play.html">おみくじを引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
 </html>
