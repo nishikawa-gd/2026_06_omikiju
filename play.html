@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>おみくじ演出</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="play">
-  <h1>おみくじ演出</h1>
-  <div class="animation">
-    <img src="images/play/play.png" alt="おみくじを振る演出">
+
+  <div class="bg bg1"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+
+  <div class="content">
+
+    <div class="planet mercury">
+      <img src="images/play/suisei.png" alt="">
+    </div>
+
+    <div class="planet saturn">
+      <img src="images/play/dosei.png" alt="">
+    </div>
+
+    <div class="planet earth">
+      <img src="images/play/chikyu.png" alt="">
+    </div>
+
+    <div class="planet neptune">
+      <img src="images/play/kaiousei.png" alt="">
+    </div>
+
+    <div class="planet sun">
+      <img src="images/play/taiyo.png" alt="">
+    </div>
+
+    <p class="message">
+      気になる星を選んでみよう！
+    </p>
+
   </div>
-  <p><a href="#" id="show-result">結果を見る</a></p>
+
 </body>
-</html>

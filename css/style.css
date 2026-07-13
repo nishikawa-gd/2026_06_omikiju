@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    width: min(90%, 1200px);
+    margin: auto;
+}
+
+.main-visual img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+
+/* --------------------
+    共通
+-------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.index, body.play {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: #072467;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 共通 */
+.bg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 400px;
+}
+
+/* 一番外 */
+.bg1 {
+    width: 1146px;
+    height: 858px;
+    background: #0F1D68;
+}
+
+/* 2番目 */
+.bg2 {
+    width: 988px;
+    height: 756px;
+    background: #151F59;
+}
+
+/* 3番目 */
+.bg3 {
+    width: 830px;
+    height: 636px;
+    background: #161E49;
+}
+
+
+/* 中身を前面へ */
+.main-visual,
+p {
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --------------------
+    メイン
+-------------------- */
+
+.main-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+
+    margin-top: -50px;
+    /* 上へ移動 */
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform: scale(1.2);
+    }
+
+    50%{
+        transform: scale(1.05);
+    }
+
+}
+
+.main-visual img {
+    width: 600px;
+    max-width: 90%;
+}
+
+/* --------------------
+    はじめるボタン
+-------------------- */
+
+body.index p.start-btn {
+    position: absolute;
+    bottom: 120px;
+}
+
+body.index p.start-btn a {
+
+    width: 195px;
+    height: 46px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #fff;
+    border-radius: 999px;
+
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: medium;
+
+    transition: .3s;
+}
+
+body.index p.start-btn a:hover {
+
+    background: white;
+    color: #20275E;
+
+}
+
+/* --------------------
+    履歴
+-------------------- */
+
+body.index p.history-btn {
+
+    position: absolute;
+    bottom: 65px;
+
+}
+
+body.index p.history-btn a {
+
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+
+}
+
+body.index p.history-btn a:hover {
+
+    text-decoration: underline;
+
+}
