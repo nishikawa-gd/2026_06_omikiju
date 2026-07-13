@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Zen Kaku Gothic New", sans-serif;
 }
 
 #loading {
@@ -37,7 +38,7 @@ body {
 .top-crane,
 .cloud-obj {
     position: absolute;
-    opacity: 0; 
+    opacity: 0;
     /* 1.5秒かけて同時にフェードインさせるシンプルな設定に変えます */
     animation: simultaneousFadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
@@ -46,7 +47,7 @@ body {
 .top-main-logo {
     top: 43%;
     left: 42%;
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);
     max-width: 800px;
 }
 
@@ -89,14 +90,320 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 500px; 
+    max-width: 500px;
 }
 
 @keyframes simultaneousFadeIn {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
+    }
+}
+
+#home-content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.home-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-title,
+.home-logo,
+.home-omikuji,
+.home-action,
+.home-navigation,
+.home-cloud {
+    position: absolute;
+}
+
+.home-title {
+    top: 5%;
+    right: 0%;
+    max-width: 170px;
+    height: auto;
+}
+
+.home-logo {
+    top: 5%;
+    left: 0%;
+    max-width: 100px;
+    height: auto;
+}
+
+.home-logo-link {
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    z-index: 10; 
+    transition: opacity 0.3s;
+}
+
+.home-logo-link:hover {
+    opacity: 0.7;
+}
+
+.home-logo {
+    position: static; 
+    max-width: 100px;
+    height: auto;
+}
+
+.home-omikuji {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.omikuji-img {
+    max-width: 257px;
+    height: auto;
+}
+
+.home-action {
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-play {
+    display: inline-block;
+    color: #fff796;
+    text-decoration: none;
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.btn-play:hover {
+    opacity: 0.7;
+    color: #f7e3af;
+}
+
+
+.home-navigation {
+    bottom: 8%;
+    left: 0%;
+}
+
+.btn-history {
+    display: block;
+    border: 1px solid #fff796;
+    padding: 12px 6px;
+    color: #fff796;
+    text-decoration: none;
+    font-size: 1rem;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.2em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-history:hover {
+    background-color: #fff796;
+    color: #a61111;
+}
+
+.home-cloud {
+    height: auto;
+}
+
+/* 左上の長い雲 (serect_object01) */
+.h-obj1 {
+    top: 30%;
+    left: -13%;
+    max-width: 272px;
+}
+
+/* 左下の長い雲 (serect_object02) */
+.h-obj2 {
+    top: 50%;
+    left: -24%;
+    max-width: 272px;
+}
+
+/* 左下の短い雲 (serect_object03) */
+.h-obj3 {
+    bottom: 30%;
+    left: 0%;
+    max-width: 391px;
+}
+
+/* 右上の短い雲 (serect_object04) */
+.h-obj4 {
+    top: 30%;
+    right: -10%;
+    max-width: 428px;
+}
+
+/* 右上の長い雲 (serect_object01) */
+.h-obj5 {
+    top: 70%;
+    right: 15%;
+    max-width: 323px;
+}
+
+/* 右下の長い雲 (serect_object02) */
+.h-obj6 {
+    top: 57%;
+    right: -25%;
+    max-width: 272px;
+}
+
+.play-page #play-content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.omikuji-container {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform-origin: center center; 
+    transform: translate(-50%, -50%);
+}
+
+.play-omikuji-img {
+    max-width: 257px;
+    height: auto;
+    display: block;
+}
+
+
+.omikuji-container.is-shaking {
+    animation: shakeOmikuji 0.15s ease-in-out infinite alternate;
+}
+
+.omikuji-container.is-flipped {
+    animation: flipOmikuji 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+
+.play-action {
+    position: absolute;
+    bottom: 18%;
+    left: 49%;
+    transform: translateX(-50%);
+}
+
+.btn-result {
+    display: inline-block;
+    color: #fff796;
+    text-decoration: none;
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.btn-result:hover {
+    opacity: 0.7;
+    color: #f7e3af;
+}
+
+
+/* 画像の初期の向きに合わせて、斜めに傾けながら左右に細かく振る */
+@keyframes shakeOmikuji {
+    0% {
+        transform: translate(-50%, -50%) rotate(35deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(55deg);
+    }
+}
+
+/* フリフリ状態から、クルッと180度ひっくり返って下を向く動き */
+@keyframes flipOmikuji {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(180deg); /* 1枚目から完全に逆さまにする */
+    }
+}
+
+@keyframes fadeInResultButton {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+
+.result-page #result-content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.result-paper-wrapper {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.3));
+    
+    /* 画面を開いたときにシュッと上に浮き上がってくる演出 */
+    opacity: 0;
+    animation: resultFadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+}
+
+#kuji-result-img {
+    max-width: 277px; 
+    height: auto;
+    display: block;
+}
+
+/* 「もう一度引く」ボタンの配置 */
+.result-action {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-retry {
+    display: inline-block;
+    color: #fff796;
+    text-decoration: none;
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.btn-retry:hover {
+    opacity: 0.7;
+    color: #f7e3af;
+}
+
+.result-page .home-cloud {
+    opacity: 0.5;
+}
+
+
+@keyframes resultFadeInUp {
+    from {
+        opacity: 0;
+        /* 少し下（中央位置 + 20px）からスタート */
+        transform: translate(-50%, calc(-50% + 20px));
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
     }
 }
