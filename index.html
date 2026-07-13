@@ -3,17 +3,231 @@
 <head>
   <meta charset="UTF-8">
   <title>おみくじアプリ</title>
-  /*途中*/
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <style>
+    /* ==========================================================================
+       おみくじ箱を完全中央に配置する和モダンCSS
+       ========================================================================== */
+
+    /* --- 1. 全体の基本設定と背景 --- */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body.index {
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+        /* 背景色に加えて背景画像を設定（中央に配置し、画面全体を覆う設定） */
+        background-color: #fbf8f3; 
+        background-image: url('images/top/haikei.png'); /* 👈 ここに背景画像のパスを入れてください */
+        background-size: cover;       /* 画面全体に引き伸ばして表示 */
+        background-position: center;   /* 画像の中心を画面の中央に合わせる */
+        background-repeat: no-repeat;  /* 画像の繰り返しを防止 */
+        background-attachment: fixed;  /* スクロールしても背景を固定（お好みで） */
+        
+        color: #3b2a20; 
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 4% 80px;
+    }
+
+    /* --- 2. 左上のアプリ名 --- */
+    h1 {
+        align-self: flex-start; /* 左上に固定 */
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        z-index: 10;
+    }
+    h1::before {
+        content: "✿";
+        color: #e0533c;
+        font-size: 26px;
+        margin-right: 8px;
+    }
+
+    /* --- 3. 背景の雲（左右にバランスよく配置） --- */
+    
+    /* 左の雲（kumo1.png） */
+    .img-deco-left {
+        position: absolute;
+        top: 20%;
+        left: -0px;
+        width: 380px;
+        height: auto;
+        opacity: 0.6;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* 右下の雲（kumohidari.png） */
+    .img-deco-right {
+        position: absolute;
+        bottom: 10%;
+        right: -40px;
+        width: 420px;
+        height: auto;
+        opacity: 0.6;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* --- 4. 中央配置エリア（すべてが縦に美しく並ぶコンテナ） --- */
+    .main-contents {
+        max-width: 600px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        z-index: 5;
+        margin-top: 20px;
+    }
+
+    /* 水引 ＆ キャッチコピー */
+    .omikuji-header {
+        font-size: 22px;
+        color: #7a6e67;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        line-height: 2;
+        margin-bottom: 20px;
+    }
+    .omikuji-header::before {
+        content: "୨୧";
+        display: block;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    /* 特大タイトルロゴ「おみくじ」 */
+    .omikuji-title {
+        font-size: 60px; 
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: 0.2em; 
+        color: #2b1f17;
+        margin-bottom: 40px;
+        padding-left: 0.2em; /* 文字を完全に中央に寄せるための余白調整 */
+    }
+
+    /* 【画像】中央の主役おみくじ箱 */
+   /* 【画像】中央の主役おみくじ箱（さらに大きく調整！） */
+   .img-box-center {
+        width: 500px; /* 280px から 360px に拡大して存在感をアップ */
+        height: auto;
+        margin-bottom: 40px;
+        filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.08));
+    }
+    
+
+    /* 説明文（ボタンの上のメッセージ） */
+    .omikuji-desc {
+        font-size: 16px;
+        color: #5a4f47;
+        font-weight: normal;
+        line-height: 1.8;
+        letter-spacing: 0.08em;
+        margin-bottom: 30px;
+    }
+    .omikuji-desc::before,
+    .omikuji-desc::after {
+        content: " ✿ ";
+        color: #e0533c;
+        font-size: 14px;
+    }
+
+    /* 「おみくじを引く」ボタン */
+    .omikuji-btn a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e0533c; 
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: bold;
+        padding: 18px 80px;
+        border-radius: 50px;
+        box-shadow: 0 8px 25px rgba(226, 83, 60, 0.35);
+        transition: transform 0.2s, background-color 0.2s;
+        border: 2px solid #e0533c;
+        letter-spacing: 0.1em;
+    }
+    .omikuji-btn a::after {
+        content: " ＞";
+        font-size: 18px;
+        margin-left: 8px;
+    }
+    .omikuji-btn a:hover {
+        transform: translateY(-3px);
+        background-color: #c8432d;
+    }
+
+    /* 「履歴を見る」リンク */
+    .mr {
+        margin-top: 30px; 
+    }
+    .mr p a {
+        color: #3b2a20;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: 1px solid #3b2a20;
+        padding-bottom: 4px;
+        transition: opacity 0.2s;
+        letter-spacing: 0.05em;
+    }
+    .mr p a:hover {
+        opacity: 0.7;
+    }
+    .mr p a::after {
+        content: " ＞";
+    }
+
+
+  </style>
 </head>
+
 <body class="index">
   <h1>おみくじアプリ</h1>
-  <div class="main-visual">
-    <img src="images/top/mainvisual.png" alt="メインビジュアル">
+  
+  <!-- 背景の雲（左右に絶対配置） -->
+  <img src="images/top/kumo1.png" alt="背景装飾" class="img-deco-left">
+  <img src="images/top/kumohidari.png" alt="背景装飾" class="img-deco-right">
+
+  <!-- 中央のメインコンテンツ（見本通り上から順に縦一列に並びます） -->
+  <div class="main-contents">
+    
+    <!-- 1. 水引 ＆ キャッチコピー -->
+    <div class="omikuji-header">今日の運勢を、ここで。</div>
+    
+    <!-- 2. タイトルロゴ「おみくじ」 -->
+    <div class="omikuji-title">おみくじ</div>
+
+    <!-- 3. 【主役】中央のおみくじ箱 -->
+    <img src="images/top/hako.png" alt="おみくじ箱" class="img-box-center">
+    
+    <!-- 4. 説明文 -->
+    <div class="omikuji-desc">ボタンをクリックしておみくじを引いてください</div>
+
+    <!-- 5. 「おみくじを引く」ボタン -->
+    <div class="omikuji-btn"><a href="play.html">おみくじを引く</a></div>
+    
+    <!-- 6. 履歴を見るリンク -->
+    <div class="mr"><p><a href="history.html">履歴を見る</a></p></div>
   </div>
-  <p><a href="play.html">おみくじを引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
+  
 </body>
 </html>

@@ -6,11 +6,255 @@
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <style>
+    /* ==========================================================================
+       ========================================================================== */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body.history {
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+        background-color: #fbf8f3; 
+         background-image: url('images/top/haikei.png'); /* アプリ共通の背景画像 */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #3b2a20; 
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 4% 80px;
+    }
+
+    /* ==========================================================================
+       ========================================================================== */
+    /* 上部中央の赤い水引飾り */
+    .mizuhiki-container {
+        width: 220px;
+        height: auto;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        z-index: 5;
+    }
+
+    .mizuhiki-svg {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 中央タイトル：「履歴」 */
+    h1 {
+        font-size: 42px;
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        color: #2b1f17;
+        margin-bottom: 12px;
+        text-align: center;
+        z-index: 10;
+        padding-left: 0.15em; /* 字間補正 */
+    }
+
+    /* サブタイトル */
+    .history-subtitle {
+        font-size: 16px;
+        color: #5a4f47;
+        margin-bottom: 40px;
+        letter-spacing: 0.1em;
+        text-align: center;
+        z-index: 10;
+    }
+
+    /* ==========================================================================
+       ========================================================================== */
+    /* 履歴を表示する ul リストのスタイリング */
+    #history-list {
+        list-style: none;
+        width: 100%;
+        max-width: 520px;
+        z-index: 5;
+        margin-bottom: 45px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* JavaScriptで動的に追加される li の和風二重枠カードデザイン */
+    #history-list li {
+        background: #ffffff;
+        border: 1px solid #e8dec9;
+        padding: 6px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(181, 159, 131, 0.12);
+        position: relative;
+        text-align: left;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #5a4f47;
+    }
+
+    /* カードの内枠 */
+    #history-list li::before {
+        content: "";
+        position: absolute;
+        top: 4px; left: 4px; right: 4px; bottom: 4px;
+        border: 1px solid #e8dec9;
+        border-radius: 11px;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* さらに内側の極細ゴールド線（高級感を付与） */
+    #history-list li::after {
+        content: "";
+        position: absolute;
+        top: 8px; left: 8px; right: 8px; bottom: 8px;
+        border: 1px solid #f6f0e2;
+        border-radius: 8px;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* li内の実際のコンテンツコンテナ（必要に応じてJSが書き出すテキストを包み込みます） */
+    /* もしプレーンテキストが挿入された場合でも美しく表示するインナースペース */
+    #history-list li {
+        padding: 24px 28px;
+        font-weight: 500;
+    }
+
+    /* 履歴がない場合のプレースホルダー表示用スタイル */
+    .no-history-msg {
+        text-align: center;
+        color: #8c7f76;
+        font-size: 16px;
+        letter-spacing: 0.1em;
+        padding: 40px 20px !important;
+    }
+
+    /* ==========================================================================
+       ========================================================================== */
+    .action-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 520px;
+        z-index: 10;
+        gap: 25px;
+    }
+
+    /* 履歴を削除ボタン */
+    .btn-clear-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #clear-history {
+        background-color: transparent;
+        color: #e0533c;
+        border: 2px solid #e0533c;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 14px 0;
+        width: 100%;
+        max-width: 320px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.2s;
+        letter-spacing: 0.1em;
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+        box-shadow: 0 4px 15px rgba(226, 83, 60, 0.05);
+    }
+
+    #clear-history:hover {
+        background-color: #e0533c;
+        color: #ffffff;
+        box-shadow: 0 8px 25px rgba(226, 83, 60, 0.25);
+    }
+
+    /* トップに戻るリンク */
+    .btn-back-wrap {
+        margin-top: 10px;
+    }
+
+    .btn-back-wrap a {
+        color: #3b2a20;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: 1.5px solid #3b2a20;
+        padding-bottom: 4px;
+        transition: opacity 0.2s;
+        letter-spacing: 0.05em;
+        display: inline-block;
+    }
+
+    .btn-back-wrap a:hover {
+        opacity: 0.7;
+    }
+
+    .btn-back-wrap a::before {
+        content: "◀ ";
+        font-size: 12px;
+    }
+
+    /* 背景の散り桜 */
+    .petal-deco {
+        position: absolute;
+        font-size: 18px;
+        opacity: 0.35;
+        pointer-events: none;
+        user-select: none;
+        z-index: 1;
+    }
+
+  </style>
 </head>
 <body class="history">
+
+  <!-- 背景の散り桜（和風の情緒を高めるあしらい） -->
+  <span class="petal-deco" style="top: 15%; left: 10%; transform: rotate(15deg);">🌸</span>
+  <span class="petal-deco" style="top: 28%; right: 12%; transform: rotate(-10deg);">🌸</span>
+  <span class="petal-deco" style="bottom: 35%; left: 8%; transform: rotate(45deg);">🌸</span>
+  <span class="petal-deco" style="bottom: 20%; right: 15%; transform: rotate(-25deg);">🌸</span>
+
+  <!-- 1. 上部の水引リボン（美しいあわじ・蝶結び調のライン） -->
+  <div class="mizuhiki-container">
+    <svg class="mizuhiki-svg" viewBox="0 0 200 40">
+      <path d="M 0,20 L 85,20 C 93,10 97,10 100,20" fill="none" stroke="#e0533c" stroke-width="1.5" />
+      <path d="M 200,20 L 115,20 C 107,10 103,10 100,20" fill="none" stroke="#e0533c" stroke-width="1.5" />
+      <path d="M 85,20 C 90,32 98,32 100,20 C 102,32 110,32 115,20" fill="none" stroke="#e0533c" stroke-width="1.5" />
+    </svg>
+  </div>
+
+  <!-- 2. タイトル ＆ サブ説明文 -->
   <h1>履歴</h1>
-  <ul id="history-list"></ul>
-  <p><button id="clear-history">履歴を削除</button></p>
-  <p><a href="index.html">トップに戻る</a></p>
+  <p class="history-subtitle">これまでに引いたおみくじの記録</p>
+
+  <!-- 3. 【主役】和風おみくじ履歴リスト（JSによってこの中にli要素が追加されます） -->
+  <ul id="history-list">
+    <!-- JSの実行前に一瞬表示されるプレースホルダー。JSの書き出し処理が走ると中身は置き換わります -->
+    <li class="no-history-msg">履歴を読み込んでいます...</li>
+  </ul>
+
+  <!-- 4. アクションエリア -->
+  <div class="action-container">
+    <p class="btn-clear-wrap">
+      <button id="clear-history">履歴を削除</button>
+    </p>
+    <p class="btn-back-wrap">
+      <a href="index.html">トップに戻る</a>
+    </p>
+  </div>
+
 </body>
 </html>

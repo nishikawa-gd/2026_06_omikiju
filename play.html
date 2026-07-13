@@ -6,12 +6,160 @@
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <style>
+    /* ==========================================================================
+       おみくじを振る演出画面（play.html）用和モダンCSS
+       ========================================================================== */
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body.play {
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+        background-color: #fbf8f3; 
+        
+        /* ➔ 【修正】背景画像を画面全体に綺麗に広げる設定 */
+        
+        background-size: cover;       /* 画面全体を覆う */
+        background-position: center;   /* 中央に配置 */
+        background-repeat: no-repeat;  /* 繰り返し防止 */
+        background-attachment: fixed;  /* スクロールしても背景を固定 */
+        
+        color: #3b2a20; 
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* 画面の上下中央に配置 */
+        padding: 40px 4%;
+    }
+
+    /* 左上のタイトル（デザインの統一感を出すため） */
+    h1 {
+        position: absolute;
+        top: 40px;
+        left: 4%;
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        z-index: 10;
+    }
+    h1::before {
+        content: "✿";
+        color: #e0533c;
+        font-size: 26px;
+        margin-right: 8px;
+    }
+
+    /* 演出エリアのコンテナ */
+    .animation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    /* 箱の上のメッセージ（雰囲気作り用） */
+    .animation::before {
+        content: "おみくじを振っています...";
+        display: block;
+        font-size: 20px;
+        color: #5a4f47;
+        margin-bottom: 30px;
+        letter-spacing: 0.1em;
+    }
+
+    /* 【演出画像】おみくじを振る箱（hako.png） */
+    .animation img {
+        width: 360px; /* 前の画面の大きめサイズに統一 */
+        height: auto;
+        filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.08));
+        transform-origin: center bottom; /* 箱の底を起点にする */
+        
+        /* ➔ 【演出】画面が開いた瞬間からずっとシャカシャカ揺らす */
+        animation: play-shake 0.1s infinite alternate;
+    }
+
+    /* ➔ 激しくシャカシャカ振るアニメーションの動き */
+    @keyframes play-shake {
+        0% { transform: translate(4px, 2px) rotate(1.5deg); }
+        100% { transform: translate(-4px, -2px) rotate(-4.5deg); }
+    }
+
+    /* 「結果を見る」ボタンエリア */
+    .result-btn-wrap {
+        z-index: 5;
+    }
+    .result-btn-wrap a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e0533c; 
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: bold;
+        padding: 18px 80px;
+        border-radius: 50px;
+        box-shadow: 0 8px 25px rgba(226, 83, 60, 0.35);
+        transition: transform 0.2s, background-color 0.2s;
+        border: 2px solid #e0533c;
+        letter-spacing: 0.1em;
+    }
+    .result-btn-wrap a::after {
+        content: " ＞";
+        font-size: 18px;
+        margin-left: 8px;
+    }
+    .result-btn-wrap a:hover {
+        transform: translateY(-3px);
+        background-color: #c8432d;
+    }
+
+    /* スマホ対応 */
+    @media (max-width: 768px) {
+        h1 { font-size: 20px; top: 20px; }
+        .animation img { width: 260px; }
+        .result-btn-wrap a { padding: 15px 50px; font-size: 18px; }
+    }
+  </style>
 </head>
 <body class="play">
+
   <h1>おみくじ演出</h1>
+
+  <!-- 振るアニメーションエリア -->
   <div class="animation">
-    <img src="images/play/play.png" alt="おみくじを振る演出">
+    <img src="images/top/hako.png" alt="おみくじを振る演出">
   </div>
-  <p><a href="#" id="show-result">結果を見る</a></p>
+
+  <!-- 結果を見るボタン -->
+  <p class="result-btn-wrap"><a href="result.html" id="show-result">結果を見る</a></p>
+
+  <script>
+    $(document).ready(function() {
+      var resultUrl = 'result.html'; 
+
+      // 【自動演出】2秒（2000ミリ秒）後に自動で結果画面へ切り替える
+      setTimeout(function() {
+          window.location.href = resultUrl;
+      }, 2000);
+
+      // 【手動演出】「結果を見る」ボタンがクリックされた時の処理
+      $('#show-result').on('click', function(e) {
+        e.preventDefault();
+        window.location.href = resultUrl;
+      });
+    });
+  </script>
 </body>
 </html>

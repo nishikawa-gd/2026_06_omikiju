@@ -6,21 +6,362 @@
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <style>
+    /* ==========================================================================
+       STREAMING_CHUNK: 全体レイアウトと和モダン背景の設定
+       ========================================================================== */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body.result {  
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+        background-color: #fbf8f3; 
+        background-image: url('images/top/haikei.png'); /* 共通の背景画像 */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #3b2a20; 
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 4% 80px;
+    }
+
+    /* ==========================================================================
+       STREAMING_CHUNK: 水引・タイトル飾りのデザイン
+       ========================================================================== */
+    /* 上部中央の赤い水引飾り */
+    .mizuhiki-container {
+        width: 220px;
+        height: auto;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        z-index: 5;
+    }
+
+    .mizuhiki-svg {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 中央タイトル：「結果」 */
+    h1 {
+        font-size: 42px;
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        color: #2b1f17;
+        margin-bottom: 12px;
+        text-align: center;
+        z-index: 10;
+        padding-left: 0.15em; /* 中央揃えを完全にするための字間補正 */
+    }
+
+    /* 見本にある「気をつけて過ごしましょう」などのサブ説明文 */
+    .result-subtitle {
+        font-size: 16px;
+        color: #5a4f47;
+        margin-bottom: 40px;
+        letter-spacing: 0.1em;
+        text-align: center;
+        z-index: 10;
+    }
+
+    /* ==========================================================================
+       STREAMING_CHUNK: おみくじカードの二重枠装飾デザイン
+       ========================================================================== */
+    /* カード全体の外枠 */
+    .card-outer {
+        width: 100%;
+        max-width: 480px;
+        background: #ffffff;
+        border: 1px solid #e8dec9;
+        padding: 6px;
+        border-radius: 16px;
+        box-shadow: 0 15px 45px rgba(181, 159, 131, 0.15);
+        z-index: 5;
+        margin-bottom: 45px;
+        position: relative;
+    }
+
+    /* カードの内枠 */
+    .card-inner {
+        border: 1px solid #e8dec9;
+        border-radius: 12px;
+        padding: 40px 30px;
+        text-align: center;
+        background-color: #ffffff;
+        position: relative;
+    }
+
+    /* 内側の更なる細線あしらい（和紙の雰囲気を強調） */
+    .card-inner::before {
+        content: "";
+        position: absolute;
+        top: 4px; left: 4px; right: 4px; bottom: 4px;
+        border: 1px solid #f6f0e2;
+        border-radius: 9px;
+        pointer-events: none;
+    }
+
+    /* 運勢ラベル（・・ 運勢 ・・） */
+    .unsei-label {
+        font-size: 14px;
+        color: #8c7f76;
+        letter-spacing: 0.2em;
+        margin-bottom: 25px;
+        font-weight: bold;
+    }
+
+    /* ==========================================================================
+       STREAMING_CHUNK: 結果画像・テキストのスタイリング
+       ========================================================================== */
+    /* 結果画像（大吉や小吉の文字部分）を綺麗に中央配置 */
+    .js-result-img-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 120px; /* 画像読み込み前のレイアウト崩れ防止 */
+        margin-bottom: 25px;
+    }
+
+    #result-img {
+        max-width: 240px; /* 見本に近い適正サイズ */
+        height: auto;
+        display: block;
+    }
+
+    /* 和風の赤い梅の仕切りアイコン */
+    .ume-separator {
+        display: inline-block;
+        color: #e0533c;
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    /* 運勢の説明文 */
+    #result-text {
+        font-size: 16px;
+        color: #5a4f47;
+        line-height: 2;
+        letter-spacing: 0.08em;
+        margin-bottom: 15px;
+        text-align: center;
+        padding: 0 10px;
+        font-weight: 500;
+    }
+
+    /* ==========================================================================
+       STREAMING_CHUNK: ラッキーアイテム枠の魔改造（JSを壊さない）
+       ========================================================================== */
+    /* ラッキーアイテム外枠 */
+    #lucky-wrapper {
+        margin-top: 35px;
+        background-color: #fdfaf4;
+        border: 1px solid #f1e6cf;
+        border-radius: 8px;
+        padding: 18px 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    /* 元の「ラッキーアイテム:」というテキストを非表示にし、見本通りのヘッダーへ */
+    #lucky-wrapper p:first-of-type {
+        font-size: 0; /* 元の文字を隠す */
+        margin-bottom: 10px;
+    }
+
+    #lucky-wrapper p:first-of-type::before {
+        content: "・・ ラッキーアイテム ・・";
+        font-size: 13px;
+        color: #8c7f76;
+        letter-spacing: 0.15em;
+        font-weight: bold;
+    }
+
+    /* 表示されるラッキーアイテム名のデザイン */
+    #lucky-item {
+        font-size: 20px;
+        font-weight: bold;
+        color: #2b1f17;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    /* ラッキーアイテムの前に桜のアイコンを自動追加 */
+    #lucky-item::before {
+        content: "🌸";
+        font-size: 16px;
+    }
+
+    /* ==========================================================================
+       STREAMING_CHUNK: アクションボタンとレスポンシブデザイン
+       ========================================================================== */
+    /* 下部アクションエリア */
+    .action-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 480px;
+        z-index: 10;
+        gap: 20px;
+    }
+
+    /* 「もう一度引く」ボタン（朱色の和モダンボタン） */
+    .btn-retry-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-retry-wrap a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e0533c; 
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: bold;
+        padding: 18px 0;
+        width: 100%;
+        max-width: 360px;
+        border-radius: 50px;
+        box-shadow: 0 8px 25px rgba(226, 83, 60, 0.35);
+        transition: transform 0.2s, background-color 0.2s;
+        border: 2px solid #e0533c;
+        letter-spacing: 0.1em;
+    }
+
+    /* ボタン内の桜アイコン */
+    .btn-retry-wrap a::before,
+    .btn-retry-wrap a::after {
+        content: "🌸";
+        font-size: 16px;
+        margin: 0 10px;
+    }
+
+    .btn-retry-wrap a:hover {
+        transform: translateY(-3px);
+        background-color: #c8432d;
+    }
+
+    /* 「履歴を見る」リンク */
+    .btn-history-wrap {
+        margin-top: 10px;
+    }
+
+    .btn-history-wrap a {
+        color: #3b2a20;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: 1.5px solid #3b2a20;
+        padding-bottom: 4px;
+        transition: opacity 0.2s;
+        letter-spacing: 0.05em;
+    }
+
+    .btn-history-wrap a:hover {
+        opacity: 0.7;
+    }
+
+    /* 三角の矢印あしらい */
+    .btn-history-wrap a::after {
+        content: " ▶";
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    /* 周囲に浮いている桜の花びらの背景装飾（ランダム風に配置） */
+    .petal-deco {
+        position: absolute;
+        font-size: 18px;
+        opacity: 0.35;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    /* スマホ用の微調整 */
+    @media (max-width: 520px) {
+        h1 { font-size: 32px; }
+        .card-inner { padding: 30px 15px; }
+        .btn-retry-wrap a { font-size: 18px; padding: 15px 0; }
+        #result-img { max-width: 180px; }
+    }
+  </style>
 </head>
 <body class="result">
+
+  <!-- 背景の散り桜（和モダンの雰囲気を高めるあしらい） -->
+  <span class="petal-deco" style="top: 15%; left: 10%; transform: rotate(15deg);">🌸</span>
+  <span class="petal-deco" style="top: 28%; right: 12%; transform: rotate(-10deg);">🌸</span>
+  <span class="petal-deco" style="bottom: 35%; left: 8%; transform: rotate(45deg);">🌸</span>
+  <span class="petal-deco" style="bottom: 20%; right: 15%; transform: rotate(-25deg);">🌸</span>
+
+  <!-- 1. 上部の水引リボン（美しいあわじ・蝶結び調のライン） -->
+  <div class="mizuhiki-container">
+    <svg class="mizuhiki-svg" viewBox="0 0 200 40">
+      <!-- 左側の結び紐 -->
+      <path d="M 0,20 L 85,20 C 93,10 97,10 100,20" fill="none" stroke="#e0533c" stroke-width="1.5" />
+      <!-- 右側の結び紐 -->
+      <path d="M 200,20 L 115,20 C 107,10 103,10 100,20" fill="none" stroke="#e0533c" stroke-width="1.5" />
+      <!-- 中央の下がりループ -->
+      <path d="M 85,20 C 90,32 98,32 100,20 C 102,32 110,32 115,20" fill="none" stroke="#e0533c" stroke-width="1.5" />
+    </svg>
+  </div>
+
+  <!-- 2. タイトル（結果） ＆ サブタイトル -->
   <h1>結果</h1>
-  <p id="result-text"></p>
+  <p class="result-subtitle">気をつけて過ごしましょう</p>
 
-  <div class="js-result-img-wrapper">
-  <img id="result-img" src="" alt="結果画像">
+  <!-- 3. 【主役】和風おみくじフレーム -->
+  <div class="card-outer">
+    <div class="card-inner">
+      
+      <!-- 運勢ラベル -->
+      <div class="unsei-label">・・ 運勢 ・・</div>
+
+      <!-- 運勢の画像（大吉や小吉などの画像がJSによってここに入ります） -->
+      <div class="js-result-img-wrapper">
+        <img id="result-img" src="" alt="結果画像">
+      </div>
+
+      <!-- 梅結びをモチーフにした小さなセパレーター -->
+      <div class="ume-separator">✿</div>
+
+      <!-- 運勢の詳しい解説文 -->
+      <p id="result-text"></p>
+
+      <!-- ラッキーアイテムエリア（CSSでデザインを美しく包み込んでいます） -->
+      <div id="lucky-wrapper">
+        <p>ラッキーアイテム:</p>
+        <p id="lucky-item"></p>
+      </div>
+
+    </div>
   </div>
 
-  <div id="lucky-wrapper">
-    <p>ラッキーアイテム:</p>
-    <p id="lucky-item"></p>
+  <!-- 4. アクションボタン -->
+  <div class="action-container">
+    <p class="btn-retry-wrap">
+      <a href="index.html">もう一度引く</a>
+    </p>
+    <p class="btn-history-wrap">
+      <a href="history.html">履歴を見る</a>
+    </p>
   </div>
 
-  <p><a href="index.html">もう一度引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
 </html>
