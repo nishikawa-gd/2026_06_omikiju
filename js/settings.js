@@ -1,4 +1,6 @@
-// おみくじ結果リスト
+// ========================================
+// おみくじを引くページ（トップ）での処理
+// ========================================
 const resultPages = [
   "result.html",
   "result_2.html",
@@ -15,71 +17,90 @@ if (playBtn) {
   });
 }
 
-// ラッキーアイテム
+// ========================================
+// 結果ページでの処理
+// ========================================
 const luckyItems = ["気合いのはちまき", "キセキのタネ", "しんぴのしずく", "ゴツゴツメット", "食べ残し"];
 const itemTxt = document.querySelector(".item_txt");
 
-// リザルト画面での処理（アイテム決定と履歴の保存）
-if (itemTxt) {
+// ★追加：HTMLの <h1 class="name"> からポケモンの名前を取得するための準備
+const pokemonNameEl = document.querySelector(".name");
+
+if (itemTxt && pokemonNameEl) {
   const randomItem = luckyItems[Math.floor(Math.random() * luckyItems.length)];
   itemTxt.textContent = randomItem;
-  
-  // ★追加：結果が出たら履歴を保存する
-  saveHistory(randomItem);
+
+  // ★追加：タグの中から「ヒトカゲ」などのテキストを取得
+  const drawnName = pokemonNameEl.textContent;
+
+  // ★修正：引いたポケモンの名前とアイテムの両方を保存処理に渡す
+  saveHistory(drawnName, randomItem);
 }
 
+
 // ----------------------------------------
-// 追加機能：履歴の保存と表示
+// 履歴の保存と表示の関数
 // ----------------------------------------
 
-// 1. 履歴をローカルストレージに保存する関数
-function saveHistory(item) {
-  // 既存の履歴を取得（なければ空の配列を用意）
+// ★修正：(name, item) の2つを受け取るように変更
+function saveHistory(name, item) {
   let history = JSON.parse(localStorage.getItem("omikujiHistory")) || [];
-  
-  // 現在のページ名を取得 (例: "result.html")
-  const currentPage = window.location.pathname.split("/").pop();
 
-  // 今回の結果データを作成
   const resultData = {
     date: new Date().toLocaleString(), // 引いた日時
-    page: currentPage,                 // 結果ページ
+    name: name,                        // ★引いたポケモンの名前
     luckyItem: item                    // ラッキーアイテム
   };
-  
-  // 履歴の先頭に追加
+
   history.unshift(resultData);
-  
-  // 履歴が10件を超えたら古いものを削除（任意）
+
   if (history.length > 10) {
     history.pop();
   }
-  
-  // ローカルストレージに保存（文字列に変換して保存）
+
   localStorage.setItem("omikujiHistory", JSON.stringify(history));
 }
 
-// 2. 履歴を画面に表示する関数
 function displayHistory() {
-  // HTML側に <ul id="historyList"></ul> のような要素が必要
   const historyContainer = document.getElementById("historyList");
-  
-  // 表示用の要素がなければ何もしない
   if (!historyContainer) return;
 
-  // ローカルストレージから履歴を取得
   const history = JSON.parse(localStorage.getItem("omikujiHistory")) || [];
-  
+
   if (history.length === 0) {
     historyContainer.innerHTML = "<li>履歴はまだありません。</li>";
     return;
   }
 
-  // 履歴をリストとして表示
+  // ★修正：画面の表示をポケモンの名前に合わせる
   historyContainer.innerHTML = history.map(data => {
-    return `<li>${data.date} - ページ: ${data.page} / ラッキーアイテム: ${data.luckyItem}</li>`;
+    return `
+    <li class="history_item">
+      <span class="history_date">${data.date}</span>
+      <span class="history_name">${data.name}</span>
+      <span class="history_lucky">
+        <span class="lucky_label">ラッキーアイテム:</span>
+        <span class="lucky_val">${data.luckyItem}</span>
+      </span>
+    </li>
+  `;
   }).join("");
 }
 
-// 履歴表示要素があれば実行されるように呼び出し
 displayHistory();
+
+
+// ----------------------------------------
+// 履歴削除ボタンの処理
+// ----------------------------------------
+const clearHistoryBtn = document.getElementById("clearHistoryBtn");
+
+if (clearHistoryBtn) {
+  clearHistoryBtn.addEventListener("click", function () {
+    const isConfirm = confirm("これまでのデータが全て消えてしまいます。本当に削除しますか？");
+    if (isConfirm) {
+      localStorage.removeItem("omikujiHistory");
+      displayHistory();
+    }
+  });
+}
