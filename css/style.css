@@ -209,137 +209,98 @@ body {
 /* 白い枠 */
 
 .history-box{
-
-    width:700px;
+    width: 900px;
     height:430px;
-
-    margin-top:40px;
-
+    margin-top:150px;
     background:#fff;
-
     border:8px solid #CC0000;
     border-radius:20px;
-
     padding:30px;
-
     box-sizing:border-box;
 }
 
 /* タイトル */
 
 .history h1{
-
     color:#CC0000;
-
     font-size:36px;
-
     font-weight:bold;
-
     margin-bottom:25px;
 }
 
 /* 履歴だけスクロール */
-
 #history-list{
-
     height:300px;
-
     overflow-y:auto;
-
     text-align:left;
-
     padding-right:10px;
 }
 
 /* 履歴一件 */
 
 #history-list li{
-
     color:#CC0000;
-
     font-size:22px;
-
     line-height:2;
-
     border-bottom:2px dashed #E7B74B;
-
     padding:15px 0;
 }
 
 /* スクロールバー */
-
 #history-list::-webkit-scrollbar{
-
     width:10px;
 }
 
 #history-list::-webkit-scrollbar-thumb{
-
     background:#CC0000;
-
     border-radius:10px;
 }
 
 #history-list::-webkit-scrollbar-track{
-
     background:#F8E5B9;
 }
 
 /* 削除ボタン */
 
 .button_clear{
-
     margin-top:30px;
 }
 
 .button_clear button{
-
     background:none;
-
     border:none;
-
     cursor:pointer;
 }
 
 .button_clear img{
-
     width:260px;
-
     transition:.3s;
 }
 
 .button_clear img:hover{
-
     transform:scale(1.05);
 }
 
 .button_clear img:active{
-
     transform:scale(.95);
 }
 
 /* 戻るボタン */
 
 .button_back{
-
     margin-top:15px;
 }
 
 .button_back img{
-
     width:260px;
-
     transition:.3s;
-
     cursor:pointer;
 }
 
 .button_back img:hover{
-
     transform:scale(1.05);
 }
 
 .button_back img:active{
-
     transform:scale(.95);
 }
