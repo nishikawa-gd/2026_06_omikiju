@@ -1,0 +1,310 @@
+body {
+  background-color: #F3A0C3;
+  width: 100vw;
+  height: 100vh;
+}
+
+.index .inner {
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+}
+.index .inner .content {
+  text-align: center;
+  padding: 180px 0 0 0;
+}
+.index .inner .content p {
+  margin: 30px 0 50px 0;
+  color: #431528;
+}
+.index .inner .content button {
+  display: block;
+  margin: 0 auto;
+  background-color: #A0D9F3;
+  border: none;
+  border-radius: 50px;
+  padding: 17px 150px;
+  font-size: 1.8rem;
+  transition: background-color 0.4s ease;
+}
+.index .inner .content button a {
+  color: #AB4770;
+}
+.index .inner .content button:hover {
+  background-color: #F0F1A8;
+}
+.index .inner .history {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 100px 0 0 250px;
+  display: block;
+  width: 170px;
+  height: 170px;
+  cursor: pointer;
+  background-image: url(/images/top/bg_sircle.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 70%;
+  opacity: 1;
+  transition: background-size 0.4s ease;
+}
+.index .inner .history:hover {
+  background-size: contain;
+}
+.index .inner .history p {
+  margin: 0 0 0 -10px;
+  font-size: 1.8rem;
+}
+.index .inner .history p a {
+  color: #431528;
+}
+.index .inner .history img {
+  margin-top: 10px;
+}
+
+.play .inner {
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  text-align: center;
+}
+.play .inner .animation {
+  padding: 100px 0 40px 0;
+}
+.play .inner .animation .photo-slider {
+  position: relative;
+  display: inline-block;
+  width: 360px;
+}
+.play .inner .animation #slideshow-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+.play .inner .animation .boder {
+  position: relative;
+  display: block;
+  margin: 20px auto 30px;
+  width: 360px;
+  height: 2px;
+  background-color: #AB4770;
+}
+.play .inner .animation .boder::after {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  top: -10px;
+  left: -10px;
+  display: block;
+  background-image: url(/images/play/star.png);
+  background-repeat: no-repeat;
+  animation: starMove 5s linear forwards;
+}
+.play .inner button {
+  background-color: #A0D9F3;
+  border: none;
+  border-radius: 50px;
+  width: 420px;
+  height: 70px;
+  /* padding: 17px 150px; */
+  font-size: 1.8rem;
+  color: #AB4770;
+  transition: background-color 0.4s ease;
+}
+.play .inner button:hover {
+  background-color: #F0F1A8;
+}
+
+.result .inner {
+  margin: 0 auto;
+  width: 80%;
+  height: 100vh;
+  text-align: center;
+}
+.result .inner .content {
+  padding: 100px 0 0 0;
+}
+.result .inner .content .result_box {
+  width: 800px;
+  height: 420px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.result .inner .content .result_box .text_box {
+  display: flex;
+  gap: 20px;
+  align-items: end;
+  padding: 77px 80px 0;
+  color: #AB4770;
+}
+.result .inner .content .result_box .text_box #result-type {
+  font-size: 3rem;
+}
+.result .inner .content .result_box .text_box #result-text {
+  font-size: 1.2rem;
+  padding: 0 0 5px 0;
+}
+.result .inner .content .result_box .border {
+  padding: 5px 0 0 0;
+  width: 640px;
+  border-bottom: #431528 2px dashed;
+  margin: 0 auto;
+}
+.result .inner .content .result_box #music_box {
+  display: flex;
+  gap: 30px;
+  padding: 40px 0 0 80px;
+  text-align: left;
+}
+.result .inner .content .result_box #music_box img {
+  width: 180px;
+  height: 180px;
+}
+.result .inner .content .result_box #music_box .music_text {
+  color: #AB4770;
+}
+.result .inner .content .result_box #music_box .music_text #artist {
+  padding-top: 10px;
+}
+.result .inner .content .result_box #music_box .music_text #phrase01 {
+  padding-top: 30px;
+}
+.result .inner .content .result_box #music_box .music_text #phrase02 {
+  padding-top: 10px;
+}
+.result .inner button {
+  margin: 40px 0 0 0;
+  background-color: #A0D9F3;
+  border: none;
+  border-radius: 50px;
+  width: 420px;
+  height: 70px;
+  /* padding: 17px 150px; */
+  font-size: 1.8rem;
+  transition: background-color 0.4s ease;
+}
+.result .inner button a {
+  color: #AB4770;
+}
+.result .inner button:hover {
+  background-color: #F0F1A8;
+}
+.result .inner .history {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 100px 0 0 250px;
+  display: block;
+  width: 170px;
+  height: 170px;
+  cursor: pointer;
+  background-image: url(/images/top/bg_sircle.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 70%;
+  opacity: 1;
+  transition: background-size 0.4s ease;
+}
+.result .inner .history:hover {
+  background-size: contain;
+}
+.result .inner .history p {
+  margin: 0 0 0 -45px;
+  font-size: 1.8rem;
+}
+.result .inner .history p a {
+  color: #431528;
+}
+.result .inner .history img {
+  margin-top: 10px;
+}
+
+.history .inner {
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  text-align: center;
+}
+.history h1 {
+  padding: 80px 0 30px 0;
+  color: #AB4770;
+  font-size: 2.4rem;
+}
+.history ul {
+  margin: 0 auto;
+  width: 800px;
+  height: 500px;
+  overflow-y: scroll;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+}
+.history ul li {
+  padding: 20px 0 20px 30px;
+  border-bottom: #431528 1px dashed;
+  color: #AB4770;
+}
+.history ul li .history-type {
+  font-size: 1.8rem;
+}
+.history ul li .history-date {
+  display: block;
+  text-align: right;
+  padding-right: 30px;
+}
+.history ul li .history-artist {
+  display: block;
+  margin-top: 10px;
+}
+.history .history-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.history .history-buttons #clear-history {
+  margin: 40px 0 0 0;
+  background-color: #F0F1A8;
+  border: none;
+  border-radius: 50px;
+  width: 420px;
+  height: 70px;
+  /* padding: 17px 150px; */
+  font-size: 1.8rem;
+  transition: background-color 0.4s ease;
+  color: #AB4770;
+}
+.history .history-buttons #clear-history:hover {
+  background-color: #A0D9F3;
+}
+.history .history-buttons button {
+  margin: 40px 0 0 0;
+  background-color: #A0D9F3;
+  border: none;
+  border-radius: 50px;
+  width: 420px;
+  height: 70px;
+  /* padding: 17px 150px; */
+  font-size: 1.8rem;
+  transition: background-color 0.4s ease;
+}
+.history .history-buttons button a {
+  color: #AB4770;
+}
+.history .history-buttons button:hover {
+  background-color: #F0F1A8;
+}
+
+
+@keyframes starMove {
+  0% {
+    left: -10px;
+  }
+  100% {
+    left: calc(100% - 10px);
+  }
+}/*# sourceMappingURL=style.css.map */

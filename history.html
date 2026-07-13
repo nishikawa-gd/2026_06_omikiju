@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>おみくじ履歴</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/scss/style.css">
+
 </head>
+
 <body class="history">
-  <h1>履歴</h1>
-  <ul id="history-list"></ul>
-  <p><button id="clear-history">履歴を削除</button></p>
-  <p><a href="index.html">トップに戻る</a></p>
+  <div class="inner">
+    <h1>履歴</h1>
+    <ul id="history-list"></ul>
+    <div class="history-buttons">
+      <p><button id="clear-history">履歴を削除</button></p>
+      <button><a href="index.html">トップに戻る</a></button>
+    </div>
+  </div>
 </body>
+
 </html>

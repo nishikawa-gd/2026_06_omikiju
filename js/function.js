@@ -1,6 +1,6 @@
 
 
-$(function() {
+$(function () {
 	function init() {
 		handlePlayPage();
 		handleResultPage();
@@ -18,25 +18,41 @@ function handlePlayPage() {
 	// bodyにplayクラスがなければ終了
 	if (!$('body').hasClass('play')) return;
 
+	const playImages = [
+		'images/result/music_0101.png',
+		'images/result/music_0102.png',
+		'images/result/music_0103.png',
+		'images/result/music_0104.png',
+		'images/result/music_0105.png',
+		'images/result/music_0106.png',
+		'images/result/music_0107.png'
+	];
+
+	const $sliderImage = $('#slideshow-img');
+	let playSlideIndex = 0;
+	const playInterval = setInterval(() => {
+		playSlideIndex = (playSlideIndex + 1) % playImages.length;
+		$sliderImage.attr('src', playImages[playSlideIndex]);
+	}, 120);
+
 	// show-resultボタン押下時の処理
-	$('#show-result').on('click', function(e) {
+	$('#show-result').on('click', function (e) {
 
 		// デフォルトの動作をキャンセル
 		e.preventDefault();
 
-		// おみくじ結果とラッキーアイテムをランダムに選択
-		const result = omikujiResults[Math.floor(Math.random() * omikujiResults.length)];
+		clearInterval(playInterval);
 
-		// ラッキーアイテムの選択（設定がONの場合のみ）
-		const lucky = settings.showLuckyItem
-			? luckyItems[Math.floor(Math.random() * luckyItems.length)]
-			: null;
+		// おみくじ結果をランダムに選択		
+		const result = omikujiResults[Math.floor(Math.random() * omikujiResults.length)];
 
 		// 履歴保存
 		const history = JSON.parse(localStorage.getItem('omikujiHistory') || '[]');
-		
-		// 履歴に追加
-		history.push({ result, lucky, date: new Date().toLocaleString() });
+		const lucky = '';
+		localStorage.setItem('omikujiCurrent', JSON.stringify({ result, lucky }));
+
+		// 履歴に追加（新しいものを先頭にする）
+		history.unshift({ result, date: new Date().toLocaleString() });
 		// 履歴をlocalStorageに保存
 		localStorage.setItem('omikujiHistory', JSON.stringify(history));
 
@@ -51,7 +67,7 @@ function handlePlayPage() {
 
 // ===== 結果ページの処理 =====
 function handleResultPage() {
-	
+
 	// bodyにresultクラスがなければ終了
 	if (!$('body').hasClass('result')) return;
 
@@ -61,19 +77,15 @@ function handleResultPage() {
 	if (!data) return;
 
 	// 結果表示
-	$('#result-text').text(`${data.result.type}：${data.result.text}`);
-	// 画像の設定
-	$('#result-img').attr('src', data.result.img).attr('alt', data.result.type);
+	$('#result-type').text(`${data.result.type}`);
+	$('#result-text').text(`${data.result.text}`);
+	$('#music-img').attr('src', data.result.img).attr('alt', data.result.type); 
+	$('#artist').text(`${data.result.artist}`);
+	$('#phrase01').text(`${data.result.phrase}`);
+	$('#phrase02').text(`${data.result.phrases}`);
 
 	// 結果に応じたクラスをbodyに追加	
 	$('body').addClass('js-' + data.result.type);
-
-	// ラッキーアイテムの表示（設定がONの場合のみ）
-	if (settings.showLuckyItem && data.lucky) {
-		$('#lucky-item').text(data.lucky);
-	} else {
-		$('#lucky-wrapper').remove();
-	}
 }
 
 
@@ -91,14 +103,18 @@ function handleHistoryPage() {
 
 	history.forEach(item => {
 		const $li = $('<li>').html(
-			`${item.date}：<strong>${item.result.type}</strong> - ${item.result.text}` +
-			(item.lucky ? ` (ラッキーアイテム: ${item.lucky})` : '')
+				`<strong class="history-type">${item.result.type}</strong> 
+				<span class="history-text">${item.result.text}</span> 
+				<span class="history-date">${item.date}</span>
+				<br><span class="history-artist">${item.result.artist}</span>
+				<br><span class="history-phrase">${item.result.phrase}</span> 
+				<span class="history-phrases">${item.result.phrases}</span>`
 		);
 		$list.append($li);
 	});
-	
+
 	// 履歴削除ボタン処理
-	$('#clear-history').on('click', function() {
+	$('#clear-history').on('click', function () {
 		if (confirm('履歴をすべて削除しますか？')) {
 			localStorage.removeItem('omikujiHistory');
 			$list.empty();

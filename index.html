@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>おみくじアプリ</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/scss/style.css">
 </head>
+
 <body class="index">
-  <h1>おみくじアプリテスト</h1>
-  <div class="main-visual">
-    <img src="images/top/mainvisual.png" alt="メインビジュアル">
+  <div class="inner">
+    <div class="content">
+      <h1><img src="/images/top/logo.png" alt="歌詞みくじ"></h1>
+      <p>今のあなたに届く、ワンフレーズ。</p>
+      <button><a href="play.html">くじを引く</a></button>
+    </div>
+
+    <div class="history">
+      <p><a href="history.html">履歴を見る</a></p>
+      <img src="/images/top/iyahon.png" alt="イヤホン">
+    </div>
   </div>
-  <p><a href="play.html">おみくじを引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
+
 </html>
