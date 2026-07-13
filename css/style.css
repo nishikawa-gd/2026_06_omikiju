@@ -43,13 +43,18 @@ h1::after{
     background-repeat: no-repeat;
 }
 
-.index-content{
+.index-content {
     display: flex;
     /* justify-content: space-evenly; */
     justify-content: center;
     gap: 100px;
     padding-top: 72px;
 }
+
+.index-content .result-content{
+    padding-top: 50px;
+}
+
 
 .main-character{
     display: flex;
@@ -142,4 +147,25 @@ h1::after{
     height: 220px;
     background-image: url(/images/haikei/anpan.svg);
     background-repeat: no-repeat;
+}
+
+.result{
+    background-image: linear-gradient(0deg, transparent calc(100% - 1px), #EAD8AB calc(100% - 1px)),
+    linear-gradient(90deg, transparent calc(100% - 1px), #EAD8AB calc(100% - 1px));
+    background-size: 32px 32px;
+    background-repeat: repeat;
+    background-position: center center;
+    background-color: #f9efd6;
+    height: auto;
+}
+
+.result-content{
+    display: flex;
+    gap: 90px;
+    padding-top: 25px;
+    justify-content: center;
+}
+
+.result .index-content{
+    padding-top: 25px;
 }

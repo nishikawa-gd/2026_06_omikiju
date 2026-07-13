@@ -60,8 +60,37 @@ function handleResultPage() {
 	// データがなければ終了
 	if (!data) return;
 
+	// 小鳥さんのセリフを結果に合わせて書き換える 
+	let charaMessage = "人生楽しい？"; // デフォルトのセリフ
+	
+	switch (data.result.type) { 
+		case 'トレロン吉':
+			charaMessage = "大吉枠";
+			break;
+		case 'フランスパン吉':
+			charaMessage = "矯正には辛い";
+			break;
+		case '食パン吉':
+			charaMessage = "切り方で人間性でる";
+			break;
+		case 'サンドウィッチ吉':
+			charaMessage = "タマゴ派";
+			break;
+		case 'クロワッサン吉':
+			charaMessage = "サクサクが美味い";
+			break;
+		case 'パン耳吉':
+			charaMessage = "修行が足りん";
+			break;
+	}
+	// htmlの .main-read クラスのテキストを書き換える
+	$('.main-read').text(charaMessage);
+
 	// 結果表示
 	$('#result-text').text(`${data.result.type}：${data.result.text}`);
+
+	// 結果表示
+	// $('#result-text').text(`${data.result.type}：${data.result.text}`);
 	// 画像の設定
 	$('#result-img').attr('src', data.result.img).attr('alt', data.result.type);
 
