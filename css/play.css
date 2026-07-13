@@ -55,6 +55,188 @@
 
 }
 
+
+.play_deco_position {
+    position: relative;
+}
+
+.play_deco_1,
+.play_deco_2,
+.play_deco_3,
+.play_deco_4,
+.play_deco_5,
+.play_deco_6,
+.play_deco_7,
+.play_deco_8,
+.play_deco_9 {
+    position: absolute;
+    opacity: 0;
+}
+
+.play_deco_1 img,
+.play_deco_2 img,
+.play_deco_3 img,
+.play_deco_4 img,
+.play_deco_5 img,
+.play_deco_6 img,
+.play_deco_7 img,
+.play_deco_8 img,
+.play_deco_9 img {
+    width: 190px;
+}
+
+.play_deco_1 {
+    top: 30px;
+    left: 360px;
+    animation: slideFromTop 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.play_deco_2 {
+    top: 130px;
+    left: -20px;
+    animation: slideFromTopLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.play_deco_3 {
+    top: 320px;
+    left: 240px;
+    animation: slideFromLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.play_deco_4 {
+    top: 570px;
+    left: -30px;
+    animation: slideFromBottomLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+.play_deco_5 {
+    top: 620px;
+    left: 280px;
+    animation: slideFromBottom 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+}
+
+.play_deco_6 {
+    top: 170px;
+    right: 40px;
+    animation: slideFromTop 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+.play_deco_7 {
+    top: 290px;
+    right: 300px;
+    animation: slideFromTopRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.play_deco_8 {
+    top: 470px;
+    right: 20px;
+    animation: slideFromRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.play_deco_9 {
+    top: 610px;
+    right: 230px;
+    animation: slideFromBottomRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+@keyframes slideFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-150px) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes slideFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(150px) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes slideFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-150px) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(150px) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideFromTopLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-150px, -150px) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes slideFromTopRight {
+    0% {
+        opacity: 0;
+        transform: translate(150px, -150px) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes slideFromBottomLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-150px, 150px) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes slideFromBottomRight {
+    0% {
+        opacity: 0;
+        transform: translate(150px, 150px) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+
 .play_main {
     text-align: center;
 }
@@ -72,6 +254,39 @@
     margin: 0 auto;
     margin-top: 40px;
     text-decoration: none;
+
+
+    background: linear-gradient(45deg, #FF9774 0%, #FF4343 50%, #FF9774 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    margin-top: auto;
+
+    animation-name: fadeInUpBtn;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    animation-delay: 1.8s;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), background-position 0.5s ease, box-shadow 0.3s ease;
+
+}
+
+@keyframes fadeInUpBtn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.play_btn:hover {
+    background-position: right center;
+    box-shadow: 0 0 6px rgba(255, 67, 67, 0.4);
 }
 
 .btn_flex {
