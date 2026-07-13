@@ -1,5 +1,3 @@
-
-
 $(function() {
 	function init() {
 		handlePlayPage();
@@ -12,70 +10,104 @@ $(function() {
 
 
 // ===== 演出ページの処理 =====
-function handlePlayPage() {
 
+function handlePlayPage() {
 
 	// bodyにplayクラスがなければ終了
 	if (!$('body').hasClass('play')) return;
 
-	// show-resultボタン押下時の処理
+	// 5秒後に結果を見るボタン表示
+	setTimeout(function(){
+		$('#show-result').addClass('show');
+	},5000);
+
+	// 結果を見るボタン
 	$('#show-result').on('click', function(e) {
-
-		// デフォルトの動作をキャンセル
+		// aタグの移動を止める
 		e.preventDefault();
-
-		// おみくじ結果とラッキーアイテムをランダムに選択
-		const result = omikujiResults[Math.floor(Math.random() * omikujiResults.length)];
-
-		// ラッキーアイテムの選択（設定がONの場合のみ）
+		// 運勢をランダム選択
+		const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+		// 惑星をランダム選択
+		const planet = planets[Math.floor(Math.random() * planets.length)];
+		// 運勢×惑星のメッセージ取得
+		const message = messages[fortune][planet.name];
+		// 結果データ作成
+		const result = {
+			type: fortune,
+			planet: planet.name,
+			text: message,
+			img: planet.image,
+			advice: planet.advice,
+			color: planet.color
+		};
+		// ラッキーアイテム
 		const lucky = settings.showLuckyItem
 			? luckyItems[Math.floor(Math.random() * luckyItems.length)]
 			: null;
-
-		// 履歴保存
-		const history = JSON.parse(localStorage.getItem('omikujiHistory') || '[]');
-		
-		// 履歴に追加
-		history.push({ result, lucky, date: new Date().toLocaleString() });
-		// 履歴をlocalStorageに保存
-		localStorage.setItem('omikujiHistory', JSON.stringify(history));
-
-		// 現在結果保存
-		localStorage.setItem('omikujiCurrent', JSON.stringify({ result, lucky }));
-
-		// 結果ページへ遷移
+		// 履歴取得
+		const history = JSON.parse(
+			localStorage.getItem('omikujiHistory') || '[]'
+		);
+		// 履歴追加
+		history.unshift({
+			result,
+			lucky,
+			date: new Date().toLocaleString()
+		});
+		// 保存
+		localStorage.setItem(
+			'omikujiHistory',
+			JSON.stringify(history)
+		);
+		// 現在の結果保存
+		localStorage.setItem(
+			'omikujiCurrent',
+			JSON.stringify({ result, lucky })
+		);
+		// 結果ページへ移動
 		window.location.href = 'result.html';
 	});
 }
 
-
 // ===== 結果ページの処理 =====
 function handleResultPage() {
-	
+
 	// bodyにresultクラスがなければ終了
 	if (!$('body').hasClass('result')) return;
 
-	// localStorageから現在のおみくじ結果を取得
-	const data = JSON.parse(localStorage.getItem('omikujiCurrent'));
-	// データがなければ終了
+	// 保存した結果を取得
+	const data = JSON.parse(
+		localStorage.getItem('omikujiCurrent')
+	);
+
 	if (!data) return;
 
-	// 結果表示
-	$('#result-text').text(`${data.result.type}：${data.result.text}`);
-	// 画像の設定
-	$('#result-img').attr('src', data.result.img).attr('alt', data.result.type);
+	// 運勢表示
+	$('.fortune').text(data.result.type);
 
-	// 結果に応じたクラスをbodyに追加	
-	$('body').addClass('js-' + data.result.type);
+	// 惑星名表示
+	$('#planet_name').text(data.result.planet);
 
-	// ラッキーアイテムの表示（設定がONの場合のみ）
-	if (settings.showLuckyItem && data.lucky) {
-		$('#lucky-item').text(data.lucky);
-	} else {
-		$('#lucky-wrapper').remove();
+	// メッセージ表示
+	$('.planet_sentence').text(data.result.text);
+
+	// 惑星画像表示
+	$('.planet_img').attr(
+		'src',
+		data.result.img
+	);
+
+	// ラッキーアイテム表示
+	if (data.lucky) {
+		$('.lucky_sentence').text(data.lucky);
 	}
-}
 
+	// アドバイス表示
+	$('.advice_sentence').text(data.result.advice);
+
+	// ラッキーカラー表示
+	$('.color_sentence').text(data.result.color);
+}
 
 // ===== 履歴ページの処理 =====
 function handleHistoryPage() {
@@ -90,12 +122,45 @@ function handleHistoryPage() {
 	const $list = $('#history-list');
 
 	history.forEach(item => {
-		const $li = $('<li>').html(
-			`${item.date}：<strong>${item.result.type}</strong> - ${item.result.text}` +
-			(item.lucky ? ` (ラッキーアイテム: ${item.lucky})` : '')
-		);
-		$list.append($li);
-	});
+
+	const $li = $(`
+	<li class="history_item">
+		<p class="history_date">
+			${item.date}
+		</p>
+		<div class="history_card">
+			<div class="history_planet">
+				<img src="${item.result.img}">
+			</div>
+			<div class="history_content">
+				<div class="history_top">
+					<span class="history_fortune">
+						${item.result.type}
+					</span>
+					<span class="history_name">
+						${item.result.planet}
+					</span>
+					<p>
+						${item.result.text}
+					</p>
+				</div>
+				<div class="history_bottom">
+					<p>
+						今日のアドバイス…
+						<strong>${item.result.advice}</strong>
+					</p>
+					<p>
+						ラッキーカラー…
+						<strong>${item.result.color}</strong>
+					</p>
+				</div>
+			</div>
+		</div>
+	</li>
+	`);
+	$list.append($li);
+
+});
 	
 	// 履歴削除ボタン処理
 	$('#clear-history').on('click', function() {
@@ -105,5 +170,3 @@ function handleHistoryPage() {
 		}
 	});
 }
-
-

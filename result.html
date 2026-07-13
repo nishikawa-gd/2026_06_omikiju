@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>おみくじ結果</title>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/function.js"></script>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 </head>
+
 <body class="result">
-  <h1>結果</h1>
-  <p id="result-text"></p>
-
-  <div class="js-result-img-wrapper">
-  <img id="result-img" src="" alt="結果画像">
+  <div class="inner">
+    <img class="logo" src="images/top_logo.png" alt="星降るオミクジ">
+    <div class="result_content">
+      <p id="result_title">
+        今日の運勢
+      </p>
+      <p class="fortune"></p>
+      <div class="planet">
+        <p class="planet_title">
+          今日のあなたを導く惑星　　<span id="planet_name"></span>
+        </p>
+        <p class="planet_sentence">
+        </p>
+      </div>
+      <div class="lucky_content">
+        <div class="lucky">
+          <p class="lucky_title">今日のアドバイス</p>
+          <p class="advice_sentence lucky-item">気になっていたことを始める</p>
+        </div>
+        <div class="lucky">
+          <p class="lucky_title">ラッキーカラー</p>
+          <p class="color_sentence lucky-item">黄色・オレンジ</p>
+        </div>
+      </div>
+    </div>
+    <img class="planet_img" src="" alt="">
+    <a id="btn_history" href="history.html"></a>
+    <a id="btn_return" href="index.html"></a>
   </div>
-
-  <div id="lucky-wrapper">
-    <p>ラッキーアイテム:</p>
-    <p id="lucky-item"></p>
-  </div>
-
-  <p><a href="index.html">もう一度引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
 </body>
+
 </html>

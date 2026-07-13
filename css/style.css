@@ -1,0 +1,566 @@
+body {
+    background-color: #090B16;
+    background-image: url(../images/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Noto Sans JP', sans-serif;
+    overflow: hidden;
+}
+
+.inner {
+    margin: 15px;
+    border: 1px solid #fff;
+    height: calc(100vh - 30px);
+    box-sizing: border-box;
+    position: relative;
+}
+
+h1 img {
+    display: block;
+    margin: 252px auto 0;
+    width: 639px;
+    height: auto;
+}
+
+h2 {
+    color: #fff;
+    text-align: center;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+.btn_area {
+    margin-top: 50px;
+}
+
+.btn {
+    width: 280px;
+    padding: 13px 0;
+    text-decoration: none;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: #DDBF11;
+    border-radius: 50px;
+    border: 2px solid #6A5B05;
+    box-shadow: 0 5px #6A5B05;
+    font-weight: 800;
+    font-size: 20px;
+    transition: .3s;
+}
+
+a:hover {
+    transform: translateY(-7px);
+}
+
+.history .btn {
+    transition: .3s;
+}
+
+.history .btn:hover {
+    transform: translateY(-7px);
+}
+
+/* 下層共通　*/
+
+.logo {
+    width: 160px;
+    height: auto;
+    margin: 20px;
+}
+
+
+/* おみくじ引く */
+
+.solar_system{
+    width:600px;
+    height:600px;
+    position:absolute;
+    top:45%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.solar_system::before{
+    content:"";
+    width:500px;
+    height:500px;
+    border:1px solid #DDBF11;
+    border-radius:50%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.center_planet{
+    width:450px;
+    height:450px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.center_planet img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.orbit_planet{
+    width:45px;
+    height:45px;
+    object-fit:contain;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-22.5px 0 0 -22.5px;
+    animation:orbit 18s linear infinite;
+}
+
+.mercury{
+    width:27px;
+    height:27px;
+    margin:-13.5px 0 0 -13.5px;
+}
+
+.venus{
+    width:42px;
+    height:42px;
+    margin:-21px 0 0 -21px;
+}
+
+.earth{
+    width:45px;
+    height:45px;
+    margin:-22.5px 0 0 -22.5px;
+}
+
+.mars{
+    width:33px;
+    height:33px;
+    margin:-16.5px 0 0 -16.5px;
+}
+
+.jupiter{
+    width:112px;
+    height:112px;
+    margin:-56px 0 0 -56px;
+}
+
+.saturn{
+    width:98px;
+    height:98px;
+    margin:-49px 0 0 -49px;
+}
+
+.uranus{
+    width:63px;
+    height:63px;
+    margin:-31.5px 0 0 -31.5px;
+}
+
+.neptune{
+    width:60px;
+    height:60px;
+    margin:-30px 0 0 -30px;
+}
+
+.orbit_planet{
+    animation-duration:20s;
+}
+
+@keyframes orbit{
+
+    from{
+
+        transform: rotate(0deg) translateX(250px);
+
+    }
+
+    to{
+
+        transform: rotate(360deg) translateX(250px);
+
+    }
+
+}
+
+.mercury { animation-delay: 0s; }
+
+.venus   { animation-delay: -2.5s; }
+
+.earth   { animation-delay: -5s; }
+
+.mars    { animation-delay: -7.5s; }
+
+.jupiter { animation-delay: -10s; }
+
+.saturn  { animation-delay: -12.5s; }
+
+.uranus  { animation-delay: -15s; }
+
+.neptune { animation-delay: -17.5s; }
+
+/* 結果を見るボタン */
+#show-result{
+    display:block;
+    width:280px;
+    padding:13px 0;
+    margin:0 auto;
+    text-align:center;
+    text-decoration:none;
+    color:#fff;
+    background-color:#DDBF11;
+    border-radius:50px;
+    border:2px solid #6A5B05;
+    box-shadow:0 5px #6A5B05;
+    font-weight:800;
+    font-size:20px;
+
+    position:absolute;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+}
+
+
+/* 表示された状態 */
+#show-result.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+#show-result.show:hover{
+    transform:translateX(-50%) translateY(-7px);
+}
+
+
+/* 惑星を速く回す状態 */
+
+.solar_system.fast .orbit_planet{
+    animation: orbitFast 3s linear forwards;
+}
+
+@keyframes orbitFast{
+    from{
+        animation-timing-function:ease-in;
+        transform: rotate(0deg) translateX(250px);
+    }
+    to{
+        transform: rotate(360deg) translateX(250px);
+    }
+}
+
+
+/* 選ばれた時の光 */
+.center_planet{
+    animation:starGlow 2s infinite alternate;
+}
+
+
+@keyframes starGlow{
+
+    from{
+        filter:drop-shadow(0 0 10px #DDBF11);
+    }
+
+    to{
+        filter:drop-shadow(0 0 40px #fff);
+    }
+
+}
+
+
+
+/*　結果　*/
+.result p {
+    color: #101D36;
+}
+
+.result_content {
+    background-color: #fff;
+    text-align: center;
+    padding: 40px 140px;
+    width: 373px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+}
+
+#result_title {
+    margin-bottom: 20px;
+}
+
+.result .fortune {
+    font-size: 96px;
+    font-weight: 900;
+    color: #DDBF11;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.result .fortune::after {
+    content: "";
+    background-image: url(../images/result/fortune_line.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 373px;
+    height: 10px;
+    margin: 25px auto 0;
+}
+
+.planet {
+    border: 1px solid #DDBF11;
+    margin-bottom: 10px;
+}
+
+.planet_title {
+    background-color: #DDBF11;
+    padding: 6px 0;
+}
+
+#planet_name {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.planet_sentence {
+    padding: 16px 0;
+    font-size: 14px;
+    color: #101D36;
+    line-height: 1.5;
+}
+
+.lucky_content {
+    display: flex;
+    gap: 14px;
+}
+
+.lucky {
+    width: 50%;
+    background-image: url(../images/result/bg_lucky.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 10px 0 15px;
+    box-sizing: border-box;
+}
+
+.lucky .lucky_title {
+    color: #DDBF11;
+    font-size: 12px;
+    font-weight: 700;
+    width: 143px;
+    border-bottom: 1px solid #DDBF11;
+    padding: 7px 0;
+    margin: 0 auto;
+}
+
+.advice_sentence ,.color_sentence {
+    font-size: 14px;
+    padding: 10px 0 0;
+}
+
+.planet_img {
+    position: absolute;
+    left: 50%;
+    bottom: -800px; /* 惑星の見える量を調整 */
+    transform: translateX(-50%);
+    width: 70%;
+    z-index: 0;
+    animation: rotatePlanet 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotatePlanet {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+#btn_history {
+    background-image: url(../images/result/btn_history.png);
+    width: 200px;
+    height: 160px;
+    left: 250px;
+    bottom: 50px;
+}
+
+#btn_return {
+    background-image: url(../images/result/btn_return.png);
+    width: 235px;
+    height: 155px;
+    right: 190px;
+    bottom: 70px;
+}
+
+#btn_history,
+#btn_return {
+    display: block;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    transition: .3s;
+}
+
+
+/*　履歴　*/
+
+.history .inner h1 {
+    color:#DDBF11;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+#history-list{
+
+	width: 850px;
+    height: 450px;
+	margin: 0 auto;
+
+}
+
+.history_item{
+
+	margin-bottom:30px;
+
+}
+
+.history_date{
+    font-size: 14px;
+	color:#fff;
+	margin-bottom:10px;
+
+}
+
+.history_card{
+
+	background:white;
+	height:130px;
+	display:flex;
+	align-items:center;
+	position:relative;
+	overflow:hidden;
+
+}
+
+.history_planet{
+
+	width:90px;
+	height:90px;
+	border-radius:50%;
+	overflow:hidden;
+	margin-left:-45px;
+
+}
+
+.history_planet img{
+
+	width:100%;
+	height:100%;
+	object-fit:cover;
+
+}
+
+.history_content{
+
+	padding-left:35px;
+	flex:1;
+
+}
+
+.history_top{
+
+	display:flex;
+	align-items:center;
+	gap:15px;
+
+}
+
+.history_fortune{
+    width:50px;
+    text-align:center;
+	background:#e5c500;
+	color:white;
+	font-size:25px;
+	font-weight:bold;
+	padding:8px 25px;
+
+}
+
+.history_name{
+
+	border:2px solid #DDBF11;
+	color:#DDBF11;
+	border-radius:30px;
+	padding:8px 35px;
+	font-size:22px;
+	font-weight:bold;
+
+}
+
+.history_top p{
+
+	font-size:16px;
+	max-width:500px;
+    line-height:1.5;
+	white-space:normal;
+	word-break:break-word;
+
+}
+
+.history_bottom{
+
+	display:flex;
+	gap:60px;
+	margin-top:25px;
+	font-size:14px;
+
+}
+
+.history_bottom strong{
+	font-size:20px;
+    font-weight:bold;
+	color:#111d38;
+
+}
+
+p #clear_history{
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    background: none;
+    border: none;
+    display: block;
+    margin: 30px auto 0;
+}
+
+p #clear_history:hover{
+    color: #DDBF11;
+}
+
+.history .inner a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo{
+    cursor: pointer;
+}
