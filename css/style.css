@@ -207,3 +207,73 @@ body.play {
     border-bottom: 15px solid transparent;
     border-right: 20px solid #fff;
 }
+
+/* 履歴 */
+
+body.history {
+    background-color: #EDDBCA;
+    margin: 0;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+#clear-history {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+#clear-history img {
+    display: block;
+}
+
+.history p {
+    margin: 0;
+}
+
+
+/* タイトル */
+.history h1 {
+    background-color: #fff;
+    font-weight: 700;
+    color: #008CD6;
+    font-size: 48px;
+    text-align: center;
+    padding: 30px 0;
+    margin: 0;
+}
+
+
+/* 履歴モニター */
+#history-list {
+    width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+
+    background-color: #F8F6EF;
+    border: 5px solid #26BF3D;
+    border-radius: 30px;
+
+    list-style: none;
+}
+
+
+/* 履歴カード */
+#history-list li {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+
+    border-radius: 20px;
+    color: #555;
+    font-size: 18px;
+
+    box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+}
+
+.history-btn{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
