@@ -28,6 +28,21 @@
 .play_txt.show .btn_arrow,
 .play_txt.show a {
     opacity: 1;
+    animation: colorChange 1.5s ease-in-out infinite;
+}
+
+@keyframes colorChange {
+    0% {
+        color: #554B54;
+    }
+
+    50% {
+        color: #C57E7C;
+    }
+
+    100% {
+        color: #554B54;
+    }
 }
 
 .play_txt a {
@@ -62,14 +77,24 @@
 
 @keyframes shake {
 
-    0%   { transform: rotate(0deg); }
+    0% {
+        transform: rotate(0deg);
+    }
 
-    25%  { transform: rotate(-4deg); }
+    25% {
+        transform: rotate(-4deg);
+    }
 
-    50%  { transform: rotate(4deg); }
+    50% {
+        transform: rotate(4deg);
+    }
 
-    75%  { transform: rotate(-4deg); }
+    75% {
+        transform: rotate(-4deg);
+    }
 
-    100% { transform: rotate(0deg); }
+    100% {
+        transform: rotate(0deg);
+    }
 
 }
