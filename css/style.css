@@ -214,7 +214,12 @@ body {
 
 /* 結果画面 */
 .result {
-    background-color: #DBC368;
+    background-image: url("../images/result/haikei.png");
+    background-size: cover;       
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    min-height: 100vh;
 }
 
 .button_again {
@@ -261,12 +266,16 @@ body {
 
 /* 履歴画面 */
 .history{
-    background:#DBC368;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    height:100vh;
-    font-family:"Zen Maru Gothic",sans-serif;
+    background-image: url("../images/result/haikei.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Zen Maru Gothic", sans-serif;
 }
 
     /* 白い枠 */
