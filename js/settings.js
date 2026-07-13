@@ -1,13 +1,31 @@
 // おみくじ結果リスト
-const omikujiResults = [
-  { type: "大吉", text: "最高の一日になります！", img: "images/result/daikichi.png" },
-  { type: "中吉", text: "いいことがあるかも！", img: "images/result/chukichi.png" },
-  { type: "小吉", text: "少し嬉しい出来事が…", img: "images/result/shokichi.png" },
-  { type: "凶", text: "気をつけて過ごしましょう", img: "images/result/kyo.png" }
+const resultPages = [
+  "result.html",
+  "result_2.html",
+  "result_3.html"
 ];
 
+const playBtn = document.getElementById("playBtn");
+
+if (playBtn) {
+  playBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const randomPage =
+      resultPages[Math.floor(Math.random() * resultPages.length)];
+    location.href = randomPage;
+  });
+}
+
 // ラッキーアイテム
-const luckyItems = ["傘", "本", "スマホ", "鍵", "花", "お茶"];
+const luckyItems = ["気合いのはちまき", "キセキのタネ", "しんぴのしずく", "ゴツゴツメット", "食べ残し"];
+
+const itemTxt = document.querySelector(".item_txt");
+if (itemTxt) {
+  const randomItem =
+    luckyItems[Math.floor(Math.random() * luckyItems.length)];
+  itemTxt.textContent = randomItem;
+}
+
 
 // ラッキーアイテムON/OFF
 const settings = {
