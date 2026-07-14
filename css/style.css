@@ -1,6 +1,10 @@
 .index{
     background-color: #FFF;
     text-align: center;
+    background-image: url("../images/result/mian.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 .index h1{
     font-family: noto-serif-jp, serif;
