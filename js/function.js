@@ -67,7 +67,7 @@ function handleResultPage() {
 
 	// 結果に応じたクラスをbodyに追加	
 	$('body').addClass('js-' + data.result.type);
-
+	
 	// ラッキーアイテムの表示（設定がONの場合のみ）
 	if (settings.showLuckyItem && data.lucky) {
 		$('#lucky-item').text(data.lucky);

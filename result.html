@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+<link rel="stylesheet" href="css/style.css">
 <head>
   <meta charset="UTF-8">
   <title>おみくじ結果</title>
@@ -8,19 +9,17 @@
   <script src="js/function.js"></script>
 </head>
 <body class="result">
-  <h1>結果</h1>
-  <p id="result-text"></p>
+  <!--<p id="result-text"></p>-->
 
   <div class="js-result-img-wrapper">
   <img id="result-img" src="" alt="結果画像">
-  </div>
-
   <div id="lucky-wrapper">
-    <p>ラッキーアイテム:</p>
+    <p class="item">ラッキーアイテム</p>
     <p id="lucky-item"></p>
   </div>
+  <p class="reset"><a href="index.html">Re start</a></p>
 
-  <p><a href="index.html">もう一度引く</a></p>
-  <p><a href="history.html">履歴を見る</a></p>
+  </div>
+  <p class="reki"><a href="history.html">履歴</a></p>
 </body>
 </html>
