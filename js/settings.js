@@ -29,11 +29,7 @@ const pokemonNameEl = document.querySelector(".name");
 if (itemTxt && pokemonNameEl) {
   const randomItem = luckyItems[Math.floor(Math.random() * luckyItems.length)];
   itemTxt.textContent = randomItem;
-
-  // ★追加：タグの中から「ヒトカゲ」などのテキストを取得
   const drawnName = pokemonNameEl.textContent;
-
-  // ★修正：引いたポケモンの名前とアイテムの両方を保存処理に渡す
   saveHistory(drawnName, randomItem);
 }
 
@@ -47,9 +43,9 @@ function saveHistory(name, item) {
   let history = JSON.parse(localStorage.getItem("omikujiHistory")) || [];
 
   const resultData = {
-    date: new Date().toLocaleString(), // 引いた日時
-    name: name,                        // ★引いたポケモンの名前
-    luckyItem: item                    // ラッキーアイテム
+    date: new Date().toLocaleString(), 
+    name: name,                        
+    luckyItem: item                    
   };
 
   history.unshift(resultData);
@@ -72,7 +68,6 @@ function displayHistory() {
     return;
   }
 
-  // ★修正：画面の表示をポケモンの名前に合わせる
   historyContainer.innerHTML = history.map(data => {
     return `
     <li class="history_item">
@@ -104,3 +99,4 @@ if (clearHistoryBtn) {
     }
   });
 }
+

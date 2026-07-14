@@ -1,0 +1,188 @@
+
+.play_3 {
+    background-image: url(../images/result/result_bg.png);
+    background-repeat: repeat-x repeat-y;
+    background-size: 230px;
+
+    /* ★追加：背景色をブレンドする準備 */
+    background-color: rgba(0, 0, 0, 0);
+    background-blend-mode: multiply;
+}
+
+/* ★修正：新しく暗転用アニメーションをセット */
+body.is-playing .play_3 {
+    animation: darkenBackground 0.8s ease-in-out 0.2s both;
+}
+
+.play_3_wrap {
+    /* 最初は透明にしておき、あとから上のブレンドモードで暗くするので、ここは一旦外します */
+    background-color: transparent;
+}
+
+/* モンスターボールとお部屋の基準位置（画面中央に集める） */
+.play_main_visual {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* 縦方向の中央 */
+    align-items: center;
+    /* 横方向の中央 */
+}
+
+/* ==========================================================================
+   モンスターボールの初期配置と「パカッ」とひらくアニメーション
+   ========================================================================== */
+
+.monsterball_top,
+.monsterball_bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* 左右中央ぴったりに合わせる */
+    z-index: 2;
+}
+
+.monsterball_top img,
+.monsterball_bottom img {
+    width: 364px;
+    display: block;
+}
+
+/* 最初の合体位置の微調整（画像の余白に合わせてピッタリくっつくように調整してください） */
+.monsterball_top {
+    bottom: 50%;
+    /* 画面の真ん中より上 */
+}
+
+.monsterball_bottom {
+    top: 50%;
+    /* 画面の真ん中より下 */
+}
+
+/* ----------------------------------------
+   ボタンクリック後（is-playing）のパカッとする動き
+   ---------------------------------------- */
+
+/* 上半分：ビューンと上に飛んでいき、最後は消滅（display: none） */
+body.is-playing .monsterball_top {
+    animation: ballOpenTop 1.0s cubic-bezier(0.25, 1, 0.5, 1) 0s forwards;
+}
+
+/* 下半分：ビューンと下に飛んでいき、最後は消滅（display: none） */
+body.is-playing .monsterball_bottom {
+    animation: ballOpenBottom 1.0s cubic-bezier(0.25, 1, 0.5, 1) 0s forwards;
+}
+
+
+/* ==========================================================================
+   ひらくボタン（.play_btn）のフェードアウト
+   ========================================================================== */
+
+.play_btn {
+    display: block;
+    width: 352px;
+    border-radius: 100px;
+    background: linear-gradient(45deg, #FF9774 0%, #FF4343 50%, #FF9774 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    margin-top: 240px;
+}
+
+.btn_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 30px;
+}
+
+.btn_txt_white {
+    font-size: 34px;
+    font-family: Zen Kaku Gothic New;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* クリックしたらボタンをシュッと消す */
+body.is-playing .play_btn {
+    animation: fadeOutUpBtn 0.4s ease-in 0s forwards;
+}
+
+@keyframes fadeOutUpBtn {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(30px);
+        visibility: hidden;
+    }
+}
+
+
+/* ==========================================================================
+   各種キーフレーム
+   ========================================================================== */
+
+/* 上にひらく動き（不透明度も落としてフェードアウト） */
+@keyframes ballOpenTop {
+    0% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
+
+    99% {
+        transform: translate(-50%, -250px) scale(0.8);
+        opacity: 0;
+        display: block;
+    }
+
+    100% {
+        transform: translate(-50%, -250px) scale(0.8);
+        opacity: 0;
+        display: none;
+        /* 完全に要素をなくす */
+    }
+}
+
+/* 下にひらく動き */
+@keyframes ballOpenBottom {
+    0% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
+
+    99% {
+        transform: translate(-50%, 250px) scale(0.8);
+        opacity: 0;
+        display: block;
+    }
+
+    100% {
+        transform: translate(-50%, 250px) scale(0.8);
+        opacity: 0;
+        display: none;
+        /* 完全に要素をなくす */
+    }
+}
+
+/* 暗転用 */
+@keyframes darkenBackground {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}

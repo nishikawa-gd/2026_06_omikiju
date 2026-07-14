@@ -11,6 +11,20 @@
     flex-direction: column;
     min-height: 100vh;
     box-sizing: border-box;
+    opacity: 0;
+    animation: pageFadeIn 1.2s ease-out 0.2s forwards;
+}
+
+@keyframes pageFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .num {
